@@ -13,6 +13,13 @@ class Access extends CI_Controller {
     {
          $this->load->view('access/login');
     }
+
+    public function home()
+    {
+        $this->load->view('design/header');
+        $this->load->view('dashboard/invoice');
+        $this->load->view('design/footer');
+    }
     
     public function validate() {
         $this->form_validation->set_rules('usermail', 'Email', 'required|valid_email');
