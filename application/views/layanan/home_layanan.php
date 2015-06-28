@@ -7,13 +7,13 @@ function deldata() {
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Media
-    	<small>Daftar Media</small>
+      Layanan
+    	<small>Daftar Layanan</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li>Media</li>
-      <li class="active">Daftar Media</li>
+      <li>Layanan</li>
+      <li class="active">Daftar Layanan</li>
     </ol>
   </section>
 
@@ -23,15 +23,15 @@ function deldata() {
   	<div class="row">
       <div class="col-xs-12">
           <div class="box-body">
-            <form action="<?php echo base_url() ?>media/tambah">
-              <input type="submit" class="btn btn-primary" value="Tambah media">
+            <form action="<?php echo base_url() ?>layanan/tambah">
+              <input type="submit" class="btn btn-primary" value="Tambah layanan">
             </form>
             <br>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
                   <th width="30px">NO</th>
-                  <th>NAMA MEDIA</th>
+                  <th>NAMA LAYANAN</th>
                   <th width="30px">AKSI</th>
                 </tr>
               </thead>
@@ -44,10 +44,10 @@ function deldata() {
                   { ?>
                   <tr>
                     <th><?php echo $count; ?></th>
-                    <th><?php echo $row->NAMA_MEDIA; ?></th>
+                    <th><?php echo $row->NAMA_LAYANAN; ?></th>
                       <th>
-                        <a href="<?php echo base_url() . 'media/edit/' . $row->ID_MEDIA ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'media/delete/' . $row->ID_MEDIA ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
+                        <a href="<?php echo base_url() . 'layanan/edit/' . $row->ID_LAYANAN ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
+                        <a href="<?php echo base_url() . 'layanan/delete/' . $row->ID_LAYANAN ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
                       </th>
                   </tr>
                   <?php 
@@ -58,7 +58,7 @@ function deldata() {
               <tfoot>
                 <tr>
                   <th>NO</th>
-                  <th>NAMA MEDIA</th>
+                  <th>NAMA LAYANAN</th>
                   <th>AKSI</th>
                 </tr>
               </tfoot>

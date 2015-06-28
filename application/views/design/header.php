@@ -150,8 +150,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../charts/chartjs.html"><i class="fa fa-plus-square"></i>Tambah Layanan</a></li>
-                <li><a href="../charts/morris.html"><i class="fa fa-table"></i>Lihat semua</a></li>
+                <li><a href="<?php echo base_url() ?>layanan/tambah"><i class="fa fa-plus-square"></i>Tambah Layanan</a></li>
+                <li><a href="<?php echo base_url() ?>layanan"><i class="fa fa-table"></i>Lihat semua</a></li>
               </ul>
             </li>
             <li class="treeview">
