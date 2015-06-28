@@ -65,18 +65,6 @@
                       <small><?php echo '(' . $username . ')' ?></small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <!-- <div class="pull-left">
@@ -151,8 +139,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../charts/chartjs.html"><i class="fa fa-plus-square"></i>Tambah Media</a></li>
-                <li><a href="../charts/morris.html"><i class="fa fa-table"></i>Lihat semua</a></li>
+                <li><a href="<?php echo base_url() ?>media/tambah"><i class="fa fa-plus-square"></i>Tambah Media</a></li>
+                <li><a href="<?php echo base_url() ?>media"><i class="fa fa-table"></i>Lihat semua</a></li>
               </ul>
             </li>
             <li class="treeview">

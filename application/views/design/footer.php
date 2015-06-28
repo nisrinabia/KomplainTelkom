@@ -1,6 +1,6 @@
 <footer class="main-footer no-print">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.0
+          <b>Version</b> 1.0
         </div>
         <strong>Copyright &copy; 2015 <a href="#">Kerja Praktik Teknik Informatika ITS</a>.</strong> All rights reserved.
       </footer>
