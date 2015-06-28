@@ -1,3 +1,20 @@
+<script type="text/javascript">
+function checkNull()
+{
+  var asek = document.getElementById("namamedia").value;
+  if(asek == "")
+  {
+    alert("Nama media tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("namamedia").focus();
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+</script>
+
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -36,7 +53,7 @@
 		                  </div><!-- /.box-body -->
 
 		                  <div class="box-footer">
-		                    <button type="submit" class="btn btn-primary">Update</button>
+		                    <button type="submit" class="btn btn-primary" onclick="return checkNull()">Update</button>
 		                  </div>
 		                </form>
                 <?php 

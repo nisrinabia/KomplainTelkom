@@ -1,3 +1,20 @@
+<script type="text/javascript">
+function checkNull()
+{
+  var asek = document.getElementById("namamedia").value;
+  if(asek == "")
+  {
+    alert("Nama media tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("namamedia").focus();
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+</script>
+
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -21,7 +38,7 @@
               <!-- general form elements -->
               <div class="box box-primary">
                 <!-- form start -->
-                <form action="<?php echo site_url('media/add'); ?>" method="post" onsubmit="return checkNull()">
+                <form action="<?php echo site_url('media/add'); ?>" method="post">
                   <div class="box-body">
                     <div class="form-group">
                       <label for="namamedia">Nama Media</label>
@@ -30,7 +47,7 @@
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Tambahkan</button>
+                    <button type="submit" class="btn btn-primary" onclick="return checkNull()">Tambahkan</button>
                   </div>
                 </form>
               </div><!-- /.box -->
@@ -38,19 +55,3 @@
           </div>   <!-- /.row -->
         </section><!-- /.content -->
   </div> <!-- /.content-wrapper-->
-
-<script type="text/javascript">
-function checkNull()
-{
-  var asek = document.getElementById("namamedia").value;
-  if(asek === null)
-  {
-    alert(ohno);
-    return FALSE;
-  }
-  else
-  {
-    return TRUE;
-  }
-}
-</script>

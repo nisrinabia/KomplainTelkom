@@ -1,3 +1,27 @@
+<script type="text/javascript">
+function checkNull()
+{
+  var user_check = document.getElementById("username").value;
+  var pass_check = document.getElementById("password").value;
+  if(user_check == "")
+  {
+    alert("Username tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("username").focus();
+    return false;
+  }
+  else if (pass_check == "") 
+  {
+    alert("Password tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("password").focus();
+    return false;
+  }
+  else 
+  {
+    return true;
+  }
+}
+</script>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,19 +62,19 @@
         ?>
           <form action="<?php echo site_url('auth/doLogin'); ?>" class="mainForm" method="post">
           <div class="form-group has-feedback">
-              <input type="text" name="username" 
+              <input type="text" name="username" id="username" 
                      class="form-control" placeholder="Username" autofocus="" value=""/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-              <input type="password" name="password" 
+              <input type="password" name="password" id="password" 
                      class="form-control" placeholder="Password" value=""/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           
           <div class="row">
               <div class="col-xs-12">
-                  <button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
+                  <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="return checkNull()">Masuk</button>
               </div><!-- /.col -->
           </div>
           </form>
