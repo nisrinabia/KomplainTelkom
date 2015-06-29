@@ -11,8 +11,7 @@ function deldata() {
     	<small>Daftar Layanan</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li>Layanan</li>
+      <li><i class="fa fa-gear"></i> Layanan</li>
       <li class="active">Daftar Layanan</li>
     </ol>
   </section>

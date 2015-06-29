@@ -24,8 +24,7 @@ function checkNull()
             <small>Edit Media</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Media</li>
+            <li><i class="fa fa-phone-square"></i> Media</li>
             <li><a href="<?php echo base_url() ?>media">Daftar Media</a></li>
             <li class="active">Edit Media</li>
           </ol>
@@ -37,7 +36,10 @@ function checkNull()
             <!-- left column -->
             <div class="col-md-12">
               <!-- general form elements -->
-              <div class="box box-primary">
+              <div class="box box-danger">
+                <div class="box-header">
+                  <h3 class="box-title">Edit Informasi Media</h3>
+                </div>
                 <!-- form start -->
                 <?php
                 if($result != NULL)
@@ -53,7 +55,7 @@ function checkNull()
 		                  </div><!-- /.box-body -->
 
 		                  <div class="box-footer">
-		                    <button type="submit" class="btn btn-primary" onclick="return checkNull()">Update</button>
+		                    <button type="submit" class="btn btn-primary" style="float:right" onclick="return checkNull()">Update</button>
 		                  </div>
 		                </form>
                 <?php 

@@ -24,8 +24,7 @@ function checkNull()
             <small>Tambah Layanan</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li>Layanan</li>
+            <li><i class="fa fa-gear"></i> Layanan</li>
             <li class="active">Tambah Layanan</li>
           </ol>
         </section>
@@ -36,7 +35,10 @@ function checkNull()
             <!-- left column -->
             <div class="col-md-12">
               <!-- general form elements -->
-              <div class="box box-primary">
+              <div class="box box-danger">
+                <div class="box-header">
+                  <h3 class="box-title">Informasi Layanan Baru</h3>
+                </div>
                 <!-- form start -->
                 <form action="<?php echo site_url('layanan/add'); ?>" method="post">
                   <div class="box-body">
@@ -47,7 +49,7 @@ function checkNull()
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary" onclick="return checkNull()">Tambahkan</button>
+                    <button type="submit" class="btn btn-primary" style="float:right" onclick="return checkNull()">Tambahkan</button>
                   </div>
                 </form>
               </div><!-- /.box -->

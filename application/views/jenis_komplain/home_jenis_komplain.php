@@ -11,8 +11,7 @@ function deldata() {
     	<small>Daftar Jenis Komplain</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="<?php echo base_url() ?>dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li>Jenis komplain</li>
+      <li><i class="fa fa-list"></i> Jenis Komplain</li>
       <li class="active">Daftar jenis komplain</li>
     </ol>
   </section>
