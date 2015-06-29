@@ -1,3 +1,18 @@
+<script type="text/javascript">
+function checkNull()
+{
+  if(document.getElementById("nama").value == "" || document.getElementById("username").value == "" || document.getElementById("pass").value == "")
+  {
+    alert("Isian tidak boleh kosong. Silahkan isi kembali");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+</script>
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -15,7 +30,7 @@
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <div class="col-md-6" >
+            <div class="col-md-12" >
 
               <div class="box box-danger">
                 <div class="box-header">
@@ -35,7 +50,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-user"></i>
                       </div>
-                      <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?php echo $row['NAMA_LENGKAP'] ?>"/>
+                      <input id="nama" class="form-control" name="nama" placeholder="Nama Lengkap" value="<?php echo $row['NAMA_LENGKAP'] ?>"/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
 
@@ -45,7 +60,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-at"></i>
                       </div>
-                      <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $row['USERNAME'] ?>"/>
+                      <input id="username" class="form-control" name="username" placeholder="Username" value="<?php echo $row['USERNAME'] ?>"/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
 
@@ -55,7 +70,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-lock"></i>
                       </div>
-                      <input type="password" class="form-control" name="pass" placeholder="Password" value="<?php echo $row['PASSWORD'] ?>"/>
+                      <input type="password" id="pass" class="form-control" name="pass" placeholder="Password" value="<?php echo $row['PASSWORD'] ?>"/>
                       <input type="hidden" class="form-control" name="passAwal" placeholder="Password" value="<?php echo $row['PASSWORD'] ?>"/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
@@ -70,7 +85,7 @@
                     </label>
                   </div>
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary" style="float:right">Update</button>
+                    <button type="submit" class="btn btn-primary" style="float:right" onclick="return checkNull()">Update</button>
                   </div>
                 </form>
                 <?php } } ?> 

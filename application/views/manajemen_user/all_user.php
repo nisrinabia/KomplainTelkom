@@ -1,6 +1,6 @@
 <script>
 function deldata() {
-    return confirm('Benarkah Anda akan menghapus data ini ?');
+    return confirm('Apakah Anda yakin akan menghapus data ini?');
   }
 </script>
       <!-- Content Wrapper. Contains page content -->
@@ -9,7 +9,7 @@ function deldata() {
         <section class="content-header">
           <h1>
             Manajemen User
-            <small>List User</small>
+            <small>Daftar User</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-users"></i> Manajemen User</a></li>
@@ -22,10 +22,11 @@ function deldata() {
           <div class="row">
             <div class="col-xs-12">
               <div class="box">
-                <div class="box-header">
-                  <h3 class="box-title">List User</h3>
-                </div><!-- /.box-header -->
                 <div class="box-body">
+                  <form action="<?php echo base_url() ?>users">
+                    <input type="submit" class="btn btn-primary" value="Tambah user">
+                  </form>
+                  <br>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -58,10 +59,7 @@ function deldata() {
                           <th></th>
                         <?php } ?>
                       </tr>
-                      <?php $count = $count + 1; } } 
-                      else {
-                        echo "Tidak ada akun yang terdaftar";
-                      } ?>
+                      <?php $count = $count + 1; } }?>
                     </tbody>
                     <tfoot>
                       <tr>

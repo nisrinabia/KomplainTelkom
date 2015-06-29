@@ -1,3 +1,18 @@
+<script type="text/javascript">
+function checkNull()
+{
+  if(document.getElementById("nama").value == "" || document.getElementById("username").value == "" || document.getElementById("pass").value == "")
+  {
+    alert("Isian tidak boleh kosong. Silahkan isi kembali");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
+</script>
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -15,7 +30,7 @@
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <div class="col-md-6" >
+            <div class="col-md-12" >
 
               <div class="box box-danger">
                 <div class="box-header">
@@ -29,7 +44,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-user"></i>
                       </div>
-                      <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap"/>
+                      <input id="nama" class="form-control" name="nama" placeholder="Nama Lengkap"/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
 
@@ -39,7 +54,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-at"></i>
                       </div>
-                      <input type="text" class="form-control" name="username" placeholder="Username"/>
+                      <input id="username" class="form-control" name="username" placeholder="Username"/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
 
@@ -49,7 +64,7 @@
                       <div class="input-group-addon">
                         <i class="fa fa-lock"></i>
                       </div>
-                      <input type="password" class="form-control" name="pass" placeholder="Password"/>
+                      <input type="password" id="pass" class="form-control" name="pass" placeholder="Password"/>
                     </div><!-- /.input group -->
                   </div><!-- /.form group -->
 
@@ -63,7 +78,7 @@
                     </label>
                   </div>
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary" style="float:right">Tambah</button>
+                    <button type="submit" class="btn btn-primary" style="float:right" onclick="return checkNull()">Tambah</button>
                   </div>
                 </form>
 
