@@ -1,14 +1,33 @@
 <script type="text/javascript">
 function checkNull()
 {
-  if(document.getElementById("nama").value == "" || document.getElementById("username").value == "" || document.getElementById("pass").value == "")
+  if(document.getElementById("nama").value == "")
   {
-    alert("Isian tidak boleh kosong. Silahkan isi kembali");
-    return false;
+      alert("Nama Lengkap tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("nama").focus();
+      return false;
   }
   else
   {
-    return true;
+      if(document.getElementById("username").value == "")
+      {
+          alert("Username tidak boleh kosong. Silahkan isi kembali");
+          document.getElementById("username").focus();
+          return false;
+      }
+      else
+      {
+          if(document.getElementById("pass").value == "")
+          {
+              alert("Password tidak boleh kosong. Silahkan isi kembali");
+              document.getElementById("pass").focus();
+              return false;
+          }
+          else
+          {
+              return true;
+          }    
+      }
   }
 }
 </script>
