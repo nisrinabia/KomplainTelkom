@@ -2,6 +2,25 @@
 
 class Media_model extends CI_Model
 {
+	public function getJenisMedia()
+	{
+		$this->db->select('id_media, nama_media');
+		$query = $this->db->get('media');
+
+		if ($query->num_rows() > 0)
+		{
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+        	return false;	
+        }
+	}
+
 	public function getListMedia()
  	{
  		$query = $this->db->get('media');
