@@ -39,6 +39,11 @@
     <!-- DATA TABES SCRIPT -->
     <script src="<?php echo base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/plugins/datatables/dataTables.bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap3/base.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap3/bootstrap-datetimepicker.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap3/moment-with-locales.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap3/prettify-1.0.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap3/base.js" type="text/javascript"></script>
     <!-- Page script -->
     <script type="text/javascript">
       $(function () {
@@ -111,6 +116,14 @@
           "bAutoWidth": false
         });
       });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker12').datetimepicker({
+                inline: true,
+                sideBySide: true
+            });
+        });
     </script>
 
   </body>
