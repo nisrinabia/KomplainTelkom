@@ -32,6 +32,10 @@ class Komplain extends CI_Controller{
     public function addKomplain(){
 
         $datakomplain = array(
+            'NO_POTS'           => $this->input->post('no_pots'),
+            'NO_INTERNET'       => $this->input->post('no_internet'),
+            'NAMA_PELANGGAN'    => $this->input->post('nama_pelapor'),
+            'ALAMAT_PELANGGAN'  => $this->input->post('alamat_pelapor'),
             'ID_MEDIA'          => $this->input->post('idmedia'),
             'ID_LAYANAN'        => $this->input->post('idlayanan'),
             'ID_JENIS_KOMPLAIN' => $this->input->post('idjeniskomplain'),
@@ -41,22 +45,9 @@ class Komplain extends CI_Controller{
             'SOLUSI'            => $this->input->post('solusi'),
             'STATUS_KOMPLAIN'   => $this->input->post('statuskomplain'),
             'KETERANGAN'        => $this->input->post('ket'),
-            'DEADLINE'          => $this->input->post('deadline')
+            'DEADLINE'          => $this->input->post('deadline')          
             );
         $this->load->model('komplain_model');
-
-        $datapelanggan = array(
-            'NAMA_PELANGGAN'    => $this->input->post('nama_pelapor'),
-            'ALAMAT_PELANGGAN'  => $this->input->post('alamat_pelapor')
-            )   ;
-        $this->load->model('pelanggan_model');
-
-        $datapots = array(
-            'NO_POTS'           => $this->input->post('no_pots'),
-            'NO_INTERNET'       => $this->input->post('no_internet')
-            );
-        $this->load->model('pots_model');
-
 
         if($this->komplain_model->addKomplain($datakomplain))
         {
