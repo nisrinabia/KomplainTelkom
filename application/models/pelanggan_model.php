@@ -2,9 +2,10 @@
 
 class Pelanggan_model extends CI_Model
 {
-    public function addPelanggan($datakomplain)
+    public function addPelanggan($datapelanggan)
 	{		
-		$this->db->insert('pelanggan', $datakomplain); 
+		$this->db->set($datapelanggan); 
+		$this->db->insert('pelanggan');
 		return TRUE;
 	}
 }

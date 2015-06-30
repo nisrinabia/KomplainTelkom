@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2015 at 10:34 AM
+-- Generation Time: Jun 30, 2015 at 09:02 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -17,33 +17,31 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `komplain`
+-- Database: `KOMPLAIN`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pots`
+-- Table structure for table `akun`
 --
 
-CREATE TABLE IF NOT EXISTS `pots` (
-  `ID_POTS` varbinary(16) NOT NULL,
-  `ID_PELANGGAN` int(11) NOT NULL,
-  `NO_POTS` char(7) NOT NULL,
-  `NO_INTERNET` varchar(12) DEFAULT NULL,
-  PRIMARY KEY (`ID_POTS`),
-  KEY `FK_MEMPUNYAI` (`ID_PELANGGAN`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `akun` (
+  `ID_AKUN` int(11) NOT NULL AUTO_INCREMENT,
+  `USERNAME` varchar(50) NOT NULL,
+  `PASSWORD` varchar(50) NOT NULL,
+  `NAMA_LENGKAP` varchar(50) NOT NULL,
+  `JABATAN` varchar(20) NOT NULL,
+  PRIMARY KEY (`ID_AKUN`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
--- Constraints for dumped tables
+-- Dumping data for table `akun`
 --
 
---
--- Constraints for table `pots`
---
-ALTER TABLE `pots`
-  ADD CONSTRAINT `FK_MEMPUNYAI` FOREIGN KEY (`ID_PELANGGAN`) REFERENCES `pelanggan` (`ID_PELANGGAN`);
+INSERT INTO `akun` (`ID_AKUN`, `USERNAME`, `PASSWORD`, `NAMA_LENGKAP`, `JABATAN`) VALUES
+(1, 'admin', '13d2c27d75f43e084f96904768e10fee', 'Administrator', 'Admin'),
+(2, 'dinarwm', '5e4d2365a27d9a94ba26a2a9d3c6198e', 'Dinar Winia Mahandhira M', 'User');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
