@@ -28,7 +28,6 @@
     <link href="<?php echo base_url() ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     
     <!-- tambahan bootstrap3 -->
-    <link href="<?php echo base_url() ?>assets/bootstrap3/base.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/bootstrap3/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/bootstrap3/prettify-1.0.css" rel="stylesheet" type="text/css" />
     

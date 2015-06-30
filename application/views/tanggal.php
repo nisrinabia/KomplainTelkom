@@ -32,7 +32,6 @@
                           <div class="form-group">
                               <div class="row">
                                   <div class="col-md-8">
-                                      
                                       <input type="text" class="form-control pull-right" id="datetimepicker12" name="tanggal"/>
                                   </div>
                               </div>
