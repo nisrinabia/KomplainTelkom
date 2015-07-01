@@ -65,8 +65,6 @@ class Komplain extends CI_Controller{
               //echo 'window.history.back();';
               echo '</script>';
         }
-
-        $this->showKomplain($nopots);
     }
 
     public function showKomplain($nopots){
@@ -81,5 +79,40 @@ class Komplain extends CI_Controller{
         $this->load->view('design/header', $data);
         $this->load->view('komplain/show_komplain',$data);
         $this->load->view('design/footer');
-    }   
+    }
+
+    public function uploadKomplain()
+    {
+        if(isset($this->input->post('Import'))){
+            echo $filename=$_FILES["file"]["tmp_name"];
+            if($_FILES["file"]["size"] > 0){
+                $file = fopen($filename, "r");
+                $count = 1;
+                 while (($emapData = fgetcsv($file, 1000000, ",")) !== FALSE){
+                  if($count != 1){
+                    //It wiil insert a row to our subject table from our csv file`
+                       //moved to model
+                     //we are using mysql_query function. it returns a resource on true else False on error
+                       //moved to model
+                        if(! $result )
+                        {
+                            echo '<script language="javascript">';
+                            echo 'alert("Gagal menambahkan komplain");';
+                            echo 'window.location.href = "' . site_url('komplain') . '";';
+                            echo '</script>';
+                        }   
+                  }
+                  $count = $count + 1;
+                 }
+                 fclose($file);
+                 //throws a message if data successfully imported to mysql database from excel file
+                 echo '<script language="javascript">';
+                 echo 'alert("Berhasil menambahkan komplain");';
+                 echo 'window.location.href = "' . site_url('komplain') . '";';
+                 echo '</script>';
+                //close of connection
+                //mysql_close($conn); 
+            }
+        }    
+    }
 }
