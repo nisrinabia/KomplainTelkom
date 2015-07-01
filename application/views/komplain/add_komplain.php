@@ -7,7 +7,7 @@
             <small>Tambah Komplain</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#">Komplain</a></li>
+            <li><i class="fa fa-file-text text-yellow"></i>  <a href="#">Komplain</a></li>
             <li class="active">Tambah Komplain</li>
           </ol>
         </section>
@@ -16,7 +16,6 @@
         <section class="content">
           <div class="row">
             <!-- left column -->
-            
             <!-- right column -->
             <div class="col-md-6">
               <!-- general form elements disabled -->
@@ -116,13 +115,14 @@
                   </div><!-- /.form group -->
 
                   <div class="form-group">
-                    <label>Tanggal Deadline</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input name="deadline" type="date" class="form-control"/>
-                    </div><!-- /.input group -->
+                    <label>Tanggal Janji</label>
+                      <div class="input-group">
+                        <div class="row">
+                          <div class="col-md-8">
+                            <input type="text" class="form-control pull-right" id="datetimepicker12" name="tanggal"/>
+                          </div>
+                        </div>
+                    </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
