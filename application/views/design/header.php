@@ -36,7 +36,7 @@
     
 
   </head>
-  <body class="skin-red-light sidebar-mini">
+  <body class="skin-red-light sidebar-mini fixed ">
     <div class="wrapper">
       
       <header class="main-header">
@@ -59,6 +59,19 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
+              <li>
+                <a >
+                  <span class="hidden-xs">
+                    <?php
+                      setlocale(LC_ALL,'IND');
+                      echo strftime("%A, ");
+                      echo date('d ');
+                      echo strftime("%B");
+                      echo date(' Y');
+                  ?>
+                </span>
+                </a>
+              </li>
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="<?php echo base_url() ?>assets/dist/img/user2.png" class="user-image" alt="User Image"/>
@@ -116,7 +129,14 @@
             <li>
               <a href="<?php echo base_url() ?>dashboard">
                 <i class="fa fa-exclamation text-red"></i> <span>Manajemen Janji</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url() ?>janji"><i class="fa fa-table"></i>Lihat semua janji</a></li>
+                <li><a href="<?php echo base_url() ?>janji/lewat"><i class="fa fa-exclamation-circle"></i>Janji melewati deadline</a></li>
+                <li><a href="<?php echo base_url() ?>janji/sehari"><i class="fa fa-warning"></i>Janji mendekati deadline</a></li>
+                <li><a href="<?php echo base_url() ?>janji/sebelum"><i class="fa fa-server"></i>Janji sebelum deadline</a></li>
+              </ul>
             </li>
             <?php if($jabatan == "Admin"){ ?>
             <li class="treeview">
