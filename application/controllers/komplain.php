@@ -83,7 +83,7 @@ class Komplain extends CI_Controller{
 
     public function uploadKomplain()
     {
-        if(isset($this->input->post('Import'))){
+        if($this->input->post('Import')){
             echo $filename=$_FILES["file"]["tmp_name"];
             if($_FILES["file"]["size"] > 0){
                 $file = fopen($filename, "r");
