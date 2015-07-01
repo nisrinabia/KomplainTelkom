@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Jul 2015 pada 10.19
+-- Generation Time: 01 Jul 2015 pada 10.21
 -- Versi Server: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `jenis_komplain` (
 --
 
 INSERT INTO `jenis_komplain` (`JENIS_KOMPLAIN`, `STATUS`) VALUES
-('Gangguan', NULL),
-('PSB', NULL);
+('Gangguan', 0x31),
+('PSB', 0x31);
 
 -- --------------------------------------------------------
 
@@ -112,9 +112,9 @@ CREATE TABLE IF NOT EXISTS `layanan` (
 --
 
 INSERT INTO `layanan` (`NAMA_LAYANAN`, `STATUS`) VALUES
-('INDIEHOME', NULL),
-('POTS', NULL),
-('USEETV', NULL);
+('INDIEHOME', 0x31),
+('POTS', 0x31),
+('USEETV', 0x31);
 
 -- --------------------------------------------------------
 
@@ -247,9 +247,9 @@ CREATE TABLE IF NOT EXISTS `media` (
 --
 
 INSERT INTO `media` (`NAMA_MEDIA`, `STATUS`) VALUES
-('147', NULL),
-('Customer Care', NULL),
-('Twitter', NULL);
+('147', 0x31),
+('Customer Care', 0x31),
+('Twitter', 0x31);
 
 --
 -- Indexes for dumped tables
