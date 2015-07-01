@@ -21,9 +21,9 @@ class Komplain extends CI_Controller{
         $this->load->model('media_model');
         $this->load->model('layanan_model');
 
-        $data['jenis_komplain'] = $this->jenis_komplain_model->getJeniskomp();
-        $data['nama_media'] = $this->media_model->getJenisMedia();
-        $data['nama_layanan'] = $this->layanan_model->getJenisLayanan();
+        $data['jenis_komplain'] = $this->jenis_komplain_model->getListJeniskomp();
+        $data['nama_media'] = $this->media_model->getListMedia();
+        $data['nama_layanan'] = $this->layanan_model->getListLayanan();
 
         $this->load->view('design/header', $data);
         $this->load->view('komplain/add_komplain');
@@ -38,16 +38,15 @@ class Komplain extends CI_Controller{
             'NO_INTERNET'       => $this->input->post('noinet'),
             'NAMA_PELAPOR'      => $this->input->post('nama'),
             'ALAMAT_PELAPOR'    => $this->input->post('alamat'),
-            'ID_MEDIA'          => $this->input->post('idmedia'),
-            'ID_LAYANAN'        => $this->input->post('idlayanan'),
-            'ID_JENIS_KOMPLAIN' => $this->input->post('idjeniskomplain'),
-            'TGL_KOMPLAIN'      => $this->input->post('tglkomplain'),
+            'NAMA_MEDIA'        => $this->input->post('namamedia'),
+            'NAMA_LAYANAN'      => $this->input->post('namalayanan'),
+            'JENIS_KOMPLAIN'    => $this->input->post('jeniskomplain'),
             'TGL_CLOSE'         => $this->input->post('tglclosed'),
             'KELUHAN'           => $this->input->post('keluhan'),
             'SOLUSI'            => $this->input->post('solusi'),
             'STATUS_KOMPLAIN'   => $this->input->post('statuskomplain'),
             'KETERANGAN'        => $this->input->post('ket'),
-            'DEADLINE'          => $this->input->post('tanggal')          
+            'DEADLINE'          => $this->input->post('deadline')          
         );
         $this->load->model('komplain_model');
 

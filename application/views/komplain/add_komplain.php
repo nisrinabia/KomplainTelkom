@@ -42,23 +42,13 @@
                       <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet"/>
                     </div>
 
-                    <div class="form-group">
-                    <label>Tanggal Komplain</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </div>
-                      <input name="tglkomplain" type="date" class="form-control" />
-                    </div><!-- /.input group -->
-                  </div><!-- /.form group -->
-
                   <!-- select -->
                     <div class="form-group">
                       <label>Media</label>
-                      <select name="idmedia" class="form-control">
+                      <select name="namamedia" class="form-control">
                         <?php
                         foreach ($nama_media as $row) {
-                          echo '<option value="'.$row->id_media.'">' .$row->nama_media.'</option>';
+                          echo '<option value="' . $row->NAMA_MEDIA . '">' .$row->NAMA_MEDIA.'</option>';
                         }
                         ?>
                       </select>
@@ -66,10 +56,10 @@
 
                     <div class="form-group">
                       <label>Layanan</label>
-                      <select name="idlayanan" class="form-control">
+                      <select name="namalayanan" class="form-control">
                         <?php
                         foreach ($nama_layanan as $row) {
-                          echo '<option value="'.$row->id_layanan.'">'.$row->nama_layanan.'</option>';
+                          echo '<option value="'.$row->NAMA_LAYANAN.'">'.$row->NAMA_LAYANAN.'</option>';
                         }
                         ?>
                       </select>
@@ -77,10 +67,10 @@
 
                     <div class="form-group">
                       <label>Jenis Komplain</label>
-                      <select name="idjeniskomplain" class="form-control">
+                      <select name="jeniskomplain" class="form-control">
                         <?php
                         foreach ($jenis_komplain as $row) {
-                          echo '<option  value="'.$row->id_jenis_komplain.'">'.$row->jenis_komplain.'</option>';
+                          echo '<option  value="'.$row->JENIS_KOMPLAIN.'">'.$row->JENIS_KOMPLAIN.'</option>';
                         }
                         ?>
                       </select>
@@ -106,23 +96,16 @@
 
                   <div class="form-group">
                     <label>Tanggal Closed</label>
-                    <div class="input-group">
-                      <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
+                      <div class="col-md-12">
+                        <input type="date" name="tglclosed"/>
                       </div>
-                      <input name="tglclosed" type="date" class="form-control"/>
-                    </div><!-- /.input group -->
                   </div><!-- /.form group -->
 
                   <div class="form-group">
                     <label>Tanggal Janji</label>
-                      <div class="input-group">
-                        <div class="row">
-                          <div class="col-md-8">
-                            <input type="text" class="form-control pull-right" id="datetimepicker12" name="tanggal"/>
-                          </div>
-                        </div>
-                    </div>
+                      <div class="col-md-12">
+                        <input type="text" class="form-control pull-right" id="datetimepicker12" name="deadline"/>
+                      </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">

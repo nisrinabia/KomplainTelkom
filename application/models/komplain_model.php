@@ -4,8 +4,8 @@ class Komplain_model extends CI_Model
 {
     public function addKomplain($datakomplain)
 	{
-		$this->db->set($datakomplain); 
-		$this->db->insert('komplain');
+		//$this->db->set($datakomplain); 
+		$this->db->insert('komplain', $datakomplain);
 		return TRUE;
 	}
 
@@ -14,7 +14,7 @@ class Komplain_model extends CI_Model
         //Select all
         
         //$query = $this->db->get('komplain');
-        $q = "SELECT NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, NAMA_LAYANAN, JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, STATUS_KOMPLAIN FROM KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN WHERE MEDIA.ID_MEDIA = KOMPLAIN.ID_MEDIA and LAYANAN.ID_LAYANAN = KOMPLAIN.ID_LAYANAN and JENIS_KOMPLAIN.ID_JENIS_KOMPLAIN = KOMPLAIN.ID_JENIS_KOMPLAIN and KOMPLAIN.NO_POTS = '$nopots'";
+        $q = "SELECT NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, KOMPLAIN.NAMA_LAYANAN, KOMPLAIN.JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, STATUS_KOMPLAIN FROM KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN WHERE MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS_KOMPLAIN = KOMPLAIN.JENIS_KOMPLAIN and KOMPLAIN.NO_POTS = '$nopots'";
 		$query = $this->db->query($q);
 
 		//echo $query;

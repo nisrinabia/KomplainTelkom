@@ -2,25 +2,6 @@
 
 class Jenis_komplain_model extends CI_Model
 {
-	public function getJeniskomp()
-	{
-		$this->db->select('id_jenis_komplain, jenis_komplain');
-		$query = $this->db->get('jenis_komplain');
-
-		if ($query->num_rows() > 0)
-		{
-            foreach ($query->result() as $row) 
-            {
-                $data[] = $row;
-            }
-            return $data;
-        }
-        else
-        {
-        	return false;	
-        }
-	}
-
 	public function getListJeniskomp()
  	{
  		$query = $this->db->get('jenis_komplain');

@@ -2,25 +2,6 @@
 
 class Layanan_model extends CI_Model
 {
-	public function getJenisLayanan()
-	{
-		$this->db->select('id_layanan, nama_layanan');
-		$query = $this->db->get('layanan');
-
-		if ($query->num_rows() > 0)
-		{
-            foreach ($query->result() as $row) 
-            {
-                $data[] = $row;
-            }
-            return $data;
-        }
-        else
-        {
-        	return false;	
-        }
-	}
-
 	public function getListLayanan()
  	{
  		$query = $this->db->get('layanan');
