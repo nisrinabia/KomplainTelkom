@@ -33,6 +33,7 @@
                               <div class="row">
                                   <div class="col-md-8">
                                       <input type="text" class="form-control pull-right" id="datetimepicker12" name="tanggal"/>
+                                      <input type="text" class="span2" value="02-16-2012" id="dp1" >
                                   </div>
                               </div>
                           </div>
