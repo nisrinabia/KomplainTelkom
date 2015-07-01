@@ -8,4 +8,36 @@ class Komplain_model extends CI_Model
 		$this->db->insert('komplain');
 		return TRUE;
 	}
+
+	public function showKomplain($nopots)
+    {
+        //Select all
+        
+        //$query = $this->db->get('komplain');
+        $q = "SELECT NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, NAMA_LAYANAN, JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, STATUS_KOMPLAIN FROM KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN WHERE MEDIA.ID_MEDIA = KOMPLAIN.ID_MEDIA and LAYANAN.ID_LAYANAN = KOMPLAIN.ID_LAYANAN and JENIS_KOMPLAIN.ID_JENIS_KOMPLAIN = KOMPLAIN.ID_JENIS_KOMPLAIN and KOMPLAIN.NO_POTS = '$nopots'";
+		$query = $this->db->query($q);
+
+		//echo $query;
+        /*$this->db->select('*');
+        $this->db->from('komplain');
+        $this->db->where('NO_POTS', $nopots);
+        $this->db->join('media', 'media.ID_MEDIA = komplain.ID_MEDIA');
+        $this->db->join('layanan', 'layanan.ID_LAYANAN = komplain.ID_LAYANAN');
+        $this->db->join('jenis_komplain', 'media.ID_JENIS_KOMPLAIN = komplain.ID');
+
+        $query = $this->db->get();*/
+
+        if ($query -> num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;   
+        }
+    }
 }
