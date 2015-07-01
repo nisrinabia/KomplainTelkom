@@ -13,8 +13,9 @@ class Janji extends CI_Controller {
     
     public function index()
     {
+        $mode = "all";
         $this->load->model('janji_model');
-        $data['list'] = $this->janji_model->getListJanji();
+        $data['list'] = $this->janji_model->getListJanji($mode);
         //print_r($data);
         $this->header();
         $this->load->view('janji/home_janji',$data);
