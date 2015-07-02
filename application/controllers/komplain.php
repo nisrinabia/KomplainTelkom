@@ -38,6 +38,7 @@ class Komplain extends CI_Controller{
             'NO_INTERNET'       => $this->input->post('noinet'),
             'NAMA_PELAPOR'      => $this->input->post('nama'),
             'ALAMAT_PELAPOR'    => $this->input->post('alamat'),
+            'PIC_PELAPOR'       => $this->input->post('pic'),
             'NAMA_MEDIA'        => $this->input->post('namamedia'),
             'NAMA_LAYANAN'      => $this->input->post('namalayanan'),
             'JENIS_KOMPLAIN'    => $this->input->post('jeniskomplain'),
@@ -54,7 +55,7 @@ class Komplain extends CI_Controller{
         {
               echo '<script language="javascript">';
               echo 'alert("Data berhasil dimasukkan");';
-              //echo 'window.location.href = "' . site_url('users/showlist') . '";';
+              echo 'window.location.href = "' . site_url('komplain/showKomplain/'.$nopots) . '";';
               //echo 'window.history.back();';
               echo '</script>';
         }
@@ -83,7 +84,7 @@ class Komplain extends CI_Controller{
 
     public function uploadKomplain()
     {
-        if($this->input->post('Import')){
+        if($_FILES['file']['name'] != NULL){
             echo $filename=$_FILES["file"]["tmp_name"];
             if($_FILES["file"]["size"] > 0){
                 $file = fopen($filename, "r");

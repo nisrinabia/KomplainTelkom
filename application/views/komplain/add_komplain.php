@@ -30,6 +30,10 @@
                       <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS"/>
                     </div>
                     <div class="form-group">
+                      <label>Nomor Internet (opsional)</label>
+                      <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet"/>
+                    </div>
+                    <div class="form-group">
                       <label>Nama Pelapor</label>
                       <input name="nama" type="text" class="form-control" placeholder="Nama Lengkap"/>
                     </div>
@@ -38,8 +42,8 @@
                       <input name="alamat" type="text" class="form-control" placeholder="Alamat Lengkap"/>
                     </div>
                     <div class="form-group">
-                      <label>Nomor Internet (opsional)</label>
-                      <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet"/>
+                      <label>Nomor Telepon Pelapor</label>
+                      <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor"/>
                     </div>
 
                   <!-- select -->
@@ -97,7 +101,8 @@
                   <div class="form-group">
                     <label>Tanggal Closed</label>
                       <div class="col-md-12">
-                        <input type="date" name="tglclosed"/>
+                        <!-- <input type="date" name="tglclosed"/> -->
+                        <input type="text" class="span2" name="tglclosed" value="" id="dp1" >
                       </div>
                   </div><!-- /.form group -->
 

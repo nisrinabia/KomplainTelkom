@@ -46,17 +46,17 @@ function deldata() {
                         foreach($list as $row)
                       { ?>
                       <tr>
-                        <th><?php echo $count; ?></th>
-                        <th><?php echo $row->NAMA_LENGKAP; ?></th>
-                        <th><?php echo $row->USERNAME; ?></th>
-                        <th><?php echo $row->JABATAN; ?></th>
+                        <td><?php echo $count; ?></td>
+                        <td><?php echo $row->NAMA_LENGKAP; ?></td>
+                        <td><?php echo $row->USERNAME; ?></td>
+                        <td><?php echo $row->JABATAN; ?></td>
                         <?php if ($row->USERNAME != $this->session->userdata('username')) { ?>
-                          <th><a href="<?php echo base_url() . 'users/edit/' . $row->ID_AKUN ?>"><i class="fa fa-pencil text-aqua"></i></a></th>
-                          <th><a href="<?php echo base_url() . 'users/delete/' . $row->ID_AKUN ?>" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a></th>
+                          <td><a href="<?php echo base_url() . 'users/edit/' . $row->ID_AKUN ?>"><i class="fa fa-pencil text-aqua fa-2x"></i></a></td>
+                          <td><a href="<?php echo base_url() . 'users/delete/' . $row->ID_AKUN ?>" onclick="return deldata()"><i class="fa fa-trash text-red fa-2x"></i></a></td>
                         <?php } 
                         else { ?>
-                          <th></th>
-                          <th></th>
+                          <td></td>
+                          <td></td>
                         <?php } ?>
                       </tr>
                       <?php $count = $count + 1; } }?>

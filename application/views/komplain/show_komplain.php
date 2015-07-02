@@ -44,15 +44,15 @@ function deldata() {
                   foreach($list as $row)
                   { ?>
                   <tr>
-                    <th><?php echo $row->NO_POTS; ?></th>
-                    <th><?php echo $row->NO_INTERNET; ?></th>
-                    <th><?php echo $row->NAMA_PELAPOR; ?></th>
-                    <th><?php echo $row->ALAMAT_PELAPOR; ?></th>
-                    <th><?php echo $row->NAMA_LAYANAN; ?></th>
-                    <th><?php echo $row->JENIS_KOMPLAIN; ?></th>
-                    <th><?php echo $row->TGL_KOMPLAIN; ?></th>
-                    <th><?php echo $row->TGL_CLOSE; ?></th>
-                    <th><?php echo $row->STATUS_KOMPLAIN; ?></th>
+                    <td><?php echo $row->NO_POTS; ?></td>
+                    <td><?php echo $row->NO_INTERNET; ?></td>
+                    <td><?php echo $row->NAMA_PELAPOR; ?></td>
+                    <td><?php echo $row->ALAMAT_PELAPOR; ?></td>
+                    <td><?php echo $row->NAMA_LAYANAN; ?></td>
+                    <td><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                    <td><?php echo $row->TGL_KOMPLAIN; ?></td>
+                    <td><?php if ($row->TGL_CLOSE == '0000-00-00') {echo '-';} else {echo $row->TGL_CLOSE;}  ?></td>
+                    <td><?php if ($row->STATUS_KOMPLAIN == '0') { echo 'In Progress';} else {echo 'Closed';} ?></td>
                   </tr>
                   <?php
                   }
