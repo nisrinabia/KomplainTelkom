@@ -20,6 +20,63 @@ function deldata() {
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
+        
+      	<?php
+          $coba = $bulan;
+          if($coba == '01')
+          {
+            $coba = 'Januari';
+          }
+          elseif($coba == '02')
+          {
+            $coba = 'Februari';
+          }
+          elseif($coba == '03')
+          {
+            $coba = 'Maret';
+          }
+          elseif($coba == '04')
+          {
+            $coba = 'April';
+          }
+          elseif($coba == '05')
+          {
+            $coba = 'Mei';
+          }
+          elseif($coba == '06')
+          {
+            $coba = 'Juni';
+          }
+          elseif($coba == '07')
+          {
+            $coba = 'Juli';
+          }
+          elseif($coba == '08')
+          {
+            $coba = 'Agustus';
+          }
+          elseif($coba == '09')
+          {
+            $coba = 'September';
+          }
+          elseif($coba == '10')
+          {
+            $coba = 'Oktober';
+          }
+          elseif($coba == '11')
+          {
+            $coba = 'November';
+          }
+          elseif($coba == '12')
+          {
+            $coba = 'Desember';
+          }
+          echo '
+          <div class="alert alert-success">
+          	<h4>Hasil pencarian</h4>
+          		Menampilkan janji pada bulan ' . $coba . ' dan tahun ' . $tahun .'
+        	</div>';
+        ?>
         <div class="box">
           <div class="box-body">
               <h4>Navigasi</h4><hr>
@@ -28,7 +85,7 @@ function deldata() {
               <a href="#"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>
               <br><br>
               <h4>Halaman ini &raquo; Daftar semua janji</h4><hr>
-              <form method="post" action="<?php site_url() ?>janji/filterall">
+              <form method="post" action="<?php base_url() ?>filterall">
               Filter berdasarkan: 
                 <select class="option-control" name="bulan" data-toggle="tooltip" data-placement="top" title="Pilih bulan">
                     <option value="01">Januari</option>     

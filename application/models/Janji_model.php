@@ -8,7 +8,7 @@ class Janji_model extends CI_Model
         {
             $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.DEADLINE IS NOT NULL");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL");
 
             $query = $this->db->get();
 
@@ -68,6 +68,73 @@ class Janji_model extends CI_Model
             }
         }
  	}
+
+    public function getListFilterJanji($mode, $bulan, $tahun)
+    {
+        if($mode == "all")
+        {
+            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
+
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row) 
+                {
+                    $list[] = $row;
+                }
+                return $list;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        /*else if($mode == "done")
+        {
+            $this->db->select('k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE');
+            $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.STATUS_KOMPLAIN = 1 AND k.DEADLINE IS NOT NULL");
+
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row) 
+                {
+                    $list[] = $row;
+                }
+                return $list;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if($mode == "onprog")
+        {
+            $this->db->select('k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE');
+            $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL");
+
+            $query = $this->db->get();
+
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row) 
+                {
+                    $list[] = $row;
+                }
+                return $list;
+            }
+            else
+            {
+                return false;
+            }
+        }*/
+    }
 
 	public function getListPastDeadline()
  	{
