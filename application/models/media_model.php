@@ -47,7 +47,7 @@ class Media_model extends CI_Model
 
 	public function editMedia($id)
 	{
-    	$query = $this->db->get_where('media', array('ID_MEDIA' => $id));
+    	$query = $this->db->get_where('media', array('NAMA_MEDIA' => $id));
     	if ($query->num_rows() > 0) 
         {
             return $query->result_array();
@@ -60,7 +60,7 @@ class Media_model extends CI_Model
 
     public function updateMedia($id, $nama_media)
     {
-    	$q = $this->db->get_where('media', array('ID_MEDIA' => $id));
+    	$q = $this->db->get_where('media', array('NAMA_MEDIA' => $id));
     	$media =  $q->row()->NAMA_MEDIA;
 		$result = $this->db->get_where('media', array('NAMA_MEDIA' => $nama_media));
 
@@ -72,14 +72,14 @@ class Media_model extends CI_Model
 				return FALSE;
 			}
 		}
-		$this->db->where('ID_MEDIA', $id);
+		$this->db->where('NAMA_MEDIA', $id);
 		$this->db->update('media', array('NAMA_MEDIA' => $nama_media));
 		return TRUE;
 	}
 
 	public function deleteMedia($id)
 	{
-		$this->db->delete('media', array('ID_MEDIA' => $id));
+		$this->db->delete('media', array('NAMA_MEDIA' => $id));
 	}
 }
 
