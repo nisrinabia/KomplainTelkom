@@ -1,18 +1,15 @@
-<script>
-function deldata() {
-    return confirm('Apakah Anda yakin akan menghapus data ini?');
-  }
-</script>
+
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Jenis Komplain
-    	<small>Daftar Jenis Komplain</small>
+      Manajemen Janji
+      <small>Daftar Semua Janji</small>
     </h1>
     <ol class="breadcrumb">
-      <li><i class="fa fa-list"></i> Jenis Komplain</li>
-      <li class="active">Daftar jenis komplain</li>
+      <li><i class="fa fa-list"></i> Manajemen janji</li>
+      <li>Daftar semua janji</li>
+      <li class="active">Filter</li>
     </ol>
   </section>
 
@@ -73,19 +70,18 @@ function deldata() {
           }
           echo '
           <div class="alert alert-success">
-          	<h4>Hasil pencarian</h4>
           		Menampilkan janji pada bulan ' . $coba . ' dan tahun ' . $tahun .'
         	</div>';
         ?>
         <div class="box">
           <div class="box-body">
               <h4>Navigasi</h4><hr>
-              <a href="#"><button type="button" class="btn btn-danger">Lihat janji melewati deadline</button></a>
-              <a href="#"><button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button></a>
-              <a href="#"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>
+              <a href="<?php echo base_url() ?>janji/lewat_deadline"><button type="button" class="btn btn-danger">Lihat janji melewati deadline</button></a>
+              <a href="<?php echo base_url() ?>janji/sehari_deadline"><button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button></a>
+              <a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
               <br><br>
-              <h4>Halaman ini &raquo; Daftar semua janji</h4><hr>
-              <form method="post" action="<?php base_url() ?>filterall">
+              <h4>Filter</h4><hr>
+              <form method="get" action="<?php base_url() ?>filterall">
               Filter berdasarkan: 
                 <select class="option-control" name="bulan" data-toggle="tooltip" data-placement="top" title="Pilih bulan">
                     <option value="01">Januari</option>     
@@ -102,10 +98,24 @@ function deldata() {
                      <option value="12">Desember</option>
                   </select>
                   <select class="option-control" name="tahun" data-toggle="tooltip" data-placement="top" title="Pilih tahun">
-                    <option value="2015">2015</option>     
-                     <option value="2014">2014</option>
-                     <option value="2013">2013</option>
-                  </select>  
+                    <?php
+                      if($select != NULL)
+                      {
+                        foreach ($select as $row)
+                        {
+                          echo '<option value="'.$row->makan.'">'.$row->makan.'</option>';
+                        }
+                      }
+                      else
+                      {
+                        echo '<option value="';
+                        echo date("Y");
+                        echo '">';
+                        echo date("Y");
+                        echo '</option>';
+                      }
+                    ?>
+                  </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
                   <a href="<?php base_url() ?>janji"> <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Menampilkan semua janji yang belum ditangani">Tampilkan semua</button></a>
                 </form>

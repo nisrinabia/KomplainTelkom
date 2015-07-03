@@ -1,18 +1,15 @@
-<script>
-function deldata() {
-    return confirm('Apakah Anda yakin akan menghapus data ini?');
-  }
-</script>
+
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
       Manajemen Janji
-    	<small>Daftar Semua Janji</small>
+    	<small>Daftar Semua Janji Mendekati Deadline</small>
     </h1>
     <ol class="breadcrumb">
       <li><i class="fa fa-list"></i> Manajemen janji</li>
-      <li class="active">Daftar semua janji</li>
+      <li>Daftar semua janji mendekati deadline</li>
+      <li class="active">Filter</li>
     </ol>
   </section>
 
@@ -20,16 +17,71 @@ function deldata() {
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
-
+        
+      	<?php
+          $coba = $bulan;
+          if($coba == '01')
+          {
+            $coba = 'Januari';
+          }
+          elseif($coba == '02')
+          {
+            $coba = 'Februari';
+          }
+          elseif($coba == '03')
+          {
+            $coba = 'Maret';
+          }
+          elseif($coba == '04')
+          {
+            $coba = 'April';
+          }
+          elseif($coba == '05')
+          {
+            $coba = 'Mei';
+          }
+          elseif($coba == '06')
+          {
+            $coba = 'Juni';
+          }
+          elseif($coba == '07')
+          {
+            $coba = 'Juli';
+          }
+          elseif($coba == '08')
+          {
+            $coba = 'Agustus';
+          }
+          elseif($coba == '09')
+          {
+            $coba = 'September';
+          }
+          elseif($coba == '10')
+          {
+            $coba = 'Oktober';
+          }
+          elseif($coba == '11')
+          {
+            $coba = 'November';
+          }
+          elseif($coba == '12')
+          {
+            $coba = 'Desember';
+          }
+          echo '
+          <div class="alert alert-success">
+          		Menampilkan janji pada bulan ' . $coba . ' dan tahun ' . $tahun .'
+        	</div>';
+        ?>
         <div class="box">
           <div class="box-body">
               <h4>Navigasi</h4><hr>
-              <a href="<?php echo base_url() ?>janji/lewat_deadline"><button type="button" class="btn btn-danger">Lihat janji melewati deadline</button></a>
-              <a href="<?php echo base_url() ?>janji/sehari_deadline"><button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button></a>
-              <a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
+              	<a href="<?php echo base_url() ?>janji"><button type="button" class="btn btn-primary">Lihat semua janji</button></a>
+                <a href="<?php echo base_url() ?>janji/lewat_deadline"><button type="button" class="btn btn-danger">Lihat janji melewati deadline</button></a>
+              	<a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
               <br><br>
               <h4>Filter</h4><hr>
-              <form method="get" action="<?php base_url() ?>janji/filterall">
+              <form method="get" action="<?php base_url() ?>filteroneday">
               Filter berdasarkan: 
                 <select class="option-control" name="bulan" data-toggle="tooltip" data-placement="top" title="Pilih bulan">
                     <option value="01">Januari</option>     
@@ -72,14 +124,13 @@ function deldata() {
 
         <div class="box">
           <div class='box-header with-border'>
-              <h3 class='box-title'>Daftar Semua Janji</h3>
+              <h3 class='box-title'>Daftar Semua Janji Mendekati Deadline</h3>
             </div>
           <div class="box-body">
           <a href="#"><button type="button" class="btn btn-primary">Unduh file excel</button></a>
           <div class="pull-right" style="vertical-align:top;margin-top:5px;">
           <b style="vertical-align:top;">Keterangan: </b>
           <span class="legend" style="background-color:#F0E582!important"></span>Mendekati deadline (kurang dari sehari)
-          <span class="legend" style="background-color:#F6A2A1!important"></span>Melewati deadline
           </div>
            <p></p>
             <table id="example1" class="table table-bordered">

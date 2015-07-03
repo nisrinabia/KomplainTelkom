@@ -24,11 +24,12 @@ class Janji extends CI_Controller {
 
     public function filterall()
     {
-        $bulan = $this->input->post('bulan');
-        $tahun = $this->input->post('tahun');
+        $bulan = $this->input->get('bulan');
+        $tahun = $this->input->get('tahun');
         $mode = "all";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
+        $data['select'] = $this->janji_model->getListMenuTahun();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
         //print_r($data);
@@ -37,86 +38,87 @@ class Janji extends CI_Controller {
         $this->load->view('design/footer');
     }
 
-    public function lihat()
+    public function lewat_deadline()
     {
-        //$this->load->model('janji_model');
-        //$data['komplain'] = $this->janji_model->getInfoKomplain($id);
+        $mode = "past";
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getListJanji($mode);
         //print_r($data);
         $this->header();
-        $this->load->view('janji/view_janji');
+        $this->load->view('janji/lewat_deadline',$data);
         $this->load->view('design/footer');
     }
 
-
-/*
-    public function tambah()
+    public function filterpast()
     {
+        $bulan = $this->input->get('bulan');
+        $tahun = $this->input->get('tahun');
+        $mode = "past";
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
+        $data['select'] = $this->janji_model->getListMenuTahun();
+        $data['bulan'] = $bulan;
+        $data['tahun'] = $tahun;
+        //print_r($data);
         $this->header();
-        $this->load->view('media/add_media');
+        $this->load->view('janji/filter_lewat_deadline',$data);
         $this->load->view('design/footer');
     }
 
-    public function add()
+    public function sehari_deadline()
     {
-        $nama_media = $this->input->post('namamedia');
-        //echo $nama_media;
-        $this->load->model('media_model');
-        
-        if($this->media_model->addMedia($nama_media))
-        {
-              echo '<script language="javascript">';
-              echo 'alert("Media berhasil ditambahkan");';
-              echo 'window.location.href = "' . site_url('media') . '";';
-              echo '</script>';
-        }
-        else
-        {
-              echo '<script language="javascript">';
-              echo 'alert("Gagal menambahkan media. Media yang ditambahkan telah terdaftar");';
-              echo 'window.history.back();';
-              echo '</script>';
-        }
-    }
-
-    public function edit($id)
-    {
-        $this->load->model('media_model');
-        $data['result'] = $this->media_model->editMedia($id);
+        $mode = "oneday";
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getListJanji($mode);
+        //print_r($data);
         $this->header();
-        $this->load->view('media/edit_media', $data);
+        $this->load->view('janji/sehari_deadline',$data);
         $this->load->view('design/footer');
     }
 
-    public function update($id)
+    public function filteroneday()
     {
-        $nama_media = $this->input->post('namamedia');
-        $this->load->model('media_model');
-        if($this->media_model->updateMedia($id, $nama_media))
-        {
-              echo '<script language="javascript">';
-              echo 'alert("Media berhasil diupdate");';
-              echo 'window.location.href = "' . site_url('media') . '";';
-              echo '</script>';
-        }
-        else
-        {
-              echo '<script language="javascript">';
-              echo 'alert("Gagal mengupdate media. Media telah terdaftar");';
-              echo 'window.history.back();';
-              echo '</script>';
-        }
+        $bulan = $this->input->get('bulan');
+        $tahun = $this->input->get('tahun');
+        $mode = "oneday";
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
+        $data['select'] = $this->janji_model->getListMenuTahun();
+        $data['bulan'] = $bulan;
+        $data['tahun'] = $tahun;
+        //print_r($data);
+        $this->header();
+        $this->load->view('janji/filter_sehari_deadline',$data);
+        $this->load->view('design/footer');
     }
-
-    public function delete($id)
-    {
-        $this->load->model('media_model');
-        $this->media_model->deleteMedia($id);
-        echo '<script language="javascript">';
-        echo 'alert("Media berhasil dihapus");';
-        echo 'window.location.href = "' . site_url('media') . '";';
-        echo '</script>';
-    }*/
     
+    public function sebelum_deadline()
+    {
+        $mode = "before";
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getListJanji($mode);
+        //print_r($data);
+        $this->header();
+        $this->load->view('janji/sebelum_deadline',$data);
+        $this->load->view('design/footer');
+    }
+
+    public function filterbefore()
+    {
+        $bulan = $this->input->get('bulan');
+        $tahun = $this->input->get('tahun');
+        $mode = "before";
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
+        $data['select'] = $this->janji_model->getListMenuTahun();
+        $data['bulan'] = $bulan;
+        $data['tahun'] = $tahun;
+        //print_r($data);
+        $this->header();
+        $this->load->view('janji/filter_sebelum_deadline',$data);
+        $this->load->view('design/footer');
+    }
+
     function header()
     {
       $data = array(
