@@ -16,7 +16,7 @@ class Janji extends CI_Controller {
         $mode = "all";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListJanji($mode);
-        //print_r($data);
+        //print_r($data['list']);
         $this->header();
         $this->load->view('janji/home_janji',$data);
         $this->load->view('design/footer');
@@ -117,6 +117,81 @@ class Janji extends CI_Controller {
         $this->header();
         $this->load->view('janji/filter_sebelum_deadline',$data);
         $this->load->view('design/footer');
+    }
+
+    public function delete($id)
+    {
+        $this->load->model('janji_model');
+        $this->janji_model->deleteKomplain($id);
+
+        $mode = $this->input->get('mode');
+        if($mode == "all")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji') . '";';
+            echo '</script>';  
+        }
+        else if($mode == "past")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/lewat_deadline') . '";';
+            echo '</script>';  
+        }
+        else if($mode == "oneday")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/sehari_deadline') . '";';
+            echo '</script>';  
+        }
+        else if($mode == "before")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/sebelum_deadline') . '";';
+            echo '</script>';  
+        }
+    }
+
+    public function deleteWhenFilter($id)
+    {
+        $this->load->model('janji_model');
+        $this->janji_model->deleteKomplain($id);
+
+        $mode = $this->input->get('mode');
+        $bulan = $this->input->get('bulan');
+        $tahun = $this->input->get('tahun');
+
+        if($mode == "all")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/filterall?bulan='.$bulan.'&tahun='.$tahun) . '";';
+            echo '</script>';  
+        }
+        else if($mode == "past")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/filterpast?bulan='.$bulan.'&tahun='.$tahun) . '";';
+            echo '</script>';  
+        }
+        else if($mode == "oneday")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/filteroneday?bulan='.$bulan.'&tahun='.$tahun) . '";';
+            echo '</script>';  
+        }
+        else if($mode == "before")
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Komplain berhasil dihapus");';
+            echo 'window.location.href = "' . site_url('janji/filterbefore?bulan='.$bulan.'&tahun='.$tahun) . '";';
+            echo '</script>';  
+        }
     }
 
     function header()

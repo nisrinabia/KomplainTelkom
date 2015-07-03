@@ -6,7 +6,8 @@ class Janji_model extends CI_Model
  	{
         if($mode == "all")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL");
 
@@ -27,7 +28,7 @@ class Janji_model extends CI_Model
         }
         else if($mode == "past")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 0 AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL");
 
@@ -48,7 +49,7 @@ class Janji_model extends CI_Model
         }
         else if($mode == "oneday")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND (TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 24 AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 0) AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL");
 
@@ -69,7 +70,7 @@ class Janji_model extends CI_Model
         }
         else if($mode == "before")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 24 AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL");
 
@@ -94,7 +95,7 @@ class Janji_model extends CI_Model
     {
         if($mode == "all")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
@@ -115,7 +116,7 @@ class Janji_model extends CI_Model
         }
         else if($mode == "past")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 0 AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
@@ -136,7 +137,7 @@ class Janji_model extends CI_Model
         }
         else if($mode == "oneday")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND (TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 24 AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 0) AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
@@ -157,7 +158,7 @@ class Janji_model extends CI_Model
         }
         else if($mode == "before")
         {
-            $this->db->select("k.ID_KOMPLAIN, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, m.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.KELUHAN, k.SOLUSI, k.STATUS_KOMPLAIN, k.KETERANGAN, k.DOKUMEN, k.DEADLINE, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR");
+            $this->db->select("k.ID_KOMPLAIN, k.DEADLINE, k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, l.NAMA_LAYANAN, j.JENIS_KOMPLAIN, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.STATUS_KOMPLAIN, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
             $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS_KOMPLAIN AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 24 AND k.STATUS_KOMPLAIN = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
@@ -177,8 +178,7 @@ class Janji_model extends CI_Model
             }
         }
     }
-        
-
+     
     public function getListMenuTahun()
     {
         //Melewati Deadline namun berstatus 0
@@ -199,6 +199,11 @@ class Janji_model extends CI_Model
         {
             return false;   
         }
+    }
+
+    public function deleteKomplain($id)
+    {
+        $this->db->delete('komplain', array('ID_KOMPLAIN' => $id));
     }
 
 	public function getListPastDeadline()

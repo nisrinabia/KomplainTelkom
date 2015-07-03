@@ -157,9 +157,9 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url() ?>janji"><i class="fa fa-table"></i>Lihat semua janji</a></li>
-                <li><a href="<?php echo base_url() ?>janji/lewat"><i class="fa fa-exclamation-circle"></i>Janji melewati deadline</a></li>
-                <li><a href="<?php echo base_url() ?>janji/sehari"><i class="fa fa-warning"></i>Janji mendekati deadline</a></li>
-                <li><a href="<?php echo base_url() ?>janji/sebelum"><i class="fa fa-server"></i>Janji sebelum deadline</a></li>
+                <li><a href="<?php echo base_url() ?>janji/lewat_deadline"><i class="fa fa-exclamation-circle"></i>Janji melewati deadline</a></li>
+                <li><a href="<?php echo base_url() ?>janji/sehari_deadline"><i class="fa fa-warning"></i>Janji mendekati deadline</a></li>
+                <li><a href="<?php echo base_url() ?>janji/sebelum_deadline"><i class="fa fa-server"></i>Janji sebelum deadline</a></li>
               </ul>
             </li>
             <?php if($jabatan == "Admin"){ ?>
