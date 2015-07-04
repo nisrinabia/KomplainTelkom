@@ -4,20 +4,17 @@
         <section class="content-header">
           <h1>
             Komplain
-            <small>Tambah Komplain</small>
+            <small>Edit Komplain</small>
           </h1>
           <ol class="breadcrumb">
             <li><i class="fa fa-file-text text-yellow"></i>  <a href="#">Komplain</a></li>
-            <li class="active">Tambah Komplain</li>
+            <li class="active">Edit Komplain</li>
           </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <!-- left column -->
-            <!-- right column -->
-            <div class="col-md-6">
               <!-- general form elements disabled -->
               <div class="box box-warning">
                 <div class="box-header">
@@ -124,30 +121,6 @@
                   </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-            </div><!--/.col (right) -->
-            <div class="col-md-6">
-              <!-- general form elements -->
-              <div class="box box-primary">
-                <div class="box-header">
-                  <h3 class="box-title">Unggah Data Komplain</h3>
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                <form role="form" action="<?php base_url() ?>komplain/process" method="post" name="upload_excel" enctype="multipart/form-data">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <input type="file" name="file" id="exampleInputFile" class="input-large">
-                      <!-- <input type="file" id=""> -->
-                      <p class="help-block">Unggah file dengan format .csv</p>
-                    </div>
-                  </div><!-- /.box-body -->
-
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
-              </div><!-- /.box -->
-            </div><!--/.col (left) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
