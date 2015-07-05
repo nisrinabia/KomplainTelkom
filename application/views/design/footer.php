@@ -192,6 +192,16 @@
             });
         });
     </script>
+    
+                      <script type="text/javascript">
+                          $(function () {
+                               $('#yearpicker').datetimepicker({
+                                      format: 'YYYY',
+                                      sideBySide: true,
+                                      inline: true
+                                  });
+                          });
+                      </script>
 
   </body>
 </html>
