@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2015 at 08:06 AM
--- Server version: 5.6.21
+-- Generation Time: 06 Jul 2015 pada 08.28
+-- Versi Server: 5.6.21
 -- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 
 DELIMITER $$
 --
--- Procedures
+-- Prosedur
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `checkClose`()
 BEGIN
@@ -34,7 +34,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `akun`
+-- Struktur dari tabel `akun`
 --
 
 CREATE TABLE IF NOT EXISTS `akun` (
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `akun` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `akun`
+-- Dumping data untuk tabel `akun`
 --
 
 INSERT INTO `akun` (`ID_AKUN`, `USERNAME`, `PASSWORD`, `NAMA_LENGKAP`, `JABATAN`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `akun` (`ID_AKUN`, `USERNAME`, `PASSWORD`, `NAMA_LENGKAP`, `JABATAN`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_komplain`
+-- Struktur dari tabel `jenis_komplain`
 --
 
 CREATE TABLE IF NOT EXISTS `jenis_komplain` (
@@ -65,17 +65,23 @@ CREATE TABLE IF NOT EXISTS `jenis_komplain` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_komplain`
+-- Dumping data untuk tabel `jenis_komplain`
 --
 
 INSERT INTO `jenis_komplain` (`JENIS_KOMPLAIN`, `STATUS`) VALUES
-('Gangguan', 0x31),
-('PSB', 0x31);
+('Balik Nama tidak Ter', 0x31),
+('Belum Setting PSB\r\n', 0x31),
+('Fitur POTS yang belu', NULL),
+('Gangguan\r\n', 0x31),
+('Lain-lain\r\n', 0x31),
+('Manajemen Janji\r\n', 0x31),
+('Migrasi Paket\r\n', 0x31),
+('Tagihan Tidak Sesuai', 0x31);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komplain`
+-- Struktur dari tabel `komplain`
 --
 
 CREATE TABLE IF NOT EXISTS `komplain` (
@@ -98,19 +104,10 @@ CREATE TABLE IF NOT EXISTS `komplain` (
   `DEADLINE` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `komplain`
---
-
-INSERT INTO `komplain` (`ID_KOMPLAIN`, `NAMA_MEDIA`, `NAMA_LAYANAN`, `JENIS_KOMPLAIN`, `TGL_KOMPLAIN`, `TGL_CLOSE`, `KELUHAN`, `SOLUSI`, `STATUS_KOMPLAIN`, `KETERANGAN`, `DOKUMEN`, `NO_POTS`, `NO_INTERNET`, `NAMA_PELAPOR`, `ALAMAT_PELAPOR`, `PIC_PELAPOR`, `DEADLINE`) VALUES
-(3, '147', 'INDIEHOME', 'Gangguan', '2015-07-01 21:05:39', '2015-07-09', 'Gakbisa konek ke internet', 'Dicek pada modemnya', 1, 'Lampu menyala merah', NULL, '123456', '123456789', 'Fariz Aulia Pradipta', 'Jl. Nangka no 47 Malang', '234567', '2015-07-02 03:07:19'),
-(4, '147', 'INDIEHOME', 'Gangguan', '2015-07-06 09:55:02', '2015-07-04', '', '', 1, '', NULL, '123', '', '', '', '', '0000-00-00 00:00:00'),
-(5, '147', 'INDIEHOME', 'Gangguan', '2015-07-07 00:00:00', '2015-07-14', '', '', 0, '', NULL, '123', '', '', '', '', '0000-00-00 00:00:00');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `layanan`
+-- Struktur dari tabel `layanan`
 --
 
 CREATE TABLE IF NOT EXISTS `layanan` (
@@ -119,18 +116,21 @@ CREATE TABLE IF NOT EXISTS `layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `layanan`
+-- Dumping data untuk tabel `layanan`
 --
 
 INSERT INTO `layanan` (`NAMA_LAYANAN`, `STATUS`) VALUES
-('INDIEHOME', 0x31),
-('POTS', 0x31),
-('USEETV', 0x31);
+('Alih Paket\r\n', 0x31),
+('Balik Nama\r\n', 0x31),
+('Fitur\r\n', 0x31),
+('Gangguan', 0x31),
+('Lain-lain\r\n', 0x31),
+('PSB\r\n', 0x31);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list_pots_master`
+-- Struktur dari tabel `list_pots_master`
 --
 
 CREATE TABLE IF NOT EXISTS `list_pots_master` (
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `list_pots_master` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `media`
+-- Struktur dari tabel `media`
 --
 
 CREATE TABLE IF NOT EXISTS `media` (
@@ -254,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `media`
+-- Dumping data untuk tabel `media`
 --
 
 INSERT INTO `media` (`NAMA_MEDIA`, `STATUS`) VALUES
@@ -311,11 +311,11 @@ MODIFY `ID_AKUN` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 ALTER TABLE `komplain`
 MODIFY `ID_KOMPLAIN` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `komplain`
+-- Ketidakleluasaan untuk tabel `komplain`
 --
 ALTER TABLE `komplain`
 ADD CONSTRAINT `FK_RELATIONSHIP_3` FOREIGN KEY (`NAMA_LAYANAN`) REFERENCES `layanan` (`NAMA_LAYANAN`),
