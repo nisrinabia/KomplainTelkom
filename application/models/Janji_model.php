@@ -2,6 +2,29 @@
 
 class Janji_model extends CI_Model
 {
+    public function getDataJanji($id)
+    {
+        $query = $this->db->get_where('komplain',
+            array
+            (
+                'ID_KOMPLAIN' => $id
+            )
+        );
+
+        if ($query->num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;   
+        }
+    }
+
 	public function getListJanji($mode)
  	{
         if($mode == "all")

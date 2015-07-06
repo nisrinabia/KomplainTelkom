@@ -22,6 +22,15 @@ class Janji extends CI_Controller {
         $this->load->view('design/footer');
     }
 
+    public function lihat($id)
+    {
+        $this->load->model('janji_model');
+        $data['list'] = $this->janji_model->getDataJanji($id);
+        $this->header();
+        $this->load->view('janji/lihat_janji', $data);
+        $this->load->view('design/footer');
+    }
+
     public function filterall()
     {
         $bulan = $this->input->get('bulan');
