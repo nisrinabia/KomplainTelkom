@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Jul 2015 pada 10.23
+-- Generation Time: 06 Jul 2015 pada 10.45
 -- Versi Server: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -56,27 +56,27 @@ INSERT INTO `akun` (`ID_AKUN`, `USERNAME`, `PASSWORD`, `NAMA_LENGKAP`, `JABATAN`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jenis_komplain`
+-- Struktur dari tabel `jenis_k`
 --
 
-CREATE TABLE IF NOT EXISTS `jenis_komplain` (
-  `JENIS_KOMPLAIN` varchar(20) NOT NULL,
-  `STATUS` binary(1) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `jenis_k` (
+  `JENIS` varchar(20) NOT NULL,
+  `STATUS` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jenis_komplain`
+-- Dumping data untuk tabel `jenis_k`
 --
 
-INSERT INTO `jenis_komplain` (`JENIS_KOMPLAIN`, `STATUS`) VALUES
-('Balik Nama tidak Ter', 0x31),
-('Belum Setting PSB\r\n', 0x31),
-('Fitur POTS yang belu', NULL),
-('Gangguan\r\n', 0x31),
-('Lain-lain\r\n', 0x31),
-('Manajemen Janji\r\n', 0x31),
-('Migrasi Paket\r\n', 0x31),
-('Tagihan Tidak Sesuai', 0x31);
+INSERT INTO `jenis_k` (`JENIS`, `STATUS`) VALUES
+('Balik Nama', 1),
+('Belum Setting PSB', 1),
+('Fitur POTS', 1),
+('Gangguan', 1),
+('Lain - Lain', 1),
+('Manajemen Janji', 1),
+('Migrasi Paket', 1),
+('Tagihan Tidak Sesuai', 1);
 
 -- --------------------------------------------------------
 
@@ -103,6 +103,13 @@ CREATE TABLE IF NOT EXISTS `komplain` (
   `PIC_PELAPOR` varchar(7) NOT NULL,
   `DEADLINE` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `komplain`
+--
+
+INSERT INTO `komplain` (`ID_KOMPLAIN`, `NAMA_MEDIA`, `NAMA_LAYANAN`, `JENIS_KOMPLAIN`, `TGL_KOMPLAIN`, `TGL_CLOSE`, `KELUHAN`, `SOLUSI`, `STATUS_KOMPLAIN`, `KETERANGAN`, `DOKUMEN`, `NO_POTS`, `NO_INTERNET`, `NAMA_PELAPOR`, `ALAMAT_PELAPOR`, `PIC_PELAPOR`, `DEADLINE`) VALUES
+(1, '147', 'Gangguan', 'Gangguan', '2015-07-06 15:44:49', '1995-06-22', NULL, NULL, 0, NULL, NULL, '', NULL, '-', '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -273,10 +280,10 @@ ALTER TABLE `akun`
  ADD PRIMARY KEY (`ID_AKUN`);
 
 --
--- Indexes for table `jenis_komplain`
+-- Indexes for table `jenis_k`
 --
-ALTER TABLE `jenis_komplain`
- ADD PRIMARY KEY (`JENIS_KOMPLAIN`);
+ALTER TABLE `jenis_k`
+ ADD PRIMARY KEY (`JENIS`);
 
 --
 -- Indexes for table `komplain`
@@ -319,8 +326,8 @@ MODIFY `ID_KOMPLAIN` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 ALTER TABLE `komplain`
 ADD CONSTRAINT `FK_RELATIONSHIP_3` FOREIGN KEY (`NAMA_LAYANAN`) REFERENCES `layanan` (`NAMA_LAYANAN`),
-ADD CONSTRAINT `FK_RELATIONSHIP_6` FOREIGN KEY (`JENIS_KOMPLAIN`) REFERENCES `jenis_komplain` (`JENIS_KOMPLAIN`),
-ADD CONSTRAINT `FK_RELATIONSHIP_7` FOREIGN KEY (`NAMA_MEDIA`) REFERENCES `media` (`NAMA_MEDIA`);
+ADD CONSTRAINT `FK_RELATIONSHIP_7` FOREIGN KEY (`NAMA_MEDIA`) REFERENCES `media` (`NAMA_MEDIA`),
+ADD CONSTRAINT `FK_komplain_wawa` FOREIGN KEY (`JENIS_KOMPLAIN`) REFERENCES `jenis_k` (`JENIS`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
