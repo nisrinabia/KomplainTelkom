@@ -4,46 +4,63 @@
         <section class="content-header">
           <h1>
             Komplain
-            <small>Tambah Komplain</small>
+            <small>Edit Komplain</small>
           </h1>
           <ol class="breadcrumb">
             <li><i class="fa fa-file-text text-yellow"></i>  <a href="#">Komplain</a></li>
-            <li class="active">Tambah Komplain</li>
+            <li class="active">Edit Komplain</li>
           </ol>
         </section>
+        <?php
+          foreach ($makan as $row) {
+                          $id            = $row['ID_KOMPLAIN'];
+                          $nopots         = $row['NO_POTS'];
+                          $noinet         = $row['NO_INTERNET'];
+                          $nama           = $row['NAMA_PELAPOR'];
+                          $alamat         = $row['ALAMAT_PELAPOR'];
+                          $pic            = $row['PIC_PELAPOR'];
+                          $namamedia      = $row['NAMA_MEDIA'];
+                          $namalayanan    = $row['NAMA_LAYANAN'];
+                          $jeniskomplain  = $row['JENIS_KOMPLAIN'];
+                          $tglclosed      = $row['TGL_CLOSE'];
+                          $keluhan        = $row['KELUHAN'];
+                          $solusi         = $row['SOLUSI'];
+                          $statuskomplain = $row['STATUS_KOMPLAIN'];
+                          $ket            = $row['KETERANGAN'];
+                          $deadline       = $row['DEADLINE'];
+                       }
+        ?>
 
         <!-- Main content -->
         <section class="content">
           <div class="row">
-            <!-- left column -->
-            <!-- right column -->
-            <div class="col-md-6">
               <!-- general form elements disabled -->
               <div class="box box-warning">
                 <div class="box-header">
                   <h3 class="box-title">Data Komplain</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <form action="<?php echo site_url('Komplain/addKomplain'); ?>" method="post" role="form">
+                  <form action="<?php echo site_url('Komplain/updateKomplain'); ?>" method="post" role="form">
+                    <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="form-group">
                       <label>Nomor POTS</label>
-                      <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS"/>
+                      <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS" value="<?php echo $nopots ?>" />
                     </div>
                     <div class="form-group">
                       <label>Nomor Internet (opsional)</label>
-                      <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet"/>
+                      <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet" value="<?php echo $noinet ?>"/>
                     </div>
                     <div class="form-group">
                       <label>Nama Pelapor</label>
-                      <input name="nama" type="text" class="form-control" placeholder="Nama Lengkap"/>
+                      <input name="nama" type="text" class="form-control" placeholder="Nama Lengkap" value="<?php echo $nama ?>"/>
                     </div>
                     <div class="form-group">
                       <label>Alamat Pelapor</label>
-                      <input name="alamat" type="text" class="form-control" placeholder="Alamat Lengkap"/>
+                      <input name="alamat" type="text" class="form-control" placeholder="Alamat Lengkap" value="<?php echo $alamat ?>"/>
                     </div>
                     <div class="form-group">
                       <label>Nomor Telepon Pelapor</label>
-                      <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor"/>
+                      <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor" value="<?php echo $pic ?>"/>
                     </div>
 
                   <!-- select -->
@@ -51,8 +68,15 @@
                       <label>Media</label>
                       <select name="namamedia" class="form-control">
                         <?php
+                        
                         foreach ($nama_media as $row) {
-                          echo '<option value="' . $row->NAMA_MEDIA . '">' .$row->NAMA_MEDIA.'</option>';
+                          if ($namamedia == $row->NAMA_MEDIA){
+                            echo '<option value="' . $row->NAMA_MEDIA . '" selected >' .$row->NAMA_MEDIA.'</option>';
+                          }
+                          else{
+                            echo '<option value="' . $row->NAMA_MEDIA . '">' .$row->NAMA_MEDIA.'</option>';
+                          }
+                          
                         }
                         ?>
                       </select>
@@ -63,7 +87,12 @@
                       <select name="namalayanan" class="form-control">
                         <?php
                         foreach ($nama_layanan as $row) {
-                          echo '<option value="'.$row->NAMA_LAYANAN.'">'.$row->NAMA_LAYANAN.'</option>';
+                          if ($namalayanan == $row->NAMA_LAYANAN){
+                            echo '<option value="' . $row->NAMA_LAYANAN . '" selected >' .$row->NAMA_LAYANAN.'</option>';
+                          }
+                          else{
+                            echo '<option value="' . $row->NAMA_LAYANAN . '">' .$row->NAMA_LAYANAN.'</option>';
+                          }
                         }
                         ?>
                       </select>
@@ -74,7 +103,12 @@
                       <select name="jeniskomplain" class="form-control">
                         <?php
                         foreach ($jenis_komplain as $row) {
-                          echo '<option  value="'.$row->JENIS_KOMPLAIN.'">'.$row->JENIS_KOMPLAIN.'</option>';
+                          if ($jeniskomplain == $row->JENIS_KOMPLAIN){
+                            echo '<option value="' . $row->JENIS_KOMPLAIN . '" selected >' .$row->JENIS_KOMPLAIN.'</option>';
+                          }
+                          else{
+                            echo '<option value="' . $row->JENIS_KOMPLAIN . '">' .$row->JENIS_KOMPLAIN.'</option>';
+                          }
                         }
                         ?>
                       </select>
@@ -102,52 +136,36 @@
                     <label>Tanggal Closed</label>
                       <div class="col-md-12">
                         <!-- <input type="date" name="tglclosed"/> -->
-                        <input type="text" class="form-control" name="tglclosed" value="" id="dp1" >
+                        <input type="date" class="form-control" name="tglclosed" value="">
                       </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
                     <label>Tanggal Janji</label>
                       <div class="col-md-12">
-                        <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
+                        <input type="datetime" class="form-control" id="datetimepicker12" name="deadline"/>
                       </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
-                      <label>Keterangan Tambahan</label>
-                      <textarea name="ket" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
+                    <label>Keterangan Tambahan</label>
+                    <textarea name="ket" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
+                  </div>
+
+                  <form role="form" action="<?php base_url() ?>komplain/unggahDokumen" method="post" role="form">
+                    <div class="form-group">
+                      <label for="exampleInputFile">Unggah Dokumen</label>
+                      <input type="file" name="dokumen" id="exampleInputFile" class="input-large">
+                      <!-- <input type="file" id=""> -->
+                      <p class="help-block">Unggah dokumen pendukung</p>
                     </div>
 
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                   </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-            </div><!--/.col (right) -->
-            <div class="col-md-6">
-              <!-- general form elements -->
-              <div class="box box-primary">
-                <div class="box-header">
-                  <h3 class="box-title">Unggah Data Komplain</h3>
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                <form role="form" action="<?php base_url() ?>komplain/process" method="post" name="upload_excel" enctype="multipart/form-data">
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <input type="file" name="file" id="exampleInputFile" class="input-large">
-                      <!-- <input type="file" id=""> -->
-                      <p class="help-block">Unggah file dengan format .csv</p>
-                    </div>
-                  </div><!-- /.box-body -->
-
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
-              </div><!-- /.box -->
-            </div><!--/.col (left) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

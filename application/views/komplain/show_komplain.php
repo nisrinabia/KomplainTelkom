@@ -26,6 +26,7 @@ function deldata() {
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
+                  <th style="background-color:#F6A2A1!important">AKSI</th>
                   <th>NO. POTS</th>
                   <th>NO. INTERNET</th>
                   <th>NAMA PELAPOR</th>
@@ -44,6 +45,8 @@ function deldata() {
                   foreach($list as $row)
                   { ?>
                   <tr>
+                    <td> <a href="<?php echo base_url() . 'komplain/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
+                    <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a></td>
                     <td><?php echo $row->NO_POTS; ?></td>
                     <td><?php echo $row->NO_INTERNET; ?></td>
                     <td><?php echo $row->NAMA_PELAPOR; ?></td>
@@ -60,6 +63,7 @@ function deldata() {
               </tbody>
               <tfoot>
                 <tr>
+                  <th style="background-color:#F6A2A1!important">AKSI</th>
                   <th>NO. POTS</th>
                   <th>NO. INTERNET</th>
                   <th>NAMA PELAPOR</th>
