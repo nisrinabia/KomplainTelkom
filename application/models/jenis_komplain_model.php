@@ -47,7 +47,7 @@ class Jenis_komplain_model extends CI_Model
 
 	public function editJeniskomp($id)
 	{
-    	$query = $this->db->get_where('jenis_komplain', array('ID_JENIS_KOMPLAIN' => $id));
+    	$query = $this->db->get_where('jenis_komplain', array('NAMA_JENIS_KOMPLAIN' => $id));
     	if ($query->num_rows() > 0) 
         {
             return $query->result_array();
@@ -60,7 +60,7 @@ class Jenis_komplain_model extends CI_Model
 
     public function updateJeniskomp($id, $jenis_komplain)
     {
-    	$q = $this->db->get_where('jenis_komplain', array('ID_JENIS_KOMPLAIN' => $id));
+    	$q = $this->db->get_where('jenis_komplain', array('JENIS_KOMPLAIN' => $id));
     	$cek_jenis_komplain =  $q->row()->JENIS_KOMPLAIN;
 		$result = $this->db->get_where('jenis_komplain', array('JENIS_KOMPLAIN' => $jenis_komplain));
 
@@ -72,14 +72,14 @@ class Jenis_komplain_model extends CI_Model
 				return FALSE;
 			}
 		}
-		$this->db->where('ID_JENIS_KOMPLAIN', $id);
+		$this->db->where('JENIS_KOMPLAIN', $id);
 		$this->db->update('jenis_komplain', array('JENIS_KOMPLAIN' => $jenis_komplain));
 		return TRUE;
 	}
 
 	public function deleteJeniskomp($id)
 	{
-		$this->db->delete('jenis_komplain', array('ID_JENIS_KOMPLAIN' => $id));
+		$this->db->delete('jenis_komplain', array('JENIS_KOMPLAIN' => $id));
 	}
 }
 

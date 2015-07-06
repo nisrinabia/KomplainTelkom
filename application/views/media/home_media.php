@@ -29,9 +29,9 @@ function deldata() {
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th width="30px">NO</th>
+                  <th width="20px">NO</th>
                   <th>NAMA MEDIA</th>
-                  <th width="30px">AKSI</th>
+                  <th width="20px">AKSI</th>
                 </tr>
               </thead>
               <tbody>

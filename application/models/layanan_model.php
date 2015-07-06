@@ -16,7 +16,7 @@ class Layanan_model extends CI_Model
         }
         else
         {
-        	return false;	
+        	return FALSE;	
         }
  	}
 
@@ -47,7 +47,7 @@ class Layanan_model extends CI_Model
 
 	public function editLayanan($id)
 	{
-    	$query = $this->db->get_where('layanan', array('ID_LAYANAN' => $id));
+    	$query = $this->db->get_where('layanan', array('NAMA_LAYANAN' => $id));
     	if ($query->num_rows() > 0) 
         {
             return $query->result_array();
@@ -60,7 +60,7 @@ class Layanan_model extends CI_Model
 
     public function updateLayanan($id, $nama_layanan)
     {
-    	$q = $this->db->get_where('layanan', array('ID_LAYANAN' => $id));
+    	$q = $this->db->get_where('layanan', array('NAMA_LAYANAN' => $id));
     	$layanan =  $q->row()->NAMA_layanan;
 		$result = $this->db->get_where('layanan', array('NAMA_LAYANAN' => $nama_layanan));
 
@@ -72,14 +72,14 @@ class Layanan_model extends CI_Model
 				return FALSE;
 			}
 		}
-		$this->db->where('ID_LAYANAN', $id);
+		$this->db->where('NAMA_LAYANAN', $id);
 		$this->db->update('layanan', array('NAMA_LAYANAN' => $nama_layanan));
 		return TRUE;
 	}
 
 	public function deleteLayanan($id)
 	{
-		$this->db->delete('layanan', array('ID_LAYANAN' => $id));
+		$this->db->delete('layanan', array('NAMA_LAYANAN' => $id));
 	}
 }
 
