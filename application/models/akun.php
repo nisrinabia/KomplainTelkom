@@ -15,6 +15,7 @@ class Akun extends CI_Model
 
 		if ($result->num_rows() > 0)
 		{
+			$this->db->query("CALL checkClose()");
 			return TRUE;
 		}
 
