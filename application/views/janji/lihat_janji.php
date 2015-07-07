@@ -120,7 +120,7 @@ function deldata() {
 		                  foreach($list as $row)
 		                  {
 		                  	echo '
-		                  		<p><b>Nomor POTS</b><br>
+		                  		<p><b>Layanan</b><br>
 		                  		';
 		                  	if($row->NAMA_LAYANAN == '')
 		                  	{
@@ -241,6 +241,26 @@ function deldata() {
 		                  	else
 		                  	{
 		                  		echo $row->KETERANGAN;
+		                  	}
+		                  	echo '</p>
+
+		                  		<p><b>Dokumen</b><br>
+		                  		';
+
+		                  	if($row->DOKUMEN == '')
+		                  	{
+		                  		echo 'Belum ada dokumen';
+								echo '
+									<form action="'.base_url().'janji/uploadDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+							            Select File To Upload:<br />
+							            <input type="file" name="userFile"/>
+							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
+							            <input type="submit" name="submit" value="Upload dokumen" class="btn btn-success" />
+							         </form>';
+		                  	}
+		                  	else
+		                  	{
+		                  		echo 'yeah';
 		                  	}
 
 		                  	echo'</p>

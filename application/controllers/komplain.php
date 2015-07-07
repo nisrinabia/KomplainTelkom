@@ -209,7 +209,7 @@ class Komplain extends CI_Controller{
       {
         echo '<script language="javascript">';
         echo 'alert("Data komplain berhasil diupdate");';
-        //echo 'window.location.href = "' . site_url('komplain/') . '";';
+        echo 'window.location.href = "' . site_url('komplain/detailKomplain/'.$id) . '";';
         echo '</script>';
       }
       else
@@ -219,6 +219,25 @@ class Komplain extends CI_Controller{
         echo 'window.history.back();';
         echo '</script>';
       }
+    }
+
+    public function detailKomplain($id){
+      $this->load->model('komplain_model');
+      $data['list'] = $this->komplain_model->getDataKomplain($id);
+      $this->header();
+      $this->load->view('komplain/detail_komplain', $data);
+      $this->load->view('design/footer');
+    }
+
+    public function deleteKomplain($id){
+      $this->load->model('komplain_model');
+      
+      $this->komplain_model->deleteKomplain($id);
+
+      echo '<script language="javascript">';
+      echo 'alert("Data berhasil dihapus");';
+      echo 'window.history.back();';
+      echo '</script>';
     }
 
     function header(){

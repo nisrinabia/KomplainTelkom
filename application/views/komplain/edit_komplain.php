@@ -103,11 +103,11 @@
                       <select name="jeniskomplain" class="form-control">
                         <?php
                         foreach ($jenis_komplain as $row) {
-                          if ($jeniskomplain == $row->JENIS_KOMPLAIN){
-                            echo '<option value="' . $row->JENIS_KOMPLAIN . '" selected >' .$row->JENIS_KOMPLAIN.'</option>';
+                          if ($jeniskomplain == $row->JENIS){
+                            echo '<option value="' . $row->JENIS . '" selected >' .$row->JENIS.'</option>';
                           }
                           else{
-                            echo '<option value="' . $row->JENIS_KOMPLAIN . '">' .$row->JENIS_KOMPLAIN.'</option>';
+                            echo '<option value="' . $row->JENIS . '">' .$row->JENIS.'</option>';
                           }
                         }
                         ?>
@@ -152,17 +152,9 @@
                     <textarea name="ket" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
                   </div>
 
-                  <form role="form" action="<?php base_url() ?>komplain/unggahDokumen" method="post" role="form">
-                    <div class="form-group">
-                      <label for="exampleInputFile">Unggah Dokumen</label>
-                      <input type="file" name="dokumen" id="exampleInputFile" class="input-large">
-                      <!-- <input type="file" id=""> -->
-                      <p class="help-block">Unggah dokumen pendukung</p>
-                    </div>
-
-                    <div class="box-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                  <div class="box-footer">
+                     <button type="submit" class="btn btn-primary">Submit</button>
+                   </div>
                   </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

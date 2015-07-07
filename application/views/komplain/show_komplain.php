@@ -22,20 +22,23 @@ function deldata() {
   	<div class="row">
       <div class="col-xs-12">
           <div class="box-body">
+            <form action="<?php echo base_url() ?>komplain">
+              <input type="submit" class="btn btn-primary" value="Tambah Komplain">
+            </form>
             <br>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th style="background-color:#F6A2A1!important">AKSI</th>
-                  <th>NO. POTS</th>
-                  <th>NO. INTERNET</th>
-                  <th>NAMA PELAPOR</th>
-                  <th>ALAMAT PELAPOR</th>
-                  <th>LAYANAN</th>
-                  <th>JENIS KOMPLAIN</th>
-                  <th>TGL KOMPLAIN</th>
-                  <th>TGL CLOSE</th>
-                  <th>STATUS</th>
+                  <th style="background-color:#FACC2E!important">AKSI</th>
+                  <th style="background-color:#FACC2E!important">NO. POTS</th>
+                  <th style="background-color:#FACC2E!important">NO. INTERNET</th>
+                  <th style="background-color:#FACC2E!important">NAMA PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">ALAMAT PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">LAYANAN</th>
+                  <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL CLOSE</th>
+                  <th style="background-color:#FACC2E!important">STATUS</th>
                 </tr>
               </thead>
               <tbody>
@@ -45,8 +48,11 @@ function deldata() {
                   foreach($list as $row)
                   { ?>
                   <tr>
-                    <td> <a href="<?php echo base_url() . 'komplain/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                    <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a></td>
+                    <td> <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
+                    <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Ubah"><i class="fa fa-pencil text-black"></i></a>
+                    <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus"><i class="fa fa-trash text-black"></i></a>
+
+                  </td>
                     <td><?php echo $row->NO_POTS; ?></td>
                     <td><?php echo $row->NO_INTERNET; ?></td>
                     <td><?php echo $row->NAMA_PELAPOR; ?></td>
@@ -63,16 +69,16 @@ function deldata() {
               </tbody>
               <tfoot>
                 <tr>
-                  <th style="background-color:#F6A2A1!important">AKSI</th>
-                  <th>NO. POTS</th>
-                  <th>NO. INTERNET</th>
-                  <th>NAMA PELAPOR</th>
-                  <th>ALAMAT PELAPOR</th>
-                  <th>LAYANAN</th>
-                  <th>JENIS KOMPLAIN</th>
-                  <th>TGL KOMPLAIN</th>
-                  <th>TGL CLOSE</th>
-                  <th>STATUS</th>
+                  <th style="background-color:#FACC2E!important">AKSI</th>
+                  <th style="background-color:#FACC2E!important">NO. POTS</th>
+                  <th style="background-color:#FACC2E!important">NO. INTERNET</th>
+                  <th style="background-color:#FACC2E!important">NAMA PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">ALAMAT PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">LAYANAN</th>
+                  <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL CLOSE</th>
+                  <th style="background-color:#FACC2E!important">STATUS</th>
                 </tr>
               </tfoot>
             </table>

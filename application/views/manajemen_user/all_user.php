@@ -30,12 +30,12 @@ function deldata() {
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th width="30px">NO</th>
-                        <th>NAMA LENGKAP</th>
-                        <th>USERNAME</th>
-                        <th>HAK AKSES</th>
-                        <th width="30px">EDIT</th>
-                        <th width="30px">HAPUS</th>
+                        <th style="background-color:#FACC2E!important" width="30px">NO</th>
+                        <th style="background-color:#FACC2E!important">NAMA LENGKAP</th>
+                        <th style="background-color:#FACC2E!important">USERNAME</th>
+                        <th style="background-color:#FACC2E!important">HAK AKSES</th>
+                        <th style="background-color:#FACC2E!important" width="30px">EDIT</th>
+                        <th style="background-color:#FACC2E!important" width="30px">HAPUS</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -63,12 +63,12 @@ function deldata() {
                     </tbody>
                     <tfoot>
                       <tr>
-                        <th>NO</th>
-                        <th>NAMA LENGKAP</th>
-                        <th>USERNAME</th>
-                        <th>HAK AKSES</th>
-                        <th>EDIT</th>
-                        <th>HAPUS</th>
+                        <th style="background-color:#FACC2E!important">NO</th>
+                        <th style="background-color:#FACC2E!important">NAMA LENGKAP</th>
+                        <th style="background-color:#FACC2E!important">USERNAME</th>
+                        <th style="background-color:#FACC2E!important">HAK AKSES</th>
+                        <th style="background-color:#FACC2E!important">EDIT</th>
+                        <th style="background-color:#FACC2E!important">HAPUS</th>
                       </tr>
                     </tfoot>
                   </table>

@@ -4,7 +4,6 @@ class Komplain_model extends CI_Model
 {
     public function addKomplain($datakomplain)
 	{
-		//$this->db->set($datakomplain); 
 		$this->db->insert('komplain', $datakomplain);
 		return TRUE;
 	}
@@ -87,5 +86,31 @@ class Komplain_model extends CI_Model
         $this->db->where('ID_KOMPLAIN', $id);
         $this->db->update('komplain', $datakomplain);
         return TRUE;
+    }
+
+    public function getDataKomplain($id){
+        $query = $this->db->get_where('komplain',
+            array
+            (
+                'ID_KOMPLAIN' => $id
+            )
+        );
+
+        if ($query->num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;   
+        }
+    }
+
+    public function deleteKomplain($id){
+        $this->db->delete('komplain', array('ID_KOMPLAIN' => $id));
     }
 }
