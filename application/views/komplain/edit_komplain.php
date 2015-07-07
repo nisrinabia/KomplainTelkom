@@ -11,7 +11,6 @@
             <li class="active">Edit Komplain</li>
           </ol>
         </section>
-<<<<<<< HEAD
         <?php
           foreach ($makan as $row) {
                           $id            = $row['ID_KOMPLAIN'];
@@ -31,8 +30,6 @@
                           $deadline       = $row['DEADLINE'];
                        }
         ?>
-=======
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
 
         <!-- Main content -->
         <section class="content">
@@ -43,7 +40,6 @@
                   <h3 class="box-title">Data Komplain</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-<<<<<<< HEAD
                   <form action="<?php echo site_url('Komplain/updateKomplain'); ?>" method="post" role="form">
                     <input type="hidden" name="id" value="<?php echo $id?>">
                     <div class="form-group">
@@ -65,28 +61,6 @@
                     <div class="form-group">
                       <label>Nomor Telepon Pelapor</label>
                       <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor" value="<?php echo $pic ?>"/>
-=======
-                  <form action="<?php echo site_url('Komplain/addKomplain'); ?>" method="post" role="form">
-                    <div class="form-group">
-                      <label>Nomor POTS</label>
-                      <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Nomor Internet (opsional)</label>
-                      <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Nama Pelapor</label>
-                      <input name="nama" type="text" class="form-control" placeholder="Nama Lengkap"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Alamat Pelapor</label>
-                      <input name="alamat" type="text" class="form-control" placeholder="Alamat Lengkap"/>
-                    </div>
-                    <div class="form-group">
-                      <label>Nomor Telepon Pelapor</label>
-                      <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor"/>
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                     </div>
 
                   <!-- select -->
@@ -94,7 +68,6 @@
                       <label>Media</label>
                       <select name="namamedia" class="form-control">
                         <?php
-<<<<<<< HEAD
                         
                         foreach ($nama_media as $row) {
                           if ($namamedia == $row->NAMA_MEDIA){
@@ -104,10 +77,6 @@
                             echo '<option value="' . $row->NAMA_MEDIA . '">' .$row->NAMA_MEDIA.'</option>';
                           }
                           
-=======
-                        foreach ($nama_media as $row) {
-                          echo '<option value="' . $row->NAMA_MEDIA . '">' .$row->NAMA_MEDIA.'</option>';
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                         }
                         ?>
                       </select>
@@ -118,16 +87,12 @@
                       <select name="namalayanan" class="form-control">
                         <?php
                         foreach ($nama_layanan as $row) {
-<<<<<<< HEAD
                           if ($namalayanan == $row->NAMA_LAYANAN){
                             echo '<option value="' . $row->NAMA_LAYANAN . '" selected >' .$row->NAMA_LAYANAN.'</option>';
                           }
                           else{
                             echo '<option value="' . $row->NAMA_LAYANAN . '">' .$row->NAMA_LAYANAN.'</option>';
                           }
-=======
-                          echo '<option value="'.$row->NAMA_LAYANAN.'">'.$row->NAMA_LAYANAN.'</option>';
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                         }
                         ?>
                       </select>
@@ -138,16 +103,12 @@
                       <select name="jeniskomplain" class="form-control">
                         <?php
                         foreach ($jenis_komplain as $row) {
-<<<<<<< HEAD
                           if ($jeniskomplain == $row->JENIS_KOMPLAIN){
                             echo '<option value="' . $row->JENIS_KOMPLAIN . '" selected >' .$row->JENIS_KOMPLAIN.'</option>';
                           }
                           else{
                             echo '<option value="' . $row->JENIS_KOMPLAIN . '">' .$row->JENIS_KOMPLAIN.'</option>';
                           }
-=======
-                          echo '<option  value="'.$row->JENIS_KOMPLAIN.'">'.$row->JENIS_KOMPLAIN.'</option>';
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                         }
                         ?>
                       </select>
@@ -175,27 +136,18 @@
                     <label>Tanggal Closed</label>
                       <div class="col-md-12">
                         <!-- <input type="date" name="tglclosed"/> -->
-<<<<<<< HEAD
                         <input type="date" class="form-control" name="tglclosed" value="">
-=======
-                        <input type="text" class="form-control" name="tglclosed" value="" id="dp1" >
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                       </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
                     <label>Tanggal Janji</label>
                       <div class="col-md-12">
-<<<<<<< HEAD
                         <input type="datetime" class="form-control" id="datetimepicker12" name="deadline"/>
-=======
-                        <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                       </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
-<<<<<<< HEAD
                     <label>Keterangan Tambahan</label>
                     <textarea name="ket" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
                   </div>
@@ -211,15 +163,6 @@
                     <div class="box-footer">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-=======
-                      <label>Keterangan Tambahan</label>
-                      <textarea name="ket" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
-                    </div>
-
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
->>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
                   </form>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

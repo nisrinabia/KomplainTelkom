@@ -162,19 +162,19 @@ public function editKomplain($id){
       if($this->komplain_model->updateKomplain($id, $datakomplain))
       {
         echo '<script language="javascript">';
-        echo 'alert("Layanan berhasil diupdate");';
-      //  echo 'window.location.href = "' . site_url('layanan') . '";';
+        echo 'alert("Data komplain berhasil diupdate");';
+        //echo 'window.location.href = "' . site_url('komplain/') . '";';
         echo '</script>';
       }
       else
       {
         echo '<script language="javascript">';
-        echo 'alert("Gagal mengupdate layanan. Layanan telah terdaftar");';
+        echo 'alert("Gagal mengupdate data komplain");';
         echo 'window.history.back();';
         echo '</script>';
       }
     }
-
+/*
     public function unggahDokumen($idkomplain){
       //$target_Path = NULL;
       if ($_FILES['dokumen']['name'] != NULL)
@@ -207,7 +207,7 @@ public function editKomplain($id){
           echo '</script>';
       }
     }
-
+*/
     function header(){
       $data = array(
             'nama' => $this->session->userdata('nama_lengkap'),
