@@ -46,7 +46,7 @@ function checkNull()
                 {
                     foreach($result as $row)
                     { ?>
-		                <form action="<?php echo site_url('layanan/update') . '/' . $row['ID_LAYANAN'] ?>" method="post">
+		                <form action="<?php echo site_url('layanan/update') . '/' . $row['NAMA_LAYANAN'] ?>" method="post">
 		                  <div class="box-body">
 		                    <div class="form-group">
 		                      <label for="namalayanan">Nama Layanan</label>

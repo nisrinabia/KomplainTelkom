@@ -46,11 +46,11 @@ function checkNull()
                 {
                     foreach($result as $row)
                     { ?>
-		                <form action="<?php echo site_url('jenis_komplain/update') . '/' . $row['JENIS_KOMPLAIN'] ?>" method="post">
+		                <form action="<?php echo site_url('jenis_komplain/update') . '/' . $row['JENIS'] ?>" method="post">
 		                  <div class="box-body">
 		                    <div class="form-group">
 		                      <label for="jeniskomplain">Jenis Komplain</label>
-		                      <input class="form-control" id="jeniskomplain" name="jeniskomplain" value="<?php echo $row['JENIS_KOMPLAIN'] ?>">
+		                      <input class="form-control" id="jeniskomplain" name="jeniskomplain" value="<?php echo $row['JENIS'] ?>">
 		                    </div>
 		                  </div><!-- /.box-body -->
 

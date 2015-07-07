@@ -51,6 +51,7 @@ class Layanan extends CI_Controller {
 
     public function edit($id)
     {
+        $id = urldecode($id);
         $this->load->model('layanan_model');
         $data['result'] = $this->layanan_model->editLayanan($id);
         $this->header();
@@ -60,6 +61,7 @@ class Layanan extends CI_Controller {
 
     public function update($id)
     {
+        $id = urldecode($id);
         $nama_layanan = $this->input->post('namalayanan');
         $this->load->model('layanan_model');
         if($this->layanan_model->updateLayanan($id, $nama_layanan))
@@ -80,6 +82,7 @@ class Layanan extends CI_Controller {
 
     public function delete($id)
     {
+        $id = urldecode($id);
         $this->load->model('layanan_model');
         $this->layanan_model->deleteLayanan($id);
         echo '<script language="javascript">';

@@ -52,6 +52,8 @@ class Media extends CI_Controller {
 
     public function edit($id)
     {
+        $id = urldecode($id);
+        //echo $id;
         $this->load->model('media_model');
         $data['result'] = $this->media_model->editMedia($id);
         $this->header();
@@ -61,6 +63,7 @@ class Media extends CI_Controller {
 
     public function update($id)
     {
+        $id = urldecode($id);
         $nama_media = $this->input->post('namamedia');
         $this->load->model('media_model');
         if($this->media_model->updateMedia($id, $nama_media))
@@ -81,6 +84,7 @@ class Media extends CI_Controller {
 
     public function delete($id)
     {
+        $id = urldecode($id);
         $this->load->model('media_model');
         $this->media_model->deleteMedia($id);
         echo '<script language="javascript">';
