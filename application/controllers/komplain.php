@@ -186,46 +186,13 @@ public function editKomplain($id){
         echo '</script>';
       }
     }
-/*
-    public function unggahDokumen($idkomplain){
-      //$target_Path = NULL;
-      if ($_FILES['dokumen']['name'] != NULL)
-      {
-        $target_Path = "Dokumen/";
-        $target_Path = $target_Path.basename( $_FILES['dokumen']['name'] );
-      }
-      $data = array(
-        'ID_KOMPLAIN' => $idkomplain,
-        'DOKUMEN' => $target_Path
-      );
 
-      $this->load->model('komplain');
-
-      if($this->komplain->unggahDokumen($data))
-      {
-        if ($target_Path != NULL) {
-          move_uploaded_file( $_FILES['dokumen']['tmp_name'], $target_Path );
-        }
-          echo '<script language="javascript">';
-          echo 'alert("Foto berhasil ditambahkan");';
-          //echo 'window.location.replace("'. base_url() . 'admin/album'.'");';
-          echo '</script>';
-      }
-      else
-      {
-          echo '<script language="javascript">';
-          echo 'alert("Gagal menyimpan foto");';
-          //echo 'window.location.replace("'. base_url() . 'admin/album'.'");';
-          echo '</script>';
-      }
-    }
-*/
     function header(){
       $data = array(
             'nama' => $this->session->userdata('nama_lengkap'),
             'username' => $this->session->userdata('username'),
             'jabatan' => $this->session->userdata('jabatan')
-        );
+      );
         $this->load->view('design/header', $data);
     }
 }
