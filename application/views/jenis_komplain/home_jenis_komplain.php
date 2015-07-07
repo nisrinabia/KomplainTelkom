@@ -29,9 +29,9 @@ function deldata() {
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th width="30px">NO</th>
-                  <th>JENIS KOMPLAIN</th>
-                  <th width="30px">AKSI</th>
+                  <th style="background-color:#FACC2E!important" width="30px">NO</th>
+                  <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important" width="30px">AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -43,10 +43,10 @@ function deldata() {
                   { ?>
                   <tr>
                     <th><?php echo $count; ?></th>
-                    <th><?php echo $row->JENIS_KOMPLAIN; ?></th>
+                    <th><?php echo $row->JENIS; ?></th>
                       <th>
-                        <a href="<?php echo base_url() . 'jenis_komplain/edit/' . $row->JENIS_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'jenis_komplain/delete/' . $row->JENIS_KOMPLAIN ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
+                        <a href="<?php echo base_url() . 'jenis_komplain/edit/' . $row->JENIS ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
+                        <a href="<?php echo base_url() . 'jenis_komplain/delete/' . $row->JENIS?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
                       </th>
                   </tr>
                   <?php 
@@ -56,9 +56,9 @@ function deldata() {
               </tbody>
               <tfoot>
                 <tr>
-                  <th>NO</th>
-                  <th>JENIS KOMPLAIN</th>
-                  <th>AKSI</th>
+                  <th style="background-color:#FACC2E!important">NO</th>
+                  <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">AKSI</th>
                 </tr>
               </tfoot>
             </table>

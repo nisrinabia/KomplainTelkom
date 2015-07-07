@@ -29,9 +29,9 @@ function deldata() {
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th width="30px">NO</th>
-                  <th>NAMA LAYANAN</th>
-                  <th width="30px">AKSI</th>
+                  <th style="background-color:#FACC2E!important" width="30px">NO</th>
+                  <th style="background-color:#FACC2E!important">NAMA LAYANAN</th>
+                  <th style="background-color:#FACC2E!important" width="30px">AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -56,9 +56,9 @@ function deldata() {
               </tbody>
               <tfoot>
                 <tr>
-                  <th>NO</th>
-                  <th>NAMA LAYANAN</th>
-                  <th>AKSI</th>
+                  <th style="background-color:#FACC2E!important">NO</th>
+                  <th style="background-color:#FACC2E!important">NAMA LAYANAN</th>
+                  <th style="background-color:#FACC2E!important">AKSI</th>
                 </tr>
               </tfoot>
             </table>
