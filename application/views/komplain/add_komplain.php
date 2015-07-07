@@ -74,7 +74,7 @@
                       <select name="jeniskomplain" class="form-control">
                         <?php
                         foreach ($jenis_komplain as $row) {
-                          echo '<option  value="'.$row->JENIS_KOMPLAIN.'">'.$row->JENIS_KOMPLAIN.'</option>';
+                          echo '<option  value="'.$row->JENIS.'">'.$row->JENIS.'</option>';
                         }
                         ?>
                       </select>

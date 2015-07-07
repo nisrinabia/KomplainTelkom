@@ -7,7 +7,7 @@ function deldata() {
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Data Komplain
+      <?php echo $judul ?>
     	<small>Daftar Data Komplain</small>
     </h1>
     <ol class="breadcrumb">

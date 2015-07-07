@@ -20,7 +20,7 @@ class Komplain extends CI_Controller{
         $data['nama_layanan'] = $this->layanan_model->getListLayanan();
 
         $this->header();
-        $this->load->view('komplain/add_komplain');
+        $this->load->view('komplain/add_komplain', $data);
         $this->load->view('design/footer');
     }
 
@@ -67,6 +67,7 @@ class Komplain extends CI_Controller{
     public function showKomplainByPOTS($nopots){
         $this->load->model('komplain_model');
         $data['list'] = $this->komplain_model->showKomplainByPOTS($nopots);
+        $data['judul'] = 'Histori Komplain';
         //print_r($data);
         $this->header();
         $this->load->view('komplain/show_komplain',$data);
@@ -123,6 +124,7 @@ class Komplain extends CI_Controller{
     public function showAllKomplain(){
       $this->load->model('komplain_model');
       $data['list'] = $this->komplain_model->showAllKomplain();
+      $data['judul'] = 'Data Komplain';
       //print_r($data);
       $this->header();
       $this->load->view('komplain/show_komplain', $data);
