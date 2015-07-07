@@ -17,6 +17,6 @@ class Coba extends CI_Controller{
         $this->load->view('design/footer');
     }
     function printku() {        
-        echo $this->input->post('tanggal');
+        $this->load->view('cobaupload');
     }
 }
