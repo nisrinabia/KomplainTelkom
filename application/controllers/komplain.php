@@ -75,37 +75,24 @@ class Komplain extends CI_Controller{
 
     public function uploadKomplain()
     {
-        if($_FILES['file']['name'] != NULL){
-            echo $filename=$_FILES["file"]["tmp_name"];
-            if($_FILES["file"]["size"] > 0){
-                $file = fopen($filename, "r");
-                $count = 1;
-                 while (($emapData = fgetcsv($file, 1000000, ",")) !== FALSE){
-                  if($count != 1){
-                    //It wiil insert a row to our subject table from our csv file`
-                       //moved to model
-                     //we are using mysql_query function. it returns a resource on true else False on error
-                       //moved to model
-                        if(! $result )
-                        {
-                            echo '<script language="javascript">';
-                            echo 'alert("Gagal menambahkan komplain");';
-                            echo 'window.location.href = "' . site_url('komplain') . '";';
-                            echo '</script>';
-                        }   
-                  }
-                  $count = $count + 1;
-                 }
-                 fclose($file);
-                 //throws a message if data successfully imported to mysql database from excel file
-                 echo '<script language="javascript">';
-                 echo 'alert("Berhasil menambahkan komplain");';
-                 echo 'window.location.href = "' . site_url('komplain') . '";';
-                 echo '</script>';
-                //close of connection
-                //mysql_close($conn); 
-            }
-        }    
+        $target_Path = NULL;
+        if ($_FILES['userFile']['name'] != NULL && $_FILES['userFile']['type'] == 'application/vnd.ms-excel')
+        {
+            $target_Path = "files/";
+            $target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
+            move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
+            echo '<script language="javascript">';
+            echo 'alert("upload fiel berhasil");';
+            echo 'window.location.href = "' . site_url('komplain/') . '";';
+            echo '</script>';   
+        }
+        else
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Gagal upload file, pastikan anda telah mengupload file bertipe .xls");';
+            echo 'window.location.href = "' . site_url('komplain/') . '";';
+            echo '</script>';
+        }
     }
 
     public function showAllKomplain(){
