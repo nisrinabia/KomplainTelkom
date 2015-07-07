@@ -7,13 +7,13 @@ function deldata() {
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Manajemen Janji
-      <small>Lihat Janji</small>
+      Komplain
+      <small>Lihat Detail Komplain</small>
     </h1>
     <ol class="breadcrumb">
-      <li><i class="fa fa-list"></i> Manajemen janji</li>
-      <li>Daftar semua janji</li>
-      <li class="active">Lihat Janji</li>
+      <li><i class="fa fa-list"></i> Komplain</li>
+      <li>Daftar semua komplain</li>
+      <li class="active">Lihat Detail Komplain</li>
     </ol>
   </section>
 
@@ -24,7 +24,7 @@ function deldata() {
 
         <div class="box">
           <div class='box-header with-border'>
-              <h3 class='box-title'>Informasi data janji</h3>
+              <h3 class='box-title'>Detail Komplain</h3>
           </div>
           <div class="box-body">
 
@@ -192,15 +192,15 @@ function deldata() {
 		                  	}
 		                  	echo '</p>
 
-		                  		<p><b>Status</b><br>
+		                  		<p><b>Status Komplain</b><br>
 		                  		';
 		                  	if($row->STATUS_KOMPLAIN == '0')
 		                  	{
-		                  		echo 'Belum ditangani';
+		                  		echo 'In Progress';
 		                  	}
 		                  	else
 		                  	{
-		                  		echo 'Telah ditangani';
+		                  		echo 'Closed';
 		                  	}
 		                  	echo '</p>
 		                  		</div>';

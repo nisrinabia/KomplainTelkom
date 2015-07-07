@@ -20,7 +20,7 @@ class Komplain extends CI_Controller{
         $data['nama_layanan'] = $this->layanan_model->getListLayanan();
 
         $this->header();
-        $this->load->view('komplain/add_komplain');
+        $this->load->view('komplain/add_komplain', $data);
         $this->load->view('design/footer');
     }
 
@@ -82,7 +82,7 @@ class Komplain extends CI_Controller{
             $target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
             move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
             echo '<script language="javascript">';
-            echo 'alert("upload fiel berhasil");';
+            echo 'alert("upload file berhasil");';
             echo 'window.location.href = "' . site_url('komplain/') . '";';
             echo '</script>';   
         }
@@ -104,7 +104,7 @@ class Komplain extends CI_Controller{
       $this->load->view('design/footer');
     }
 
-public function editKomplain($id){
+    public function editKomplain($id){
       $this->load->model('jenis_komplain_model');
       $this->load->model('media_model');
       $this->load->model('layanan_model');
@@ -150,7 +150,7 @@ public function editKomplain($id){
       {
         echo '<script language="javascript">';
         echo 'alert("Data komplain berhasil diupdate");';
-        //echo 'window.location.href = "' . site_url('komplain/') . '";';
+        echo 'window.location.href = "' . site_url('komplain/detailKomplain/'.$id) . '";';
         echo '</script>';
       }
       else
@@ -160,6 +160,25 @@ public function editKomplain($id){
         echo 'window.history.back();';
         echo '</script>';
       }
+    }
+
+    public function detailKomplain($id){
+      $this->load->model('komplain_model');
+      $data['list'] = $this->komplain_model->getDataKomplain($id);
+      $this->header();
+      $this->load->view('komplain/detail_komplain', $data);
+      $this->load->view('design/footer');
+    }
+
+    public function deleteKomplain($id){
+      $this->load->model('komplain_model');
+      
+      $this->komplain_model->deleteKomplain($id);
+
+      echo '<script language="javascript">';
+      echo 'alert("Data berhasil dihapus");';
+      echo 'window.history.back();';
+      echo '</script>';
     }
 
     function header(){

@@ -45,8 +45,11 @@ function deldata() {
                   foreach($list as $row)
                   { ?>
                   <tr>
-                    <td> <a href="<?php echo base_url() . 'komplain/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                    <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a></td>
+                    <td> <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
+                    <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Ubah"><i class="fa fa-pencil text-black"></i></a>
+                    <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus"><i class="fa fa-trash text-black"></i></a>
+
+                  </td>
                     <td><?php echo $row->NO_POTS; ?></td>
                     <td><?php echo $row->NO_INTERNET; ?></td>
                     <td><?php echo $row->NAMA_PELAPOR; ?></td>
