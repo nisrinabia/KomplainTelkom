@@ -45,8 +45,8 @@ function deldata() {
                     <th><?php echo $count; ?></th>
                     <th><?php echo $row->NAMA_LAYANAN; ?></th>
                       <th>
-                        <a href="<?php echo base_url() . 'layanan/edit/' . $row->ID_LAYANAN ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'layanan/delete/' . $row->ID_LAYANAN ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
+                        <a href="<?php echo base_url() . 'layanan/edit/' . $row->NAMA_LAYANAN ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
+                        <a href="<?php echo base_url() . 'layanan/delete/' . $row->NAMA_LAYANAN ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
                       </th>
                   </tr>
                   <?php 

@@ -19,15 +19,21 @@ class Komplain extends CI_Controller{
         $data['nama_media'] = $this->media_model->getListMedia();
         $data['nama_layanan'] = $this->layanan_model->getListLayanan();
 
+<<<<<<< HEAD
         //print_r($data);
 
         $this->header();
         $this->load->view('komplain/add_komplain', $data);
+=======
+        $this->header();
+        $this->load->view('komplain/add_komplain');
+>>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
         $this->load->view('design/footer');
     }
 
     public function addKomplain(){
         $nopots = $this->input->post('nopots');
+<<<<<<< HEAD
         //$tglclosed = DateTime::createFromFormat($tglclosed, 'Y-m-d')->format('Y-m-d');
         //$deadline = DateTime::createFromFormat($deadline, 'dd/mm/yyyy g:i a')->format('Y-m-d H:i:s');
 
@@ -39,6 +45,10 @@ class Komplain extends CI_Controller{
         $timestamp = strtotime($deadline);
         $new_deadline = date('Y-m-d h:i:s', $timestamp);
 */
+=======
+        $tglclosed = date('yyyy-mm-dd', strtotime('tglclosed'));
+        $deadline = date('yyyy-mm-dd, h:m', strtotime('deadline'));
+>>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
 
         $datakomplain = array(
             'NO_POTS'           => $this->input->post('nopots'),
@@ -130,6 +140,7 @@ class Komplain extends CI_Controller{
       $this->load->view('design/footer');
     }
 
+<<<<<<< HEAD
     public function editKomplain($id){
       $this->load->model('jenis_komplain_model');
       $this->load->model('media_model');
@@ -219,6 +230,10 @@ class Komplain extends CI_Controller{
           //echo 'window.location.replace("'. base_url() . 'admin/album'.'");';
           echo '</script>';
       }
+=======
+    public function editKomplain(){
+      
+>>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
     }
 
     function header(){
@@ -229,4 +244,8 @@ class Komplain extends CI_Controller{
         );
         $this->load->view('design/header', $data);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd

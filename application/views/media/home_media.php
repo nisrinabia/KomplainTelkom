@@ -29,9 +29,9 @@ function deldata() {
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th width="30px">NO</th>
+                  <th width="20px">NO</th>
                   <th>NAMA MEDIA</th>
-                  <th width="30px">AKSI</th>
+                  <th width="20px">AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -45,8 +45,8 @@ function deldata() {
                     <th><?php echo $count; ?></th>
                     <th><?php echo $row->NAMA_MEDIA; ?></th>
                       <th>
-                        <a href="<?php echo base_url() . 'media/edit/' . $row->ID_MEDIA ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'media/delete/' . $row->ID_MEDIA ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
+                        <a href="<?php echo base_url() . 'media/edit/' . $row->NAMA_MEDIA ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
+                        <a href="<?php echo base_url() . 'media/delete/' . $row->NAMA_MEDIA ?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
                       </th>
                   </tr>
                   <?php 

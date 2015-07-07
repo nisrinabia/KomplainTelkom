@@ -66,6 +66,7 @@ class Komplain_model extends CI_Model
         }
     }
 
+<<<<<<< HEAD
     public function editKomplain($id){
         $query = $this->db->get_where('komplain', array('ID_KOMPLAIN' => $id));
         if ($query->num_rows() > 0) {
@@ -84,6 +85,10 @@ class Komplain_model extends CI_Model
 
     public function unggahDokumen($data) {
         return $this->db->insert('komplain', $data); 
+=======
+    public function editKomplain(){
+
+>>>>>>> 7c076335ada2345e57d34cb18f1ad788a87142fd
     }
 
     public function deleteKomplain(){

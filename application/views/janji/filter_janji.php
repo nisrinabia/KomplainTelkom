@@ -7,12 +7,13 @@ function deldata() {
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Jenis Komplain
-    	<small>Daftar Jenis Komplain</small>
+      Manajemen Janji
+      <small>Daftar Semua Janji</small>
     </h1>
     <ol class="breadcrumb">
-      <li><i class="fa fa-list"></i> Jenis Komplain</li>
-      <li class="active">Daftar jenis komplain</li>
+      <li><i class="fa fa-list"></i> Manajemen janji</li>
+      <li>Daftar semua janji</li>
+      <li class="active">Filter</li>
     </ol>
   </section>
 
@@ -73,19 +74,18 @@ function deldata() {
           }
           echo '
           <div class="alert alert-success">
-          	<h4>Hasil pencarian</h4>
           		Menampilkan janji pada bulan ' . $coba . ' dan tahun ' . $tahun .'
         	</div>';
         ?>
         <div class="box">
           <div class="box-body">
               <h4>Navigasi</h4><hr>
-              <a href="#"><button type="button" class="btn btn-danger">Lihat janji melewati deadline</button></a>
-              <a href="#"><button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button></a>
-              <a href="#"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>
+              <a href="<?php echo base_url() ?>janji/lewat_deadline"><button type="button" class="btn btn-danger">Lihat janji melewati deadline</button></a>
+              <a href="<?php echo base_url() ?>janji/sehari_deadline"><button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button></a>
+              <a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
               <br><br>
-              <h4>Halaman ini &raquo; Daftar semua janji</h4><hr>
-              <form method="post" action="<?php base_url() ?>filterall">
+              <h4>Filter</h4><hr>
+              <form method="get" action="<?php base_url() ?>filterall">
               Filter berdasarkan: 
                 <select class="option-control" name="bulan" data-toggle="tooltip" data-placement="top" title="Pilih bulan">
                     <option value="01">Januari</option>     
@@ -102,10 +102,24 @@ function deldata() {
                      <option value="12">Desember</option>
                   </select>
                   <select class="option-control" name="tahun" data-toggle="tooltip" data-placement="top" title="Pilih tahun">
-                    <option value="2015">2015</option>     
-                     <option value="2014">2014</option>
-                     <option value="2013">2013</option>
-                  </select>  
+                    <?php
+                      if($select != NULL)
+                      {
+                        foreach ($select as $row)
+                        {
+                          echo '<option value="'.$row->makan.'">'.$row->makan.'</option>';
+                        }
+                      }
+                      else
+                      {
+                        echo '<option value="';
+                        echo date("Y");
+                        echo '">';
+                        echo date("Y");
+                        echo '</option>';
+                      }
+                    ?>
+                  </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
                   <a href="<?php base_url() ?>janji"> <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Menampilkan semua janji yang belum ditangani">Tampilkan semua</button></a>
                 </form>
@@ -121,29 +135,22 @@ function deldata() {
           <div class="pull-right" style="vertical-align:top;margin-top:5px;">
           <b style="vertical-align:top;">Keterangan: </b>
           <span class="legend" style="background-color:#F0E582!important"></span>Mendekati deadline (kurang dari sehari)
-          <span class="legend" style="background-color:#F6A2A1!important"></span>Melewati deadline
+          <span class="legend" style="background-color:#F2D9CB!important"></span>Melewati deadline
           </div>
            <p></p>
             <table id="example1" class="table table-bordered">
               <thead>
                 <tr>
                   <th>AKSI</th>
+                  <th>DEADLINE</th>
                   <th>NO. POTS</th>
                   <th>NO. INTERNET</th>
                   <th>NAMA PELAPOR</th>
-                  <th>ALAMAT PELAPOR</th>
-                  <th>PIC PELAPOR</th>
-                  <th>MEDIA</th>
                   <th>LAYANAN</th>
                   <th>JENIS KOMPLAIN</th>
                   <th>TGL KOMPLAIN</th>
                   <th>TGL CLOSE</th>
-                  <th>KELUHAN</th>
-                  <th>SOLUSI</th>
                   <th>STATUS</th>
-                  <th>KETERANGAN</th>
-                  <th>DOKUMEN</th>
-                  <th>DEADLINE</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,26 +163,20 @@ function deldata() {
                     if($hour < 0)
                     {?>
                     <tr>
-                      <th style="background-color:#F6A2A1!important">
+                      <th style="background-color:#F2D9CB!important">
                         <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
                         <a href="<?php echo base_url() . 'janji/edit/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/deleteWhenFilter/' . $row->ID_KOMPLAIN . '?mode=all&bulan=' . $bulan . '&tahun=' . $tahun?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
                       </th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->NO_POTS; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->NO_INTERNET; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->NAMA_PELAPOR; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->ALAMAT_PELAPOR; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->PIC_PELAPOR; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->NAMA_MEDIA; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->NAMA_LAYANAN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->JENIS_KOMPLAIN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->TGL_KOMPLAIN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->TGL_CLOSE; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->KELUHAN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->SOLUSI; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->STATUS_KOMPLAIN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->KETERANGAN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->DOKUMEN; ?></th>
-                      <th style="background-color:#F6A2A1!important"><?php echo $row->DEADLINE; ?></th>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->DEADLINE; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->NO_POTS; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->NO_INTERNET; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->NAMA_PELAPOR; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->NAMA_LAYANAN; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->TGL_KOMPLAIN; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->TGL_CLOSE; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->STATUS_KOMPLAIN; ?></td>
                     </tr>
                     <?php
                     }
@@ -185,23 +186,17 @@ function deldata() {
                       <th style="background-color:#F0E582!important">
                         <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
                         <a href="<?php echo base_url() . 'janji/edit/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/deleteWhenFilter/' . $row->ID_KOMPLAIN . '?mode=all&bulan=' . $bulan . '&tahun=' . $tahun?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
                       </th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->NO_POTS; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->NO_INTERNET; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->NAMA_PELAPOR; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->ALAMAT_PELAPOR; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->PIC_PELAPOR; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->NAMA_MEDIA; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->NAMA_LAYANAN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->JENIS_KOMPLAIN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->TGL_KOMPLAIN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->TGL_CLOSE; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->KELUHAN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->SOLUSI; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->STATUS_KOMPLAIN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->KETERANGAN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->DOKUMEN; ?></th>
-                      <th style="background-color:#F0E582!important"><?php echo $row->DEADLINE; ?></th>
+                      <td style="background-color:#F0E582!important"><?php echo $row->DEADLINE; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->NO_POTS; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->NO_INTERNET; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->NAMA_PELAPOR; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->NAMA_LAYANAN; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->TGL_KOMPLAIN; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->TGL_CLOSE; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->STATUS_KOMPLAIN; ?></td>
                     </tr>
                     <?php
                     }
@@ -211,23 +206,17 @@ function deldata() {
                       <th>
                         <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-aqua"></i></a>
                         <a href="<?php echo base_url() . 'janji/edit/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
+                        <a href="<?php echo base_url() . 'janji/deleteWhenFilter/' . $row->ID_KOMPLAIN . '?mode=all&bulan=' . $bulan . '&tahun=' . $tahun?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
                       </th>
-                      <th><?php echo $row->NO_POTS; ?></th>
-                      <th><?php echo $row->NO_INTERNET; ?></th>
-                      <th><?php echo $row->NAMA_PELAPOR; ?></th>
-                      <th><?php echo $row->ALAMAT_PELAPOR; ?></th>
-                      <th><?php echo $row->PIC_PELAPOR; ?></th>
-                      <th><?php echo $row->NAMA_MEDIA; ?></th>
-                      <th><?php echo $row->NAMA_LAYANAN; ?></th>
-                      <th><?php echo $row->JENIS_KOMPLAIN; ?></th>
-                      <th><?php echo $row->TGL_KOMPLAIN; ?></th>
-                      <th><?php echo $row->TGL_CLOSE; ?></th>
-                      <th><?php echo $row->KELUHAN; ?></th>
-                      <th><?php echo $row->SOLUSI; ?></th>
-                      <th><?php echo $row->STATUS_KOMPLAIN; ?></th>
-                      <th><?php echo $row->KETERANGAN; ?></th>
-                      <th><?php echo $row->DOKUMEN; ?></th>
-                      <th><?php echo $row->DEADLINE; ?></th>
+                      <td><?php echo $row->DEADLINE; ?></td>
+                      <td><?php echo $row->NO_POTS; ?></td>
+                      <td><?php echo $row->NO_INTERNET; ?></td>
+                      <td><?php echo $row->NAMA_PELAPOR; ?></td>
+                      <td><?php echo $row->NAMA_LAYANAN; ?></td>
+                      <td><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                      <td><?php echo $row->TGL_KOMPLAIN; ?></td>
+                      <td><?php echo $row->TGL_CLOSE; ?></td>
+                      <td><?php echo $row->STATUS_KOMPLAIN; ?></td>
                     </tr>
                     <?php
                     }
@@ -237,22 +226,15 @@ function deldata() {
               <tfoot>
                 <tr>
                   <th>AKSI</th>
+                  <th>DEADLINE</th>
                   <th>NO. POTS</th>
                   <th>NO. INTERNET</th>
                   <th>NAMA PELAPOR</th>
-                  <th>ALAMAT PELAPOR</th>
-                  <th>PIC PELAPOR</th>
-                  <th>MEDIA</th>
                   <th>LAYANAN</th>
                   <th>JENIS KOMPLAIN</th>
                   <th>TGL KOMPLAIN</th>
                   <th>TGL CLOSE</th>
-                  <th>KELUHAN</th>
-                  <th>SOLUSI</th>
                   <th>STATUS</th>
-                  <th>KETERANGAN</th>
-                  <th>DOKUMEN</th>
-                  <th>DEADLINE</th>
                 </tr>
               </tfoot>
             </table>
