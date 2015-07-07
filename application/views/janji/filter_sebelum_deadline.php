@@ -131,7 +131,7 @@ function deldata() {
               <h3 class='box-title'>Daftar Semua Janji Sebelum Deadline</h3>
             </div>
           <div class="box-body">
-          <a href="#"><button type="button" class="btn btn-primary">Unduh file excel</button></a>
+          <a href="<?php echo ''.base_url().'janji/excelFilter/before/'.$bulan.'/'.$tahun.''?>"><button type="button" class="btn btn-primary">Unduh file excel</button></a>
            <p></p>
             <table id="example1" class="table table-bordered">
               <thead>
@@ -168,10 +168,10 @@ function deldata() {
                       <td style="background-color:#F2D9CB!important"><?php echo $row->NO_INTERNET; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->NAMA_PELAPOR; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->NAMA_LAYANAN; ?></td>
-                      <td style="background-color:#F2D9CB!important"><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->JENIS; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->TGL_KOMPLAIN; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->TGL_CLOSE; ?></td>
-                      <td style="background-color:#F2D9CB!important"><?php echo $row->STATUS_KOMPLAIN; ?></td>
+                      <td style="background-color:#F2D9CB!important"><?php echo $row->STATUS_JANJI; ?></td>
                     </tr>
                     <?php
                     }
@@ -188,10 +188,10 @@ function deldata() {
                       <td style="background-color:#F0E582!important"><?php echo $row->NO_INTERNET; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->NAMA_PELAPOR; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->NAMA_LAYANAN; ?></td>
-                      <td style="background-color:#F0E582!important"><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->JENIS; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->TGL_KOMPLAIN; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->TGL_CLOSE; ?></td>
-                      <td style="background-color:#F0E582!important"><?php echo $row->STATUS_KOMPLAIN; ?></td>
+                      <td style="background-color:#F0E582!important"><?php echo $row->STATUS_JANJI; ?></td>
                     </tr>
                     <?php
                     }
@@ -208,10 +208,10 @@ function deldata() {
                       <td><?php echo $row->NO_INTERNET; ?></td>
                       <td><?php echo $row->NAMA_PELAPOR; ?></td>
                       <td><?php echo $row->NAMA_LAYANAN; ?></td>
-                      <td><?php echo $row->JENIS_KOMPLAIN; ?></td>
+                      <td><?php echo $row->JENIS; ?></td>
                       <td><?php echo $row->TGL_KOMPLAIN; ?></td>
                       <td><?php echo $row->TGL_CLOSE; ?></td>
-                      <td><?php echo $row->STATUS_KOMPLAIN; ?></td>
+                      <td><?php echo $row->STATUS_JANJI; ?></td>
                     </tr>
                     <?php
                     }

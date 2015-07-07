@@ -59,7 +59,6 @@ class Komplain extends CI_Controller{
         {
               echo '<script language="javascript">';
               echo 'alert("Gagal memasukkan data");';
-              //echo 'window.history.back();';
               echo '</script>';
         }
     }
@@ -76,36 +75,76 @@ class Komplain extends CI_Controller{
 
     public function uploadKomplain()
     {
-        $target_Path = NULL;
         if ($_FILES['userFile']['type'] == 'application/vnd.ms-excel' && substr($_FILES['userFile']['name'], -3, 3) == 'xls')
         {
+            $jumlah = 0;
             $target_Path = "files/";
             $target_Path = $target_Path.basename( $_FILES['userFile']['name'] );          
             move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
             $file = getcwd() . '\files\\' . $_FILES['userFile']['name'];
             $this->load->library('excel');
-            //read file from path
             $objPHPExcel = PHPExcel_IOFactory::load($file);
-            //get only the Cell Collection
             $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
             $flag = 0;
-            //extract to a PHP readable array format
+            $count = 0;
             foreach ($cell_collection as $cell) {
+
                 $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
                 $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
                 if (in_array($column,range('A','Q')) && $row!= 1 && $row != 2 && $row != $flag) {
                   $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
-                  //header will/should be in row 1 only. of course this can be modified to suit your need.
                   if ($column == 'A' && $data_value == null) {
-                      echo 'loncati ';
+                      //echo 'loncati ';
                       $flag = $row;
                   }
                   else
                   {
-                    echo 'simpan ' . $data_value . ' ';
+                    //echo 'simpan ' . $data_value . ' ';
+                    $excel[$count] = $data_value;
+                    if ($count < 17) 
+                    {
+                      $count = $count + 1;
+                      if ($column == 'Q')
+                      {
+                        $tanggal = $excel[5] . ' ' . $excel[6] . ':00';
+                        $janji= $excel[12] . ' ' . $excel[13]. ':00';
+
+                        $datakomplain = array(
+                            'NO_POTS'           => $excel[0],
+                            'NO_INTERNET'       => $excel[1],
+                            'NAMA_PELAPOR'      => $excel[2],
+                            'PIC_PELAPOR'       => $excel[3],
+                            'ALAMAT_PELAPOR'    => $excel[4],
+                            'TGL_KOMPLAIN'      => $tanggal,
+                            'NAMA_MEDIA'        => $excel[7],
+                            'NAMA_LAYANAN'      => $excel[8],
+                            'JENIS_KOMPLAIN'    => $excel[9],
+                            'KELUHAN'           => $excel[10],
+                            'SOLUSI'            => $excel[11],
+                            'DEADLINE'          => $janji,
+                            'STATUS_KOMPLAIN'   => ($excel[14] == 'closed' ? 1 : 0),
+                            'TGL_CLOSE'         => $excel[15],
+                            'KETERANGAN'        => $excel[16]
+                        );
+                        $this->load->model('komplain_model');
+                        if($this->komplain_model->addKomplainByFile($excel[0],$excel[1],$excel[2],$excel[3],$excel[4],$tanggal,$excel[7],$excel[8],$excel[9],$excel[10],$excel[11],$janji,($excel[14] == 'closed' ? 1 : 0),$excel[15],$excel[16]))
+                        {
+                          $jumlah = $jumlah + 1;
+                        }
+                        $count = 0;
+                      }
+                    }
                   }
-              }
-            }   
+                }
+              }   
+            }
+          }
+            //echo 'sukses menambahkan ' . $jumlah;
+            unlink($file);
+            echo '<script language="javascript">';
+            echo 'alert("Berhasil menambahkan ' . $jumlah . ' data");';
+            echo 'window.location.href = "' . site_url('komplain/showAllKomplain') . '";';
+            echo '</script>';            
         }
         else
         {
