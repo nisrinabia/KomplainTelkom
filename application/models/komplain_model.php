@@ -77,8 +77,8 @@ class Komplain_model extends CI_Model
 
     public function updateKomplain($id, $datakomplain){        
         $this->db->where('ID_KOMPLAIN', $id);
-        $this->db->update('komplain', $datakomplain);
-        return TRUE;
+        $this->db->set('komplain', $datakomplain);
+        //return TRUE;
     }
 
     public function getDataKomplain($id){

@@ -22,9 +22,6 @@ function deldata() {
   	<div class="row">
       <div class="col-xs-12">
           <div class="box-body">
-            <form action="<?php echo base_url() ?>komplain">
-              <input type="submit" class="btn btn-primary" value="Tambah Komplain">
-            </form>
             <br>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
@@ -38,7 +35,7 @@ function deldata() {
                   <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
                   <th style="background-color:#FACC2E!important">TGL KOMPLAIN</th>
                   <th style="background-color:#FACC2E!important">TGL CLOSE</th>
-                  <th style="background-color:#FACC2E!important">STATUS</th>
+                  <th style="background-color:#FACC2E!important">STATUS KOMPLAIN</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,11 +45,11 @@ function deldata() {
                   foreach($list as $row)
                   { ?>
                   <tr>
-                    <td> <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                    <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Ubah"><i class="fa fa-pencil text-black"></i></a>
-                    <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus"><i class="fa fa-trash text-black"></i></a>
-
-                  </td>
+                    <td> 
+                      <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
+                      <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Ubah"><i class="fa fa-pencil text-black"></i></a>
+                      <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus"><i class="fa fa-trash text-black"></i></a>
+                    </td>
                     <td><?php echo $row->NO_POTS; ?></td>
                     <td><?php echo $row->NO_INTERNET; ?></td>
                     <td><?php echo $row->NAMA_PELAPOR; ?></td>
@@ -78,7 +75,7 @@ function deldata() {
                   <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
                   <th style="background-color:#FACC2E!important">TGL KOMPLAIN</th>
                   <th style="background-color:#FACC2E!important">TGL CLOSE</th>
-                  <th style="background-color:#FACC2E!important">STATUS</th>
+                  <th style="background-color:#FACC2E!important">STATUS KOMPLAIN</th>
                 </tr>
               </tfoot>
             </table>

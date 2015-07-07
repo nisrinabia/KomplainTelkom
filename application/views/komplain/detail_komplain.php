@@ -120,7 +120,7 @@ function deldata() {
 		                  foreach($list as $row)
 		                  {
 		                  	echo '
-		                  		<p><b>Nomor POTS</b><br>
+		                  		<p><b>Layanan</b><br>
 		                  		';
 		                  	if($row->NAMA_LAYANAN == '')
 		                  	{

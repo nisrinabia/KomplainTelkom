@@ -36,14 +36,14 @@ class Komplain extends CI_Controller{
             'NAMA_MEDIA'        => $this->input->post('namamedia'),
             'NAMA_LAYANAN'      => $this->input->post('namalayanan'),
             'JENIS_KOMPLAIN'    => $this->input->post('jeniskomplain'),
-            'TGL_CLOSE'         => $this->input->post('tglclosed'),
-          //  'TGL_CLOSE'         => $this->input->post(date('Y-m-d', strtotime('tglclosed'))),
+          //  'TGL_CLOSE'         => $this->input->post('tglclosed'),
+            'TGL_CLOSE'         => $this->input->post(date('Y-m-d', strtotime('tglclosed'))),
             'KELUHAN'           => $this->input->post('keluhan'),
             'SOLUSI'            => $this->input->post('solusi'),
             'STATUS_KOMPLAIN'   => $this->input->post('statuskomplain'),
             'KETERANGAN'        => $this->input->post('ket'),
-            'DEADLINE'          => $this->input->post('deadline')
-          //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))          
+          //  'DEADLINE'          => $this->input->post('deadline')
+            'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))          
         );
         $this->load->model('komplain_model');
 
@@ -105,12 +105,7 @@ class Komplain extends CI_Controller{
                     echo 'simpan ' . $data_value . ' ';
                   }
               }
-            }
-            /*unlink($file);
-            echo '<script language="javascript">';
-            echo 'alert("upload file berhasil");';
-            echo 'window.location.href = "' . site_url('komplain/') . '";';
-            echo '</script>';  */          
+            }   
         }
         else
         {
@@ -167,7 +162,8 @@ class Komplain extends CI_Controller{
         'SOLUSI'            => $this->input->post('solusi'),
         'STATUS_KOMPLAIN'   => $this->input->post('statuskomplain'),
         'KETERANGAN'        => $this->input->post('ket'),
-        'DEADLINE'          => $this->input->post('deadline')
+        'DEADLINE'          => $this->input->post('deadline'),
+        'DOKUMEN'           => $this->input->post('dokumen')
           //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))          
         );
       
