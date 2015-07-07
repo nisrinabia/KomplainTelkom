@@ -7,7 +7,7 @@ function deldata() {
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Data Komplain
+      <?php echo $judul ?>
     	<small>Daftar Data Komplain</small>
     </h1>
     <ol class="breadcrumb">
@@ -22,20 +22,23 @@ function deldata() {
   	<div class="row">
       <div class="col-xs-12">
           <div class="box-body">
+            <form action="<?php echo base_url() ?>komplain">
+              <input type="submit" class="btn btn-primary" value="Tambah Komplain">
+            </form>
             <br>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th style="background-color:#F6A2A1!important">AKSI</th>
-                  <th>NO. POTS</th>
-                  <th>NO. INTERNET</th>
-                  <th>NAMA PELAPOR</th>
-                  <th>ALAMAT PELAPOR</th>
-                  <th>LAYANAN</th>
-                  <th>JENIS KOMPLAIN</th>
-                  <th>TGL KOMPLAIN</th>
-                  <th>TGL CLOSE</th>
-                  <th>STATUS</th>
+                  <th style="background-color:#FACC2E!important">AKSI</th>
+                  <th style="background-color:#FACC2E!important">NO. POTS</th>
+                  <th style="background-color:#FACC2E!important">NO. INTERNET</th>
+                  <th style="background-color:#FACC2E!important">NAMA PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">ALAMAT PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">LAYANAN</th>
+                  <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL CLOSE</th>
+                  <th style="background-color:#FACC2E!important">STATUS</th>
                 </tr>
               </thead>
               <tbody>
@@ -66,16 +69,16 @@ function deldata() {
               </tbody>
               <tfoot>
                 <tr>
-                  <th style="background-color:#F6A2A1!important">AKSI</th>
-                  <th>NO. POTS</th>
-                  <th>NO. INTERNET</th>
-                  <th>NAMA PELAPOR</th>
-                  <th>ALAMAT PELAPOR</th>
-                  <th>LAYANAN</th>
-                  <th>JENIS KOMPLAIN</th>
-                  <th>TGL KOMPLAIN</th>
-                  <th>TGL CLOSE</th>
-                  <th>STATUS</th>
+                  <th style="background-color:#FACC2E!important">AKSI</th>
+                  <th style="background-color:#FACC2E!important">NO. POTS</th>
+                  <th style="background-color:#FACC2E!important">NO. INTERNET</th>
+                  <th style="background-color:#FACC2E!important">NAMA PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">ALAMAT PELAPOR</th>
+                  <th style="background-color:#FACC2E!important">LAYANAN</th>
+                  <th style="background-color:#FACC2E!important">JENIS KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL KOMPLAIN</th>
+                  <th style="background-color:#FACC2E!important">TGL CLOSE</th>
+                  <th style="background-color:#FACC2E!important">STATUS</th>
                 </tr>
               </tfoot>
             </table>

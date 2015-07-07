@@ -5,9 +5,9 @@ class Komplain extends CI_Controller{
     {
         parent::__construct();
         if($this->session->userdata('login') != TRUE)
-		{
-			redirect('auth');
-		}
+    		{
+    			redirect('auth');
+    		}
     }    
     
     public function index() {        
@@ -67,6 +67,7 @@ class Komplain extends CI_Controller{
     public function showKomplainByPOTS($nopots){
         $this->load->model('komplain_model');
         $data['list'] = $this->komplain_model->showKomplainByPOTS($nopots);
+        $data['judul'] = 'Histori Komplain';
         //print_r($data);
         $this->header();
         $this->load->view('komplain/show_komplain',$data);
@@ -76,15 +77,40 @@ class Komplain extends CI_Controller{
     public function uploadKomplain()
     {
         $target_Path = NULL;
-        if ($_FILES['userFile']['name'] != NULL && $_FILES['userFile']['type'] == 'application/vnd.ms-excel')
+        if ($_FILES['userFile']['type'] == 'application/vnd.ms-excel' && substr($_FILES['userFile']['name'], -3, 3) == 'xls')
         {
             $target_Path = "files/";
-            $target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
+            $target_Path = $target_Path.basename( $_FILES['userFile']['name'] );          
             move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
+            $file = getcwd() . '\files\\' . $_FILES['userFile']['name'];
+            $this->load->library('excel');
+            //read file from path
+            $objPHPExcel = PHPExcel_IOFactory::load($file);
+            //get only the Cell Collection
+            $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
+            $flag = 0;
+            //extract to a PHP readable array format
+            foreach ($cell_collection as $cell) {
+                $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
+                $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
+                if (in_array($column,range('A','Q')) && $row!= 1 && $row != 2 && $row != $flag) {
+                  $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
+                  //header will/should be in row 1 only. of course this can be modified to suit your need.
+                  if ($column == 'A' && $data_value == null) {
+                      echo 'loncati ';
+                      $flag = $row;
+                  }
+                  else
+                  {
+                    echo 'simpan ' . $data_value . ' ';
+                  }
+              }
+            }
+            /*unlink($file);
             echo '<script language="javascript">';
             echo 'alert("upload file berhasil");';
             echo 'window.location.href = "' . site_url('komplain/') . '";';
-            echo '</script>';   
+            echo '</script>';  */          
         }
         else
         {
@@ -98,6 +124,7 @@ class Komplain extends CI_Controller{
     public function showAllKomplain(){
       $this->load->model('komplain_model');
       $data['list'] = $this->komplain_model->showAllKomplain();
+      $data['judul'] = 'Data Komplain';
       //print_r($data);
       $this->header();
       $this->load->view('komplain/show_komplain', $data);
