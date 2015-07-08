@@ -282,9 +282,9 @@ class Janji extends CI_Controller {
         if($mode == "all")
         {
             //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -294,9 +294,9 @@ class Janji extends CI_Controller {
         }
         else if($mode == "past")
         {
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 0 AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 0 AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -306,9 +306,9 @@ class Janji extends CI_Controller {
         }
         else if($mode == "oneday")
         {
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND (TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 24 AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 0) AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND (TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 24 AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 0) AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -318,9 +318,9 @@ class Janji extends CI_Controller {
         }
         else if($mode == "before")
         {
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 24 AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 24 AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -461,9 +461,9 @@ class Janji extends CI_Controller {
         if($mode == "all")
         {
             //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -473,9 +473,9 @@ class Janji extends CI_Controller {
         }
         else if($mode == "past")
         {
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 0 AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 0 AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -485,9 +485,9 @@ class Janji extends CI_Controller {
         }
         else if($mode == "oneday")
         {
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND (TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 24 AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 0) AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND (TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') < 24 AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 0) AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
@@ -497,9 +497,9 @@ class Janji extends CI_Controller {
         }
         else if($mode == "before")
         {
-            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, k.TGL_KOMPLAIN, k.TGL_CLOSE, k.DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
+            $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') as HOUR"); 
             $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 24 AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
+            $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND TIME_FORMAT(TIMEDIFF((k.DEADLINE),NOW()), '%H') > 24 AND k.STATUS_JANJI = 0 AND k.DEADLINE != '0000-00-00 00:00:00' AND k.DEADLINE IS NOT NULL AND substr(k.TGL_KOMPLAIN,6,2)='$bulan' and substr(k.TGL_KOMPLAIN,1,4)='$tahun'");
 
             $query = $this->db->get();
             foreach ($query->result_array() as $row) 
