@@ -1,6 +1,9 @@
 <script>
-function deldata() {
-    return confirm('Apakah Anda yakin akan menghapus data ini?');
+function confirmAction() {
+    return confirm('Apakah Anda yakin akan mengubah status janji ini menjadi telah ditangani? Anda tidak bisa mengubah kembali status janji ini setelah mengubah status janji ini');
+  }
+function confirmActionDel() {
+    return confirm('Apakah Anda yakin akan menghapus dokumen ini?');
   }
 </script>
 <div class="content-wrapper">
@@ -119,6 +122,7 @@ function deldata() {
 		                {
 		                  foreach($list as $row)
 		                  {
+		                  	$id = $row->ID_KOMPLAIN;
 		                  	echo '
 		                  		<p><b>Layanan</b><br>
 		                  		';
@@ -192,9 +196,21 @@ function deldata() {
 		                  	}
 		                  	echo '</p>
 
-		                  		<p><b>Status</b><br>
+		                  		<p><b>Status Komplain</b><br>
 		                  		';
 		                  	if($row->STATUS_KOMPLAIN == '0')
+		                  	{
+		                  		echo 'On progress';
+		                  	}
+		                  	else
+		                  	{
+		                  		echo 'Telah ditangani';
+		                  	}
+		                  	echo '</p>
+
+		                  		<p><b>Status Janji</b><br>
+		                  		';
+		                  	if($row->STATUS_JANJI == '0')
 		                  	{
 		                  		echo 'Belum ditangani';
 		                  	}
@@ -252,16 +268,22 @@ function deldata() {
 		                  		echo 'Belum ada dokumen';
 								echo '
 									<form action="'.base_url().'janji/uploadDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
-							            Select File To Upload:<br />
+							            Upload dokumen:<br />
 							            <input type="file" name="userFile"/>
 							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							            <input type="submit" name="submit" value="Upload dokumen" class="btn btn-success" />
+							            <input type="submit" name="submit" style="margin-top:5px" value="Upload dokumen" class="btn btn-success btn-sm" />
 							         </form>';
 		                  	}
 		                  	else
 		                  	{
-		                  		echo 'yeah';
-		                  	}
+		                  		echo ' 
+		                  		<form action="'.base_url().'janji/hapusDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+									<input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
+									<input type="hidden" name="doc" value="'.$row->DOKUMEN.'"/>
+									<input type="submit" onclick="return confirmActionDel()" name="submit" value="Hapus" class="btn btn-danger btn-sm" />
+									<a href="'.base_url().$row->DOKUMEN.'"><button type="button" class="btn btn-success btn-sm">Download dokumen</button></a>
+								</form>  ';
+							}
 
 		                  	echo'</p>
 		                  		';
@@ -273,6 +295,15 @@ function deldata() {
 		   </fieldset>
 
           </div><!-- /.box-body -->
+          	<div class="box-footer">
+          	<?php
+          	echo '
+          		<form action="'.base_url().'janji/ubahStatus/'.$id.'" method="POST" enctype="multipart/form-data" >
+					<input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
+					<input type="submit" onclick="return confirmAction()" name="submit" style="float:right" value="Ubah Status" class="btn btn-primary" />
+				</form>';
+			?>
+           	</div>
         </div><!-- /.box -->
       </div><!-- /.col -->
     </div><!-- /.row -->

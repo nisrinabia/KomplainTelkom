@@ -554,11 +554,18 @@ class Janji extends CI_Controller {
     function uploadDokumen($id)
     {
         $ref = $this->input->post('uri');
+
+        /*$this->load->model('janji_model');
+        $count = $this->janji_model->countDoc();*/
+
         $target_Path = NULL;
         if ($_FILES['userFile']['name'] != NULL)
         {
+            $path_parts = pathinfo($_FILES["userFile"]["name"]);
+            $extension = $path_parts['extension'];
+            $extension = ".".$extension;
             $target_Path = "dokumen/";
-            $target_Path = $target_Path.basename( $_FILES['userFile']['name'] );
+            $target_Path = $target_Path.$id.$extension;
         }
         $data = array(
             'DOKUMEN' => $target_Path
@@ -581,6 +588,72 @@ class Janji extends CI_Controller {
               echo 'alert("Gagal mengupload dokumen");';
               echo 'window.location.replace("'.$ref.'");';
               echo '</script>';
+        }
+    }
+
+    function ubahStatus($id)
+    {
+        $ref = $this->input->post('uri');
+
+        $data = array(
+            'STATUS_JANJI' => 1
+        );
+        $this->load->model('janji_model');
+        if($this->janji_model->ubahStatusJanji($id, $data))
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Status Janji berhasil diubah. Janji telah ditangani");';
+            echo 'window.location.replace("'.base_url().'janji");';
+            echo '</script>';
+        }
+        else
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Status Janji gagal diubah.");';
+            echo 'window.location.replace("'.$ref.'");';
+            echo '</script>';
+        }
+    }
+
+    function hapusDokumen($id)
+    {
+        $ref = $this->input->post('uri');
+        $directory_doc = $this->input->post('doc');
+
+        $data = array(
+            'DOKUMEN' => NULL
+        );
+
+        $redo = array(
+            'DOKUMEN' => $directory_doc
+        );
+        $this->load->model('janji_model');
+
+
+        if($this->janji_model->deleteDokumen($id, $data))
+        {
+            if(unlink($directory_doc))
+            {
+                echo '<script language="javascript">';
+                echo 'alert("Dokumen berhasil dihapus");';
+                echo 'window.location.replace("'.$ref.'");';
+                echo '</script>';
+            }
+            else
+            {
+                $this->janji_model->tambahDokumen($id, $redo);
+                echo '<script language="javascript">';
+                echo 'alert("Dokumen gagal dihapus. Segera hubungi admin");';
+                echo 'window.location.replace("'.$ref.'");';
+                echo '</script>';
+            }
+        }
+        else
+        {
+            echo '<script language="javascript">';
+            echo 'alert("Dokumen gagal dihapus. Segera hubungi admin");';
+            echo 'window.location.replace("'.$ref.'");';
+            echo '</script>';
         }
     }
 
