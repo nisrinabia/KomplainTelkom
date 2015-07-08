@@ -26,28 +26,38 @@ class Komplain extends CI_Controller{
 
     public function addKomplain(){
         $nopots = $this->input->post('nopots');
-
-        $datakomplain = array(
-            'NO_POTS'           => $this->input->post('nopots'),
-            'NO_INTERNET'       => $this->input->post('noinet'),
-            'NAMA_PELAPOR'      => $this->input->post('nama'),
-            'ALAMAT_PELAPOR'    => $this->input->post('alamat'),
-            'PIC_PELAPOR'       => $this->input->post('pic'),
-            'NAMA_MEDIA'        => $this->input->post('namamedia'),
-            'NAMA_LAYANAN'      => $this->input->post('namalayanan'),
-            'JENIS_KOMPLAIN'    => $this->input->post('jeniskomplain'),
-          //  'TGL_CLOSE'         => $this->input->post('tglclosed'),
-            'TGL_CLOSE'         => $this->input->post(date('Y-m-d', strtotime('tglclosed'))),
-            'KELUHAN'           => $this->input->post('keluhan'),
-            'SOLUSI'            => $this->input->post('solusi'),
-            'STATUS_KOMPLAIN'   => $this->input->post('statuskomplain'),
-            'KETERANGAN'        => $this->input->post('ket'),
-          //  'DEADLINE'          => $this->input->post('deadline')
-            'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))          
-        );
+        $noinet = $this->input->post('noinet');
+        $nama = $this->input->post('nama');
+        $alamat = $this->input->post('alamat');
+        $pic = $this->input->post('pic');
+        $namamedia = $this->input->post('namamedia');
+        $namalayanan = $this->input->post('namalayanan');
+        $jeniskomplain = $this->input->post('jeniskomplain');
+        $tglclosed = $this->input->post('tglclosed');
+          //  'TGL_CLOSE'         => $this->input->post(date('Y-m-d', strtotime('tglclosed'))),
+        $keluhan = $this->input->post('keluhan');
+        $solusi = $this->input->post('solusi');
+        $statuskomplain = $this->input->post('statuskomplain');
+        $ket = $this->input->post('ket');
+        $deadline = $this->input->post('deadline');
+          //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))
+          //07/08/2015 12:57 PM          
+        if(substr($deadline, -2) == 'PM'){
+          $deadline = '07/08/2015 12:57 PM'; 
+          $tanggal = substr($deadline, 0, 10);
+          $menit = substr($deadline, -5, -2);
+          $temp = substr($deadline, 11, 12);
+          $result = $temp + 12;
+          if($result == '24'){
+            $result = '00';
+          }
+          $deadline = $tanggal .' '. $result . ':' . $menit;
+          //echo $deadline;
+        }
+        
         $this->load->model('komplain_model');
 
-        if($this->komplain_model->addKomplain($datakomplain))
+        if($this->komplain_model->addKomplain($nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
         {
               echo '<script language="javascript">';
               echo 'alert("Data berhasil dimasukkan");';
@@ -182,32 +192,39 @@ class Komplain extends CI_Controller{
     }
 
     public function updateKomplain(){
-      //$nama_layanan = $this->input->post('namalayanan');
-      $id=$this->input->post('id');
-      $datakomplain = array(
-        //'ID_KOMPLAIN'       => $this->input->post('id'),
-        'NO_POTS'           => $this->input->post('nopots'),
-        'NO_INTERNET'       => $this->input->post('noinet'),
-        'NAMA_PELAPOR'      => $this->input->post('nama'),
-        'ALAMAT_PELAPOR'    => $this->input->post('alamat'),
-        'PIC_PELAPOR'       => $this->input->post('pic'),
-        'NAMA_MEDIA'        => $this->input->post('namamedia'),
-        'NAMA_LAYANAN'      => $this->input->post('namalayanan'),
-        'JENIS_KOMPLAIN'    => $this->input->post('jeniskomplain'),
-        'TGL_CLOSE'         => $this->input->post('tglclosed'),
+      $nopots = $this->input->post('nopots');
+      $noinet = $this->input->post('noinet');
+      $nama = $this->input->post('nama');
+      $alamat = $this->input->post('alamat');
+      $pic = $this->input->post('pic');
+      $namamedia = $this->input->post('namamedia');
+      $namalayanan = $this->input->post('namalayanan');
+      $jeniskomplain = $this->input->post('jeniskomplain');
+      $tglclosed = $this->input->post('tglclosed');
         //  'TGL_CLOSE'         => $this->input->post(date('Y-m-d', strtotime('tglclosed'))),
-        'KELUHAN'           => $this->input->post('keluhan'),
-        'SOLUSI'            => $this->input->post('solusi'),
-        'STATUS_KOMPLAIN'   => $this->input->post('statuskomplain'),
-        'KETERANGAN'        => $this->input->post('ket'),
-        'DEADLINE'          => $this->input->post('deadline'),
-        'DOKUMEN'           => $this->input->post('dokumen')
-          //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))          
-        );
-      
+      $keluhan = $this->input->post('keluhan');
+      $solusi = $this->input->post('solusi');
+      $statuskomplain = $this->input->post('statuskomplain');
+      $ket = $this->input->post('ket');
+      $deadline = $this->input->post('deadline');
+          //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))
+          //07/08/2015 12:57 PM          
+      if(substr($deadline, -2) == 'PM'){
+        $deadline = '07/08/2015 12:57 PM'; 
+        $tanggal = substr($deadline, 0, 10);
+        $menit = substr($deadline, -5, -2);
+        $temp = substr($deadline, 11, 12);
+        $result = $temp + 12;
+        if($result == '24'){
+          $result = '00';
+        }
+        $deadline = $tanggal .' '. $result . ':' . $menit;
+          //echo $deadline;
+      }
+        
       $this->load->model('komplain_model');
-      
-      if($this->komplain_model->updateKomplain($id, $datakomplain))
+
+      if($this->komplain_model->updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
       {
         echo '<script language="javascript">';
         echo 'alert("Data komplain berhasil diupdate");';
@@ -280,6 +297,7 @@ class Komplain extends CI_Controller{
 
     public function deleteDokumen($id){
       $data = $this->input->post($id);
+      $directory_doc = $this->input->post('doc');
       $data = array(
         'DOKUMEN' => NULL
         );
@@ -287,17 +305,24 @@ class Komplain extends CI_Controller{
 
       if($this->komplain_model->unggahDokumen($id, $data))
         {
-              echo '<script language="javascript">';
-              echo 'alert("Dokumen berhasil dihapus");';
+          if(unlink($directory_doc)){
+            echo '<script language="javascript">';
+            echo 'alert("Dokumen berhasil dihapus");';
               //echo 'window.location.href = "' . site_url('komplain/showKomplainByPOTS/'.$nopots) . '";';
-              echo 'window.history.back();';
-              echo '</script>';
+            echo 'window.history.back();';
+            echo '</script>';
+          }
+          else{
+            echo '<script language="javascript">';
+            echo 'alert("Gagal menghapus dokumen");';
+            echo '</script>';
+          }
         }
         else
         {
-              echo '<script language="javascript">';
-              echo 'alert("Gagal menghapus dokumen");';
-              echo '</script>';
+            echo '<script language="javascript">';
+            echo 'alert("Gagal menghapus dokumen");';
+            echo '</script>';
         }
     }
 

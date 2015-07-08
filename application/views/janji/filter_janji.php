@@ -197,9 +197,17 @@ function deldata() {
                       ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->NAMA_LAYANAN; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->JENIS; ?></td>
-                      <td style="background-color:#F2D9CB!important"><?php echo $row->TGL_KOMPLAIN; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php
-                      if($row->TGL_CLOSE == '0000-00-00' || $row->TGL_CLOSE == '')
+                      if($row->TGL_KOMPLAIN == '00-00-0000 00:00:00' || $row->TGL_KOMPLAIN == '')
+                      {
+                        echo '-';
+                      }
+                      else
+                      {
+                        echo $row->TGL_KOMPLAIN;
+                      }?></td>
+                      <td style="background-color:#F2D9CB!important"><?php
+                      if($row->TGL_CLOSE == '00-00-0000' || $row->TGL_CLOSE == '')
                       {
                         echo '-';
                       }
@@ -250,9 +258,17 @@ function deldata() {
                       ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->NAMA_LAYANAN; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->JENIS; ?></td>
-                      <td style="background-color:#F0E582!important"><?php echo $row->TGL_KOMPLAIN; ?></td>
                       <td style="background-color:#F0E582!important"><?php
-                      if($row->TGL_CLOSE == '0000-00-00' || $row->TGL_CLOSE == '')
+                      if($row->TGL_KOMPLAIN == '00-00-0000 00:00:00' || $row->TGL_KOMPLAIN == '')
+                      {
+                        echo '-';
+                      }
+                      else
+                      {
+                        echo $row->TGL_KOMPLAIN;
+                      }?></td>
+                      <td style="background-color:#F0E582!important"><?php
+                      if($row->TGL_CLOSE == '00-00-0000' || $row->TGL_CLOSE == '')
                       {
                         echo '-';
                       }
@@ -303,9 +319,17 @@ function deldata() {
                       ?></td>
                       <td><?php echo $row->NAMA_LAYANAN; ?></td>
                       <td><?php echo $row->JENIS; ?></td>
-                      <td><?php echo $row->TGL_KOMPLAIN; ?></td>
                       <td><?php
-                      if($row->TGL_CLOSE == '0000-00-00' || $row->TGL_CLOSE == '')
+                      if($row->TGL_KOMPLAIN == '00-00-0000 00:00:00' || $row->TGL_KOMPLAIN == '')
+                      {
+                        echo '-';
+                      }
+                      else
+                      {
+                        echo $row->TGL_KOMPLAIN;
+                      }?></td>
+                      <td><?php
+                      if($row->TGL_CLOSE == '00-00-0000' || $row->TGL_CLOSE == '')
                       {
                         echo '-';
                       }

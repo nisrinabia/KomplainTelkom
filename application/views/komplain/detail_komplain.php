@@ -263,10 +263,11 @@ function deldata() {
 		                  		echo '
 		                  			<div class="form-group">
 		                  				<form action="'.base_url().'komplain/deleteDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
-							            <input type="submit" name="submit" value="Hapus dokumen" class="btn btn-danger btn-sm" />
-							         </form>
-                      					<a href="'.base_url().$doc.'"><button type="button" class="btn btn-success btn-sm">Download Dokumen</button></a>
-                    				</div>
+							            	<input type="hidden" name="doc" value="'.$doc.'"/>
+							            	<input type="submit" name="submit" value="Hapus dokumen" class="btn btn-danger btn-sm" />
+							        	 	<a href="'.base_url().$doc.'"><button type="button" class="btn btn-success btn-sm">Download Dokumen</button></a>
+                    					</form>
+                      				</div>
 		                  		';
 		                  	}
 
