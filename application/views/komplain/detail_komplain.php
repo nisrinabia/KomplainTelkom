@@ -243,8 +243,7 @@ function deldata() {
 		                  		echo $row->KETERANGAN;
 		                  	}
 
-		                  	echo'</p>
-		                  		'}
+		                  	echo'</p>';}
 		                }
 		               ?>
 		            </div>

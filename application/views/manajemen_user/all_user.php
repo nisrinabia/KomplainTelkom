@@ -34,8 +34,8 @@ function deldata() {
                         <th style="background-color:#FACC2E!important">NAMA LENGKAP</th>
                         <th style="background-color:#FACC2E!important">USERNAME</th>
                         <th style="background-color:#FACC2E!important">HAK AKSES</th>
-                        <th style="background-color:#FACC2E!important" width="30px">EDIT</th>
-                        <th style="background-color:#FACC2E!important" width="30px">HAPUS</th>
+                        <th style="background-color:#FACC2E!important" width="20px">EDIT</th>
+                        <th style="background-color:#FACC2E!important" width="20px">HAPUS</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -51,8 +51,8 @@ function deldata() {
                         <td><?php echo $row->USERNAME; ?></td>
                         <td><?php echo $row->JABATAN; ?></td>
                         <?php if ($row->USERNAME != $this->session->userdata('username')) { ?>
-                          <td><a href="<?php echo base_url() . 'users/edit/' . $row->ID_AKUN ?>"><i class="fa fa-pencil text-aqua fa-2x"></i></a></td>
-                          <td><a href="<?php echo base_url() . 'users/delete/' . $row->ID_AKUN ?>" onclick="return deldata()"><i class="fa fa-trash text-red fa-2x"></i></a></td>
+                          <td><a href="<?php echo base_url() . 'users/edit/' . $row->ID_AKUN ?>"><i class="fa fa-pencil text-aqua fa-lg"></i></a></td>
+                          <td><a href="<?php echo base_url() . 'users/delete/' . $row->ID_AKUN ?>" onclick="return deldata()"><i class="fa fa-trash text-red fa-lg"></i></a></td>
                         <?php } 
                         else { ?>
                           <td></td>
