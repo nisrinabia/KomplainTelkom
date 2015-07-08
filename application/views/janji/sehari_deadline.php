@@ -74,7 +74,12 @@ function deldata() {
               <h3 class='box-title'>Daftar Semua Janji Mendekati Deadline</h3>
             </div>
           <div class="box-body">
-          <a href="<?php echo base_url() ?>janji/excel/oneday"><button type="button" class="btn btn-primary">Unduh file excel</button></a>
+          <?php
+          if($list != NULL)
+          {
+            echo '<a href="'.base_url().'janji/excel/oneday"><button type="button" class="btn btn-primary">Unduh file excel</button></a>';
+          }
+          ?>
           <div class="pull-right" style="vertical-align:top;margin-top:5px;">
           <b style="vertical-align:top;">Keterangan: </b>
           <span class="legend" style="background-color:#F0E582!important"></span>Mendekati deadline (kurang dari sehari)
@@ -106,8 +111,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th style="background-color:#F2D9CB!important">
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=oneday" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=oneday" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->DEADLINE; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->NO_POTS; ?></td>
@@ -125,8 +130,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th style="background-color:#F0E582!important">
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=oneday" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=oneday" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td style="background-color:#F0E582!important"><?php echo $row->DEADLINE; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->NO_POTS; ?></td>
@@ -144,8 +149,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th>
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=oneday" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=oneday" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td><?php echo $row->DEADLINE; ?></td>
                       <td><?php echo $row->NO_POTS; ?></td>

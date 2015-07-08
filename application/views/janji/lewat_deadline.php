@@ -106,8 +106,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th style="background-color:#F2D9CB!important">
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->DEADLINE; ?></td>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->NO_POTS; ?></td>
@@ -125,8 +125,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th style="background-color:#F0E582!important">
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td style="background-color:#F0E582!important"><?php echo $row->DEADLINE; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->NO_POTS; ?></td>
@@ -144,8 +144,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th>
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td><?php echo $row->DEADLINE; ?></td>
                       <td><?php echo $row->NO_POTS; ?></td>
