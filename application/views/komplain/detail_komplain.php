@@ -37,6 +37,7 @@ function deldata() {
 		                {
 		                  foreach($list as $row)
 		                  {
+		                  	$doc = $row->DOKUMEN;
 		                  	echo '
 		                  		<p><b>Nomor POTS</b><br>
 		                  		';
@@ -243,7 +244,39 @@ function deldata() {
 		                  		echo $row->KETERANGAN;
 		                  	}
 
+<<<<<<< HEAD
 		                  	echo'</p>';}
+=======
+		                  	echo'</p>
+		                  		<p><b>Dokumen</b><br>
+		                  		';
+		                  	if($row->DOKUMEN == '')
+		                  	{
+		                  		echo 'Belum ada dokumen';
+								echo '
+									<form action="'.base_url().'komplain/unggahDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+							            Select File To Upload:<br />
+							            <input type="file" name="userFile"/>
+							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
+							            <input type="submit" name="submit" value="Upload dokumen" class="btn btn-success" />
+							         </form>';
+		                  	}
+		                  	else
+		                  	{
+		                  		echo '
+		                  			<div class="form-group">
+		                  				<form action="'.base_url().'komplain/deleteDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+							            <input type="submit" name="submit" value="Hapus dokumen" class="btn btn-danger btn-sm" />
+							         </form>
+                      					<a href="'.base_url().$doc.'"><button type="button" class="btn btn-success btn-sm">Download Dokumen</button></a>
+                    				</div>
+		                  		';
+		                  	}
+
+		                  	echo'</p>
+		                  		';
+		                    }
+>>>>>>> afa0556e39fe844246dd41d6282d6994f921f722
 		                }
 		               ?>
 		            </div>
@@ -256,3 +289,5 @@ function deldata() {
     </div><!-- /.row -->
   </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
+
+<!-- /.box-body -->

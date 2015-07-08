@@ -1,6 +1,6 @@
 <script>
 function deldata() {
-    return confirm('Apakah Anda yakin akan menghapus data ini?');
+    return confirm('Apakah Anda yakin akan menghapus komplain ini? Untuk mengubah status komplain, gunakan tombol lihat disamping tombol hapus');
   }
 </script>
 <div class="content-wrapper">
@@ -26,7 +26,7 @@ function deldata() {
               <h4>Navigasi</h4><hr>
                 <a href="<?php echo base_url() ?>janji"><button type="button" class="btn btn-primary">Lihat semua janji</button></a>
                 <a href="<?php echo base_url() ?>janji/sehari_deadline"><button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button></a>
-              	<a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
+                <a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
               <br><br>
               <h4>Filter</h4><hr>
               <form method="get" action="<?php base_url() ?>filterpast">
@@ -65,7 +65,6 @@ function deldata() {
                     ?>
                   </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
-                  <a href="<?php base_url() ?>janji"> <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Menampilkan semua janji yang belum ditangani">Tampilkan semua</button></a>
                 </form>
           </div>
         </div>
@@ -108,7 +107,6 @@ function deldata() {
                     <tr>
                       <th style="background-color:#F2D9CB!important">
                         <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                        <a href="<?php echo base_url() . 'janji/edit/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a>
                         <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
                       </th>
                       <td style="background-color:#F2D9CB!important"><?php echo $row->DEADLINE; ?></td>
@@ -128,8 +126,7 @@ function deldata() {
                     <tr>
                       <th style="background-color:#F0E582!important">
                         <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
-                        <a href="<?php echo base_url() . 'janji/edit/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-black"></i></a>
-                      	<a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
                       </th>
                       <td style="background-color:#F0E582!important"><?php echo $row->DEADLINE; ?></td>
                       <td style="background-color:#F0E582!important"><?php echo $row->NO_POTS; ?></td>
@@ -148,8 +145,7 @@ function deldata() {
                     <tr>
                       <th>
                         <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-aqua"></i></a>
-                        <a href="<?php echo base_url() . 'janji/edit/' . $row->ID_KOMPLAIN ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
-                      	<a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=past" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black"></i></a>
                       </th>
                       <td><?php echo $row->DEADLINE; ?></td>
                       <td><?php echo $row->NO_POTS; ?></td>

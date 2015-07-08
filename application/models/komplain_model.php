@@ -118,8 +118,14 @@ class Komplain_model extends CI_Model
         }
     }
 
+    public function unggahDokumen($id, $data)
+    {
+        $this->db->where('ID_KOMPLAIN', $id);
+        $this->db->update('komplain', $data); 
+        return true;
+    }
+
     public function deleteKomplain($id){
         $this->db->delete('komplain', array('ID_KOMPLAIN' => $id));
     }
-
 }

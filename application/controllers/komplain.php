@@ -242,7 +242,65 @@ class Komplain extends CI_Controller{
       echo '</script>';
     }
 
-    
+    function unggahDokumen($id)
+    {
+        $ref = $this->input->post('uri');
+        $target_Path = NULL;
+        if ($_FILES['userFile']['name'] != NULL)
+        {
+            $path_parts = pathinfo($_FILES["userFile"]["name"]);
+            $extension = $path_parts['extension'];
+            $extension = ".".$extension;
+            $target_Path = "dokumen/";
+            $target_Path = $target_Path.$id.$extension;
+        }
+        $data = array(
+            'DOKUMEN' => $target_Path
+        );
+        $this->load->model('komplain_model');
+        if($this->komplain_model->unggahDokumen($id, $data))
+        {
+            if ($target_Path != NULL)
+            {
+                move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
+            }
+              echo '<script language="javascript">';
+              echo 'alert("Dokumen berhasil diupload");';
+              echo 'window.location.replace("'.$ref.'");';
+              echo '</script>';
+        }
+        else
+        {
+              echo '<script language="javascript">';
+              echo 'alert("Gagal mengupload dokumen");';
+              echo 'window.location.replace("'.$ref.'");';
+              echo '</script>';
+        }
+    }
+
+    public function deleteDokumen($id){
+      $data = $this->input->post($id);
+      $data = array(
+        'DOKUMEN' => NULL
+        );
+      $this->load->model('komplain_model');
+
+      if($this->komplain_model->unggahDokumen($id, $data))
+        {
+              echo '<script language="javascript">';
+              echo 'alert("Dokumen berhasil dihapus");';
+              //echo 'window.location.href = "' . site_url('komplain/showKomplainByPOTS/'.$nopots) . '";';
+              echo 'window.history.back();';
+              echo '</script>';
+        }
+        else
+        {
+              echo '<script language="javascript">';
+              echo 'alert("Gagal menghapus dokumen");';
+              echo '</script>';
+        }
+    }
+
     function header(){
       $data = array(
             'nama' => $this->session->userdata('nama_lengkap'),

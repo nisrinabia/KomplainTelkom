@@ -304,6 +304,32 @@ class Janji_model extends CI_Model
         $this->db->update('komplain', $data); 
         return true;
     }
+
+    public function deleteDokumen($id, $data)
+    {
+        $this->db->where('ID_KOMPLAIN', $id);
+        $this->db->update('komplain', $data); 
+        return true;
+    }
+
+    public function ubahStatusJanji($id, $data)
+    {
+        $this->db->where('ID_KOMPLAIN', $id);
+        $this->db->update('komplain', $data); 
+        return true;
+    }
+
+    /*public function countDoc()
+    {
+        //SELECT COUNT(ID_KOMPLAIN) AS count FROM komplain WHERE DOKUMEN IS NOT NULL
+        $this->db->select('COUNT(ID_KOMPLAIN) AS count');
+        $this->db->from('komplain');
+        $this->db->where('');
+
+        $this->db->where('DOKUMEN', 'IS NOT NULL');
+        //$this->db->update('komplain', $data); 
+        return true;
+    }*/
 }
 
 /* End of file media_model.php */
