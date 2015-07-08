@@ -135,17 +135,19 @@
                 <form role="form" action="<?php base_url() ?>komplain/uploadKomplain" method="post" name="upload_excel" enctype="multipart/form-data">
                   <div class="box-body">
                     <div class="form-group">
+                      <label for="exampleInputFile">Download File Excel Template</label><br/>
+                      Gunakan template ini untuk upload data dalam file excel<br/>
+                      <a href="<?php echo base_url() ?>files/template_komplain_telkom.xls"><button type="button" class="btn btn-success">Download Template Excel</button></a><br/><br/>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer">
                       <label for="exampleInputFile">File input</label>
                       <!-- <input type="file" name="file" id="exampleInputFile" class="input-large"> -->
                       <input name="userFile" type="file" tabindex="1" value="NULL" />
                       <!-- <input type="file" id=""> -->
                       <p class="help-block">Unggah file dengan format .xls</p>
+                      <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                   </div><!-- /.box-body -->
-
-                  <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
                 </form>
               </div><!-- /.box -->
             </div><!--/.col (left) -->

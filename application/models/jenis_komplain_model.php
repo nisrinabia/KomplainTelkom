@@ -4,7 +4,7 @@ class Jenis_komplain_model extends CI_Model
 {
 	public function getListJeniskomp()
  	{
- 		$query = $this->db->get('jenis_komplain');
+ 		$query = $this->db->get_where('jenis_komplain', array('STATUS' => 1));
 
 		if ($query->num_rows() > 0)
 		{
@@ -22,25 +22,35 @@ class Jenis_komplain_model extends CI_Model
 
 	public function addJeniskomp($jenis_komplain)
 	{
-		$result = $this->db->get_where('jenis_komplain',
-			array
-			(
-				'JENIS' => $jenis_komplain
-			)
-		);
+		//Select apakah data yang diinputkan ke database sudah pernah terdaftar
+    	$query = $this->db->get_where('jenis_komplain', array('JENIS' => $jenis_komplain));
 
-		if ($result->num_rows() > 0)
+    	//Cek. Jika telah terdaftar, huh.. 
+    	if ($query->num_rows() > 0)
 		{
-			return FALSE;
+			//Cek apakah data yang diinputkan ke database telah terdaftar dan berstatus 1 (aktif)
+			$cek_if_active = $this->db->get_where('jenis_komplain', array('JENIS' => $jenis_komplain, 'STATUS' => 1));
+
+			//Jika ada, TOLAK! Kita gamau ada duplikasi data, kan?
+			if ($cek_if_active->num_rows() > 0)
+			{
+				return FALSE;
+			}
+			//Jika tidak, maka ubah status record yang telah terdaftar tadi ($jenis_komplain) menjadi 1
+			else
+			{
+				$this->db->where('JENIS', $jenis_komplain);
+				$this->db->update('jenis_komplain', array('STATUS' => 1));
+				return TRUE;
+			}
 		}
+		//Jika tidak ada, insert saja yang baru
 		else
-		{
-			$this->db->insert('jenis_komplain',
-				array
-				(
-					'JENIS' => $jenis_komplain
-				)
-			); 
+		{	
+			$this->db->insert('jenis_komplain',array(
+											'JENIS' => $jenis_komplain, 
+											'STATUS' => 1
+											));
 			return TRUE;
 		}
 	}
@@ -60,26 +70,51 @@ class Jenis_komplain_model extends CI_Model
 
     public function updateJeniskomp($id, $jenis_komplain)
     {
-    	$q = $this->db->get_where('jenis_komplain', array('JENIS' => $id));
-    	$cek_jenis_komplain =  $q->row()->JENIS_KOMPLAIN;
-		$result = $this->db->get_where('jenis_komplain', array('JENIS' => $jenis_komplain));
-
-		if ($result->num_rows() > 0)
+    	//Kalau yang diinputkan sama, nakalan pasti ini. Langsung tolak dan munculkan pesan error
+		//Walaupun beda satu huruf gede kecilnya atau alay sekalipun
+    	$cek_input = strtolower($jenis_komplain);
+    	$cek_id = strtolower($id);
+		if($cek_input == $cek_id)
 		{
-			//echo "apakah disini?";
-			if ($cek_jenis_komplain != $jenis_komplain)
-			{
-				return FALSE;
-			}
+			return FALSE;
 		}
-		$this->db->where('JENIS', $id);
-		$this->db->update('jenis_komplain', array('JENIS_KOMPLAIN' => $jenis_komplain));
-		return TRUE;
+
+    	//Select apakah data yang diinputkan ke database sudah pernah terdaftar
+    	$query = $this->db->get_where('jenis_komplain', array('JENIS' => $jenis_komplain));
+
+    	//Cek. Jika telah terdaftar, huh.. 
+    	if ($query->num_rows() > 0)
+		{
+			//Maka ubah status record yang diganti ($id) menjadi 0
+			//Dan ubah status record yang diinputkan dan telah terdaftar ($jenis_komplain) menjadi 1
+			$this->db->where('JENIS', $jenis_komplain);
+			$this->db->update('jenis_komplain', array('STATUS' => 1));
+
+			$this->db->where('JENIS', $id);
+			$this->db->update('jenis_komplain', array('STATUS' => 0));
+			return TRUE;
+		}
+		//Jika tidak ada, yey. Tinggal ganti status record yang diganti ($id) menjadi 0
+		//Kemudian insert ke database inputan baru dari pengguna
+		//Status record yang diinsertkan menjadi 1
+		else
+		{
+			$this->db->where('JENIS', $id);
+			$this->db->update('jenis_komplain', array('STATUS' => 0));
+			
+			$this->db->insert('jenis_komplain',array(
+											'JENIS' => $jenis_komplain, 
+											'STATUS' => 1
+											));
+			return TRUE;
+		}
 	}
 
-	public function deleteJeniskomp($id)
+	public function deleteJeniskomp($jenis_komplain)
 	{
-		$this->db->delete('jenis_komplain', array('JENIS_KOMPLAIN' => $id));
+		//Simple and straightforward. Cukup ubah statusnya menjadi 0
+		$this->db->where('JENIS', $jenis_komplain);
+		$this->db->update('jenis_komplain', array('STATUS' => 0));
 	}
 }
 

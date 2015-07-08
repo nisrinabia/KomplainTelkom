@@ -42,12 +42,12 @@ function deldata() {
                   foreach($list as $row)
                   { ?>
                   <tr>
-                    <th><?php echo $count; ?></th>
-                    <th><?php echo $row->JENIS; ?></th>
-                      <th>
+                    <td><?php echo $count; ?></td>
+                    <td><?php echo $row->JENIS; ?></td>
+                      <td>
                         <a href="<?php echo base_url() . 'jenis_komplain/edit/' . $row->JENIS ?>" title="Edit"><i class="fa fa-pencil text-aqua"></i></a>
                         <a href="<?php echo base_url() . 'jenis_komplain/delete/' . $row->JENIS?>" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-red"></i></a>
-                      </th>
+                      </td>
                   </tr>
                   <?php 
                   $count = $count + 1;

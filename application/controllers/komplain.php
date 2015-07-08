@@ -91,7 +91,8 @@ class Komplain extends CI_Controller{
 
                 $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
                 $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
-                if (in_array($column,range('A','Q')) && $row!= 1 && $row != 2 && $row != $flag) {
+                if (in_array($column,range('A','Q')) && $row!= 1 && $row != 2 && $row != $flag) 
+                {
                   $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
                   if ($column == 'A' && $data_value == null) {
                       //echo 'loncati ';
@@ -136,8 +137,7 @@ class Komplain extends CI_Controller{
                     }
                   }
                 }
-              }   
-           
+              }
             //echo 'sukses menambahkan ' . $jumlah;
             unlink($file);
             echo '<script language="javascript">';

@@ -51,6 +51,7 @@ class Jenis_komplain extends CI_Controller {
 
     public function edit($id)
     {
+        $id = urldecode($id);
         $this->load->model('jenis_komplain_model');
         $data['result'] = $this->jenis_komplain_model->editJeniskomp($id);
         $this->header();
@@ -60,6 +61,7 @@ class Jenis_komplain extends CI_Controller {
 
     public function update($id)
     {
+        $id = urldecode($id);
         $nama_jenis_komplain = $this->input->post('jeniskomplain');
         $this->load->model('jenis_komplain_model');
         if($this->jenis_komplain_model->updateJeniskomp($id, $nama_jenis_komplain))
@@ -80,6 +82,7 @@ class Jenis_komplain extends CI_Controller {
 
     public function delete($id)
     {
+        $id = urldecode($id);
         $this->load->model('jenis_komplain_model');
         $this->jenis_komplain_model->deleteJeniskomp($id);
         echo '<script language="javascript">';
