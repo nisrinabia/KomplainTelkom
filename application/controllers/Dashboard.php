@@ -16,6 +16,11 @@ class Dashboard extends CI_Controller{
 			'username' => $this->session->userdata('username'),
 			'jabatan' => $this->session->userdata('jabatan')
 		);
+
+        $this->load->model('dashboard_model');
+        $data['komplain'] = $this->dashboard_model->getStatsKomplain();
+        $data['layanan'] = $this->dashboard_model->getStatsLayanan();
+        
         $this->load->view('design/header', $data);
         $this->load->view('dashboard/home', $data);
         $this->load->view('design/footer');
