@@ -21,7 +21,14 @@ function deldata() {
   <div class="box">
   	<div class="row">
       <div class="col-xs-12">
+
           <div class="box-body">
+            <?php
+            if($list != NULL)
+            {
+              echo '<a href="'.base_url().'komplain/excel/"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br/>';
+            }
+            ?>
             <br>
             <table id="example1" class="table table-bordered table-striped">
               <thead>
