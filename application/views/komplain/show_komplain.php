@@ -48,7 +48,7 @@ function deldata() {
                     <td> 
                       <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black"></i></a>
                       <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Ubah"><i class="fa fa-pencil text-black"></i></a>
-                      <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus"><i class="fa fa-trash text-black"></i></a>
+                      <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus" onclick="return deldata();"><i class="fa fa-trash text-black"></i></a>
                     </td>
                     <td><?php echo $row->NO_POTS; ?></td>
                     <td><?php echo $row->NO_INTERNET; ?></td>
