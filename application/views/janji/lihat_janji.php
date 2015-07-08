@@ -1,10 +1,23 @@
-<script>
+<script type="text/javascript">
 function confirmAction() {
     return confirm('Apakah Anda yakin akan mengubah status janji ini menjadi telah ditangani? Anda tidak bisa mengubah kembali status janji ini setelah mengubah status janji ini');
   }
 function confirmActionDel() {
     return confirm('Apakah Anda yakin akan menghapus dokumen ini?');
   }
+function checkNull()
+{
+  var asek = document.getElementById("userFile").value;
+  if(asek == "")
+  {
+    alert("Berkas belum dipilih. Silahkan pilih berkas terlebih dahulu");
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
 </script>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -267,11 +280,11 @@ function confirmActionDel() {
 		                  	{
 		                  		echo 'Belum ada dokumen';
 								echo '
-									<form action="'.base_url().'janji/uploadDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+									<form id="upload" action="'.base_url().'janji/uploadDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
 							            Upload dokumen:<br />
-							            <input type="file" name="userFile"/>
+							            <input type="file" id="userFile" name="userFile"/>
 							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							            <input type="submit" name="submit" style="margin-top:5px" value="Upload dokumen" class="btn btn-success btn-sm" />
+							            <input type="submit" onclick="return checkNull()" name="submit" style="margin-top:5px" value="Upload dokumen" class="btn btn-success btn-sm" />
 							         </form>';
 		                  	}
 		                  	else
@@ -282,7 +295,8 @@ function confirmActionDel() {
 									<input type="hidden" name="doc" value="'.$row->DOKUMEN.'"/>
 									<input type="submit" onclick="return confirmActionDel()" name="submit" value="Hapus" class="btn btn-danger btn-sm" />
 									<a href="'.base_url().$row->DOKUMEN.'"><button type="button" class="btn btn-success btn-sm">Download dokumen</button></a>
-								</form>  ';
+								</form>
+								<p class="fade in" id="errormsg" style="display:none;color:red"></p>';
 							}
 
 		                  	echo'</p>
