@@ -2,12 +2,20 @@
 
 class Komplain_model extends CI_Model
 {
+  
     public function addKomplain($datakomplain)
 	{
 		$this->db->insert('komplain', $datakomplain);
 		return TRUE;
 	}
+/*
+    public function addKomplain($NO_POTS,$NO_INTERNET,$NAMA_PELAPOR,$PIC_PELAPOR,$ALAMAT_PELAPOR,$NAMA_MEDIA,$NAMA_LAYANAN,$JENIS_KOMPLAIN,$KELUHAN,$SOLUSI,$DEADLINE,$STATUS_KOMPLAIN,$TGL_CLOSE, $KETERANGAN)
+    {
+        $sql = "INSERT INTO KOMPLAIN (NAMA_MEDIA, NAMA_LAYANAN, JENIS_KOMPLAIN, TGL_CLOSE, KELUHAN, SOLUSI, STATUS_KOMPLAIN, KETERANGAN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, PIC_PELAPOR, DEADLINE) VALUES ('$NAMA_MEDIA', '$NAMA_LAYANAN', '$JENIS_KOMPLAIN', STR_TO_DATE('$TGL_CLOSE','%Y/%m/%d'), '$KELUHAN', '$SOLUSI', '$STATUS_KOMPLAIN', '$KETERANGAN', '$NO_POTS', '$NO_INTERNET', '$NAMA_PELAPOR', '$ALAMAT_PELAPOR', '$PIC_PELAPOR', STR_TO_DATE('$DEADLINE','%Y/%m/%d %T'))";
+        return $this->db->query($sql);
 
+    }
+*/
     public function addKomplainByFile($NO_POTS,$NO_INTERNET,$NAMA_PELAPOR,$PIC_PELAPOR,$ALAMAT_PELAPOR,$TGL_KOMPLAIN,$NAMA_MEDIA,$NAMA_LAYANAN,$JENIS_KOMPLAIN,$KELUHAN,$SOLUSI,$DEADLINE,$STATUS_KOMPLAIN,$TGL_CLOSE, $KETERANGAN)
     {
         $sql = "INSERT INTO KOMPLAIN (NAMA_MEDIA, NAMA_LAYANAN, JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, KELUHAN, SOLUSI, STATUS_KOMPLAIN, KETERANGAN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, PIC_PELAPOR, DEADLINE) VALUES ('$NAMA_MEDIA', '$NAMA_LAYANAN', '$JENIS_KOMPLAIN', STR_TO_DATE('$TGL_KOMPLAIN','%Y/%m/%d %T'), STR_TO_DATE('$TGL_CLOSE','%Y/%m/%d'), '$KELUHAN', '$SOLUSI', '$STATUS_KOMPLAIN', '$KETERANGAN', '$NO_POTS', '$NO_INTERNET', '$NAMA_PELAPOR', '$ALAMAT_PELAPOR', '$PIC_PELAPOR', STR_TO_DATE('$DEADLINE','%Y/%m/%d %T'))";
@@ -84,7 +92,7 @@ class Komplain_model extends CI_Model
 
     public function updateKomplain($id, $datakomplain){        
         $this->db->where('ID_KOMPLAIN', $id);
-        $this->db->set('komplain', $datakomplain);
+        $this->db->update('komplain', $datakomplain);
         //return TRUE;
     }
 
@@ -113,4 +121,5 @@ class Komplain_model extends CI_Model
     public function deleteKomplain($id){
         $this->db->delete('komplain', array('ID_KOMPLAIN' => $id));
     }
+
 }

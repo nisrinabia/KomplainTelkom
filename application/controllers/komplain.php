@@ -137,8 +137,7 @@ class Komplain extends CI_Controller{
                   }
                 }
               }   
-            }
-          }
+           
             //echo 'sukses menambahkan ' . $jumlah;
             unlink($file);
             echo '<script language="javascript">';
@@ -243,6 +242,7 @@ class Komplain extends CI_Controller{
       echo '</script>';
     }
 
+    
     function header(){
       $data = array(
             'nama' => $this->session->userdata('nama_lengkap'),

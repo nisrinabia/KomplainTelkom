@@ -244,8 +244,7 @@ function deldata() {
 		                  	}
 
 		                  	echo'</p>
-		                  		';
-		                    }
+		                  		'}
 		                }
 		               ?>
 		            </div>
