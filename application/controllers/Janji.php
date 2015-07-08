@@ -373,7 +373,6 @@ class Janji extends CI_Controller {
 
     public function excelFilter($mode, $bulan, $tahun)
     {
-
         $this->excel->setActiveSheetIndex(0);
 
         //name the worksheet
