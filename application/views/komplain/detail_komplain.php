@@ -244,9 +244,6 @@ function deldata() {
 		                  		echo $row->KETERANGAN;
 		                  	}
 
-<<<<<<< HEAD
-		                  	echo'</p>';}
-=======
 		                  	echo'</p>
 		                  		<p><b>Dokumen</b><br>
 		                  		';
@@ -276,7 +273,6 @@ function deldata() {
 		                  	echo'</p>
 		                  		';
 		                    }
->>>>>>> afa0556e39fe844246dd41d6282d6994f921f722
 		                }
 		               ?>
 		            </div>
