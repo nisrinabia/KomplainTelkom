@@ -117,18 +117,29 @@
                     <!-- textarea -->
                     <div class="form-group">
                       <label>Keluhan</label>
-                      <textarea name="keluhan" class="form-control" rows="3" placeholder="Deskripsi Keluhan"></textarea>
+                      <textarea name="keluhan" class="form-control" rows="3" placeholder="Deskripsi Keluhan" value="<?php echo $keluhan ?>"></textarea>
                     </div>
                     <div class="form-group">
                       <label>Solusi</label>
-                      <textarea name="solusi" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
+                      <textarea name="solusi" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan" value="<?php echo $solusi ?>"></textarea>
                     </div>
 
                     <div class="form-group">
                       <label>Status Komplain</label>
-                      <select name="statuskomplain" class="form-control">
-                        <option value="0">In Progress</option>
-                        <option value="1">Closed</option>
+                      <?php
+                        //wecho $statuskomplain;
+                      ?>
+                      <select name="statuskomplain" class="form-control"/>
+                        <?php 
+                          if($statuskomplain == '0'){
+                            echo '<option value="0" selected>In Progress</option>';
+                            echo '<option value="1" >Closed</option>';
+                          }
+                          else{
+                            echo '<option value="0">In Progress</option>';
+                            echo '<option value="1" selected>Closed</option>';
+                          }
+                        ?>
                       </select>
                     </div>
 
@@ -136,20 +147,20 @@
                     <label>Tanggal Closed</label>
                       <div class="col-md-12">
                         <!-- <input type="date" name="tglclosed"/> -->
-                        <input type="date" class="form-control" name="tglclosed" value="">
+                        <input type="text" class="form-control" id="dp1" name="tglclosed" value="<?php echo $tglclosed?>" />
                       </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
                     <label>Tanggal Janji</label>
                       <div class="col-md-12">
-                        <input type="datetime" class="form-control" id="datetimepicker12" name="deadline"/>
+                        <input type="text" class="form-control" id="datetimepicker12" name="deadline" value="<?php echo $deadline?>"/>
                       </div>
                   </div><!-- /.form group -->
 
                   <div class="form-group">
                     <label>Keterangan Tambahan</label>
-                    <textarea name="ket" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"></textarea>
+                    <textarea name="ket" class="form-control" rows="3" placeholder="Keterangan" value="<?php echo $ket?>"></textarea>
                   </div>
 
                   <div class="box-footer">
