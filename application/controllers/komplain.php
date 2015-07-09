@@ -24,6 +24,32 @@ class Komplain extends CI_Controller{
         $this->load->view('design/footer');
     }
 
+    public function komplain_plasa_psb()
+    {        
+        $this->load->model('jenis_komplain_model');
+        $this->load->model('layanan_model');
+
+        $data['jenis_komplain'] = $this->jenis_komplain_model->getListJeniskomp();
+        $data['nama_layanan'] = $this->layanan_model->getListLayanan();
+
+        $this->header();
+        $this->load->view('komplain/add_komplain_plasa_psb', $data);
+        $this->load->view('design/footer');
+    }
+
+    public function komplain_plasa_gangguan()
+    {        
+        $this->load->model('jenis_komplain_model');
+        $this->load->model('layanan_model');
+
+        $data['jenis_komplain'] = $this->jenis_komplain_model->getListJeniskomp();
+        $data['nama_layanan'] = $this->layanan_model->getListLayanan();
+
+        $this->header();
+        $this->load->view('komplain/add_komplain_plasa_gangguan', $data);
+        $this->load->view('design/footer');
+    }
+
     public function addKomplain(){
         $nopots = $this->input->post('nopots');
         $noinet = $this->input->post('noinet');
