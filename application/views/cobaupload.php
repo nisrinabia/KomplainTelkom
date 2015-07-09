@@ -12,3 +12,22 @@ echo ($a == 'closed' ? 1 : 0);*/
 $a = '12:00';
 $a = $a + '12:00';
 echo $a;
+
+$deadline = '07/08/2015 12:20 AM'; 
+$tanggal = substr($deadline, 0, 10);
+$menit = substr($deadline, -5, -3);
+$temp = substr($deadline, -8, -6);
+if(substr($deadline, -2) == 'PM'){
+	$result = $temp + 12;
+	if($result == '24'){
+        $result = '00';
+	}
+	$deadline = $tanggal .' '. $result . ':' . $menit;
+	echo $deadline;
+}
+else{
+
+	$deadline = $tanggal .' '. $temp . ':' . $menit;
+	echo $deadline;	
+}
+

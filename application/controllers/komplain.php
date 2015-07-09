@@ -42,17 +42,21 @@ class Komplain extends CI_Controller{
         $deadline = $this->input->post('deadline');
           //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))
           //07/08/2015 12:57 PM          
+        $tanggal = substr($deadline, 0, 10);
+        $menit = substr($deadline, -5, -3);
+        $temp = substr($deadline, -8, -6);
         if(substr($deadline, -2) == 'PM'){
-          $deadline = '07/08/2015 12:57 PM'; 
-          $tanggal = substr($deadline, 0, 10);
-          $menit = substr($deadline, -5, -2);
-          $temp = substr($deadline, 11, 12);
           $result = $temp + 12;
           if($result == '24'){
-            $result = '00';
+                $result = '00';
           }
           $deadline = $tanggal .' '. $result . ':' . $menit;
-          //echo $deadline;
+          echo $deadline;
+        }
+        else{
+
+          $deadline = $tanggal .' '. $temp . ':' . $menit;
+          echo $deadline; 
         }
         
         $this->load->model('komplain_model');
@@ -209,17 +213,21 @@ class Komplain extends CI_Controller{
       $deadline = $this->input->post('deadline');
           //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))
           //07/08/2015 12:57 PM          
+      $tanggal = substr($deadline, 0, 10);
+      $menit = substr($deadline, -5, -3);
+      $temp = substr($deadline, -8, -6);
       if(substr($deadline, -2) == 'PM'){
-        $deadline = '07/08/2015 12:57 PM'; 
-        $tanggal = substr($deadline, 0, 10);
-        $menit = substr($deadline, -5, -2);
-        $temp = substr($deadline, 11, 12);
         $result = $temp + 12;
         if($result == '24'){
-          $result = '00';
+              $result = '00';
         }
         $deadline = $tanggal .' '. $result . ':' . $menit;
-          //echo $deadline;
+        echo $deadline;
+      }
+      else{
+
+        $deadline = $tanggal .' '. $temp . ':' . $menit;
+        echo $deadline; 
       }
         
       $this->load->model('komplain_model');

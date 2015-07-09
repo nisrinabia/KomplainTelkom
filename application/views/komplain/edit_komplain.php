@@ -117,11 +117,11 @@
                     <!-- textarea -->
                     <div class="form-group">
                       <label>Keluhan</label>
-                      <textarea name="keluhan" class="form-control" rows="3" placeholder="Deskripsi Keluhan" value="<?php echo $keluhan ?>"></textarea>
+                      <textarea name="keluhan" class="form-control" rows="3" placeholder="Deskripsi Keluhan"><?php echo $keluhan;?></textarea>
                     </div>
                     <div class="form-group">
                       <label>Solusi</label>
-                      <textarea name="solusi" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan" value="<?php echo $solusi ?>"></textarea>
+                      <textarea name="solusi" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"><?php echo $solusi;?></textarea>
                     </div>
 
                     <div class="form-group">
@@ -160,7 +160,7 @@
 
                   <div class="form-group">
                     <label>Keterangan Tambahan</label>
-                    <textarea name="ket" class="form-control" rows="3" placeholder="Keterangan" value="<?php echo $ket?>"></textarea>
+                    <textarea name="ket" class="form-control" rows="3" placeholder="Keterangan"><?php echo $ket;?></textarea>
                   </div>
 
                   <div class="box-footer">
@@ -171,5 +171,4 @@
               </div><!-- /.box -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
-      </div><!-- /.content-wrapper -->
-    
+      </div><!-- /.content-wrapper -->    
