@@ -5,6 +5,13 @@
     var alamat = document.getElementById("alamat").value;
     var pic = document.getElementById("pic").value;
     var dp1 = document.getElementById("dp1").value;
+    var nopots = document.getElementById("nopots").value;
+    if (nopots == "") 
+    {
+      alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("nopots").focus();
+      return false;
+    }
     else if (nama == "") 
     {
       alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
@@ -44,8 +51,9 @@
             <small>Tambah Komplain Gangguan</small>
           </h1>
           <ol class="breadcrumb">
-            <li><i class="fa fa-file-text text-yellow"></i> Layanan plasa</li>
-            <li class="active">Tambah Komplain Gangguan</li>
+            <li><i class="fa fa-file-text text-yellow"></i>  <a href="#">Layanan plasa</a></li>
+            <li>Tambah komplain plasa</li>
+            <li class="active">Gangguan</li>
           </ol>
         </section>
 

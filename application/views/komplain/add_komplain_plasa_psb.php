@@ -5,7 +5,7 @@
     var alamat = document.getElementById("alamat").value;
     var pic = document.getElementById("pic").value;
     var dp1 = document.getElementById("dp1").value;
-    else if (nama == "") 
+    if (nama == "") 
     {
       alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
       document.getElementById("nama").focus();
@@ -35,7 +35,7 @@
     }
 }
 </script>
-      <!-- Content Wrapper. Contains page content -->
+    <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -45,7 +45,8 @@
           </h1>
           <ol class="breadcrumb">
             <li><i class="fa fa-file-text text-yellow"></i>  <a href="#">Layanan plasa</a></li>
-            <li class="active">Tambah komplain PSB</li>
+            <li>Tambah komplain plasa</li>
+            <li class="active">PSB</li>
           </ol>
         </section>
 
