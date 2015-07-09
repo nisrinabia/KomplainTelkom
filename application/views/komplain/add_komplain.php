@@ -1,3 +1,87 @@
+<script type="text/javascript">
+  function checkNull()
+  {
+    var nopots = document.getElementById("nopots").value;
+    var nama = document.getElementById("nama").value;
+    var alamat = document.getElementById("alamat").value;
+    var pic = document.getElementById("pic").value;
+    var dp1 = document.getElementById("dp1").value;
+    if(nopots == "")
+    {
+      alert("Isian Nomor POTS tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("nopots").focus();
+      return false;
+    }
+    else if (nama == "") 
+    {
+      alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("nama").focus();
+      return false;
+    }
+    else if (alamat == "") 
+    {
+      alert("Isian Alamat Pelapor tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("alamat").focus();
+      return false;
+    }
+    else if (pic == "") 
+    {
+      alert("Isian Nomor Telepon Pelapor tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("pic").focus();
+      return false;
+    }
+    else if (dp1 == "") 
+    {
+      alert("Isian Tanggal Close tidak boleh kosong. Silahkan isi kembali");
+      //document.getElementById("tglclosed").focus();
+      return false;
+    }
+    else 
+    {
+      return true;
+    }
+}
+
+function checkFile()
+{
+  var file = document.getElementById("userFile").value;
+  if(file == "") 
+  {
+    alert("Berkas belum dipilih. Silahkan pilih berkas terlebih dahulu");
+    return false;
+  }
+  else 
+  {
+    if(isExcel5(file))
+    {
+      return true;
+    }
+    else
+    {
+      alert("Berkas yang dipilih tidak sesuai dengan format berkas. Silahkan pilih berkas dengan format yang sesuai");
+      return false;
+    }
+  }
+}
+
+function getExtension(filename)
+{
+  var parts = filename.split('.');
+  return parts[parts.length - 1];
+}
+
+function isExcel5(filename)
+{
+  var ext = getExtension(filename);
+  switch (ext.toLowerCase())
+  {
+    case 'xls':
+      //etc
+      return true;
+  }
+  return false;
+}
+</script>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -24,31 +108,32 @@
                   <h3 class="box-title">Data Komplain</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
+                  <p><span class="error"><b>*Isian harus diisi</b></span></p>
                   <form action="<?php echo site_url('Komplain/addKomplain'); ?>" method="post" role="form">
                     <div class="form-group">
-                      <label>Nomor POTS</label>
-                      <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS" autofocus=""/>
+                      <label>Nomor POTS <span class="error">*</span></label>
+                      <input name="nopots" id="nopots" type="text" class="form-control" placeholder="Nomor POTS" autofocus=""/>
                     </div>
                     <div class="form-group">
-                      <label>Nomor Internet (opsional)</label>
+                      <label>Nomor Internet</label>
                       <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet"/>
                     </div>
                     <div class="form-group">
-                      <label>Nama Pelapor</label>
-                      <input name="nama" type="text" class="form-control" placeholder="Nama Lengkap"/>
+                      <label>Nama Pelapor <span class="error">*</span></label>
+                      <input name="nama" id="nama" type="text" class="form-control" placeholder="Nama Lengkap"/>
                     </div>
                     <div class="form-group">
-                      <label>Alamat Pelapor</label>
-                      <input name="alamat" type="text" class="form-control" placeholder="Alamat Lengkap"/>
+                      <label>Alamat Pelapor <span class="error">*</span></label>
+                      <input name="alamat" id="alamat" type="text" class="form-control" placeholder="Alamat Lengkap"/>
                     </div>
                     <div class="form-group">
-                      <label>Nomor Telepon Pelapor</label>
-                      <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor"/>
+                      <label>Nomor Telepon Pelapor <span class="error">*</span></label>
+                      <input name="pic" id="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor"/>
                     </div>
 
                   <!-- select -->
                     <div class="form-group">
-                      <label>Media</label>
+                      <label>Media <span class="error">*</span></label>
                       <select name="namamedia" class="form-control">
                         <?php
                         foreach ($nama_media as $row) {
@@ -59,7 +144,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Layanan</label>
+                      <label>Layanan <span class="error">*</span></label>
                       <select name="namalayanan" class="form-control">
                         <?php
                         foreach ($nama_layanan as $row) {
@@ -70,7 +155,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Jenis Komplain</label>
+                      <label>Jenis Komplain <span class="error">*</span></label>
                       <select name="jeniskomplain" class="form-control">
                         <?php
                         foreach ($jenis_komplain as $row) {
@@ -91,7 +176,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label>Status Komplain</label>
+                      <label>Status Komplain <span class="error">*</span></label>
                       <select name="statuskomplain" class="form-control">
                         <option value="0">In Progress</option>
                         <option value="1">Closed</option>
@@ -99,7 +184,7 @@
                     </div>
 
                   <div class="form-group">
-                    <label>Tanggal Closed</label>
+                    <label>Tanggal Closed (mm-dd-yyyy) <span class="error">*</span></label>
                       <div class="col-md-12">
                         <!-- <input type="date" name="tglclosed"/> -->
                         <input type="text" class="form-control" name="tglclosed" value="" id="dp1" >
@@ -107,7 +192,7 @@
                   </div><!-- /.form group -->
 
                   <div class="form-group">
-                    <label>Tanggal Janji</label>
+                    <label>Tanggal Janji (mm-dd-yyyy HH:MM)</label>
                       <div class="col-md-12">
                         <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
                       </div>
@@ -119,7 +204,7 @@
                     </div>
 
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="return checkNull()">Tambah Komplain</button>
                   </div>
                   </form>
                 </div><!-- /.box-body -->
@@ -142,10 +227,10 @@
                     <div class="box-footer">
                       <label for="exampleInputFile">File input</label>
                       <!-- <input type="file" name="file" id="exampleInputFile" class="input-large"> -->
-                      <input name="userFile" type="file" tabindex="1" value="NULL" />
+                      <input name="userFile" id="userFile" type="file" tabindex="1" value="NULL" />
                       <!-- <input type="file" id=""> -->
                       <p class="help-block">Unggah file dengan format .xls</p>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary" onclick="return checkFile()">Unggah</button>
                     </div>
                   </div><!-- /.box-body -->
                 </form>

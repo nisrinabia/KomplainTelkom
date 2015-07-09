@@ -36,7 +36,6 @@
     
 
   </head>
-  <!-- tambahan bootstrap3
   <script type="text/javascript">
         function preloader(){
             document.getElementById("preloader").style.display = "none";
@@ -45,20 +44,8 @@
         window.onload = preloader;
 </script>
   <style>
-    div#container 
-    {
-        display: none;
-    }
-    div#preloader 
-    {             
-        top: 0; right: 10px;
-        position:absolute;
-        z-index:1000;
-        width: 132px; height: 38px;
-        cursor: wait;
-        text-shadow: 0px 1px 0px #fefefe;  //webkit                 
-    }
-    </style> -->
+    .error {color: #FF0000;}
+  </style>
   <body class="skin-red-light sidebar-mini fixed ">
   <!-- <div id="preloader">Loading... Please Wait.</div> -->
     <div id="container" class="wrapper">
