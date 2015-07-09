@@ -30,6 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php endif ?> -->
 
+<!-- Halaman error pengganti, uncomment code diatas untuk mengembalikan debugger page -->
 <!-- Content Wrapper. Contains page content -->
       <!-- <div class="content-wrapper"> -->
         <!-- Content Header (Page header) -->
