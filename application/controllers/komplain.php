@@ -182,12 +182,14 @@ class Komplain extends CI_Controller{
       $this->load->model('jenis_komplain_model');
       $this->load->model('media_model');
       $this->load->model('layanan_model');
+      $this->load->model('komplain_model');
 
       $data['jenis_komplain'] = $this->jenis_komplain_model->getListJeniskomp();
+      $data['close'] = $this->komplain_model->tgl_closed($id);
       $data['nama_media'] = $this->media_model->getListMedia();
       $data['nama_layanan'] = $this->layanan_model->getListLayanan();
 
-      $this->load->model('komplain_model');
+      
       $data['makan'] = $this->komplain_model->editKomplain($id);
 
       $this->header();
@@ -211,29 +213,40 @@ class Komplain extends CI_Controller{
       $solusi = $this->input->post('solusi');
       $statuskomplain = $this->input->post('statuskomplain');
       $ket = $this->input->post('ket');
-      $deadline = $this->input->post('deadline');
+      $deadlinelama = $this->input->post('deadlinelama');
+      $deadlinebaru = $this->input->post('deadlinebaru');
+      $status = $this->input->post('status');
+      if ($status == 'lama')
+      {
+        $deadline = $deadlinelama;
+      }
+      else
+      {
+        $deadline = $deadlinebaru;
+        $tanggal = substr($deadline, 0, 10);
+        $menit = substr($deadline, -5, -3);
+        $temp = substr($deadline, -8, -6);
+        if(substr($deadline, -2) == 'PM'){
+          $result = $temp + 12;
+          if($result == '24'){
+                $result = '00';
+          }
+          $deadline = $tanggal .' '. $result . ':' . $menit;
+          //echo $deadline;
+        }
+        else{
+
+          $deadline = $tanggal .' '. $temp . ':' . $menit;
+          //echo $deadline; 
+        }
+      }
           //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))
           //07/08/2015 12:57 PM          
-      $tanggal = substr($deadline, 0, 10);
-      $menit = substr($deadline, -5, -3);
-      $temp = substr($deadline, -8, -6);
-      if(substr($deadline, -2) == 'PM'){
-        $result = $temp + 12;
-        if($result == '24'){
-              $result = '00';
-        }
-        $deadline = $tanggal .' '. $result . ':' . $menit;
-        //echo $deadline;
-      }
-      else{
-
-        $deadline = $tanggal .' '. $temp . ':' . $menit;
-        //echo $deadline; 
-      }
+      
         
       $this->load->model('komplain_model');
-      echo $deadline;
-      /*if($this->komplain_model->updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
+      //echo $status . $deadline;
+      if($this->komplain_model->updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline, $status))
       {
         echo '<script language="javascript">';
         echo 'alert("Data komplain berhasil diupdate");';
@@ -246,7 +259,7 @@ class Komplain extends CI_Controller{
         echo 'alert("Gagal mengupdate data komplain");';
         echo 'window.history.back();';
         echo '</script>';
-      }*/
+      }
     }
 
     public function detailKomplain($id){

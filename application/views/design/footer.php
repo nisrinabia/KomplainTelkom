@@ -189,12 +189,14 @@
     {
        document.getElementById('awal').style.display='block';
        document.getElementById('editkan').style.display='none';
+       document.getElementById('status').value="lama";
     }
 
     function edit_tanggal()
     {
        document.getElementById('awal').style.display='none';
        document.getElementById('editkan').style.display='block';
+       document.getElementById('status').value="baru";
     }
     </script>
     <script type="text/javascript">

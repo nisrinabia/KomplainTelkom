@@ -91,11 +91,29 @@ class Komplain_model extends CI_Model
         }
     }
 
-    public function updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline){        
+    public function tgl_closed($id){
+        $query = $this->db->query("SELECT (DATE_FORMAT((SELECT TGL_CLOSE FROM KOMPLAIN WHERE ID_KOMPLAIN = '$id'), '%m-%d-%Y')) AS TANGGAL_CLOSED");
+        if ($query->num_rows() > 0) 
+        {
+            return $query->result_array();
+        }
+        else 
+        {
+            return FALSE;
+        }
+    }
+ 
+    public function updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline, $status){        
         //$this->db->where('ID_KOMPLAIN', $id);
         //$this->db->update('komplain', $datakomplain);
         //return TRUE;
-        $sql ="UPDATE KOMPLAIN SET NO_POTS='$nopots', NO_INTERNET='$noinet', NAMA_PELAPOR='$nama', ALAMAT_PELAPOR='$alamat', PIC_PELAPOR='$pic', NAMA_MEDIA='$namamedia', NAMA_LAYANAN='$namalayanan', JENIS_KOMPLAIN='$jeniskomplain', TGL_CLOSE='STR_TO_DATE('$tglclosed','%m-%d-%Y')', KELUHAN='$keluhan', SOLUSI='$solusi', STATUS_KOMPLAIN='$statuskomplain', KETERANGAN='$ket', DEADLINE='STR_TO_DATE('$deadline','%m/%d/%Y %T')' WHERE ID_KOMPLAIN='$id'";
+        if ($status == "baru"){
+            $sql ="UPDATE KOMPLAIN SET NO_POTS='$nopots', NO_INTERNET='$noinet', NAMA_PELAPOR='$nama', ALAMAT_PELAPOR='$alamat', PIC_PELAPOR='$pic', NAMA_MEDIA='$namamedia', NAMA_LAYANAN='$namalayanan', JENIS_KOMPLAIN='$jeniskomplain', TGL_CLOSE=STR_TO_DATE('$tglclosed','%m-%d-%Y'), KELUHAN='$keluhan', SOLUSI='$solusi', STATUS_KOMPLAIN='$statuskomplain', KETERANGAN='$ket', DEADLINE=STR_TO_DATE('$deadline','%m/%d/%Y %T') WHERE ID_KOMPLAIN='$id'";    
+        }
+        else{
+            $sql ="UPDATE KOMPLAIN SET NO_POTS='$nopots', NO_INTERNET='$noinet', NAMA_PELAPOR='$nama', ALAMAT_PELAPOR='$alamat', PIC_PELAPOR='$pic', NAMA_MEDIA='$namamedia', NAMA_LAYANAN='$namalayanan', JENIS_KOMPLAIN='$jeniskomplain', TGL_CLOSE=STR_TO_DATE('$tglclosed','%m-%d-%Y'), KELUHAN='$keluhan', SOLUSI='$solusi', STATUS_KOMPLAIN='$statuskomplain', KETERANGAN='$ket', DEADLINE=STR_TO_DATE('$deadline','%Y-%m-%d %T') WHERE ID_KOMPLAIN='$id'";
+        }
+        
         //$sql = "INSERT INTO KOMPLAIN (NAMA_MEDIA, NAMA_LAYANAN, JENIS_KOMPLAIN, TGL_CLOSE, KELUHAN, SOLUSI, STATUS_KOMPLAIN, KETERANGAN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, PIC_PELAPOR, DEADLINE) VALUES ('$namamedia', '$namalayanan', '$jeniskomplain', STR_TO_DATE('$tglclosed','%m-%d-%Y'), '$keluhan', '$solusi', '$statuskomplain', '$ket', '$nopots', '$noinet', '$nama', '$alamat', '$pic', STR_TO_DATE('$deadline','%m/%d/%Y %T'))";
         return $this->db->query($sql);
     }

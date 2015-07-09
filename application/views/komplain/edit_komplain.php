@@ -148,7 +148,9 @@
                     <label>Tanggal Closed</label>
                       <div class="col-md-12">
                         <!-- <input type="date" name="tglclosed"/> -->
-                        <input type="text" class="form-control" id="dp1" name="tglclosed" value="<?php echo $tglclosed?>" />
+                        <?php foreach ($close as $tanggal) { ?>
+                        <input type="text" class="form-control" id="dp1" name="tglclosed" value="<?php echo $tanggal['TANGGAL_CLOSED'] ?>" />
+                        <?php } ?>
                       </div>
                   </div><!-- /.form group -->
 
@@ -156,19 +158,19 @@
                       <div class="form-group">
                             <label>Tanggal Janji</label>
                           <div class="col-md-12">
-                            <input class="col-md-6" type="text" class="form-control" name="deadline" value="<?php echo $deadline?>" style="padding-right: 300px"/>
+                            <input class="col-md-6" type="text" class="form-control" name="deadlinelama" value="<?php echo $deadline?>" style="padding-right: 300px"/>
                             <div class="col-md-3">
                                 <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit Tanggal janji</button>
                             </div>
                           </div>
                       </div>
                   </div>
-                  
+                  <input type="hidden" name = "status" value="lama" id="status">
                   <div id="editkan" style="display:none;">
                       <div class="form-group">
                           <label>Tanggal Janji</label>
                           <div class="col-md-12">
-                            <input class="col-md-9" type="text" class="form-control" id="datetimepicker12" name="deadline" value="<?php echo $deadline?>"/>
+                            <input class="col-md-9" type="text" class="form-control" id="datetimepicker12" name="deadlinebaru" value="<?php echo $deadline?>"/>
                             <div class="col-md-3">
                                 <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="batal()">Batal</button>
                             </div>
