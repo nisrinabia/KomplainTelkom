@@ -31,4 +31,16 @@ class Dashboard extends CI_Controller{
         $this->load->view('dashboard/home', $data);
         $this->load->view('design/footer');
     }
+
+    public function errorPage()
+    {
+        $data = array(
+            'nama' => $this->session->userdata('nama_lengkap'),
+            'username' => $this->session->userdata('username'),
+            'jabatan' => $this->session->userdata('jabatan')
+        );
+        $this->load->view('design/header', $data);
+        $this->load->view('errors/error');
+        $this->load->view('design/footer');
+    }
 }
