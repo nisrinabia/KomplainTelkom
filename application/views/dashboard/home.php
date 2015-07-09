@@ -215,6 +215,21 @@
             <!-- fix for small devices only -->
             <div class="clearfix visible-sm-block"></div>
 
+            <?php
+            if($nama == 'Administrator')
+            echo '
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="info-box">
+              <a href="'. base_url() .'users">
+                <span class="info-box-icon bg-navy"><i class="fa fa-user-plus"></i></span></a>
+                <div class="info-box-content">
+                  <span class="info-box-text">Tambah User Baru</span>
+                </div><!-- /.info-box-content -->
+              </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            ';
+            ?>
+
             <div class="col-md-4 col-sm-6 col-xs-12">
               <div class="info-box">
               <a href="<?php echo base_url() ?>media/tambah">
