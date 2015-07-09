@@ -44,11 +44,11 @@ function checkNull()
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  
-  <body class="login-page">
+
+  <body style="background-image:url('<?php echo base_url() ?>assets/dist/img/loginback.jpg');background-size: cover;background-position: left bottom;overflow-y:hidden;" class="login-page">
 
     <div class="login-logo">
-        <a href="<?=base_url();?>"><b>Sistem Informasi Pengaduan</b> Telkom Malang</a>
+        <a href="<?=base_url();?>" style="color:#ffffff;text-shadow: 2px 2px 4px #000000;"><b>Sistem Informasi Pengaduan</b> Telkom Malang</a>
     </div><!-- /.login-logo -->
 
     <div class="login-box">
