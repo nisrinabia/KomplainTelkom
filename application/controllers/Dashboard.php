@@ -20,6 +20,12 @@ class Dashboard extends CI_Controller{
         $this->load->model('dashboard_model');
         $data['komplain'] = $this->dashboard_model->getStatsKomplain();
         $data['layanan'] = $this->dashboard_model->getStatsLayanan();
+        $data['jenis'] = $this->dashboard_model->getStatsJenis();
+        $data['media'] = $this->dashboard_model->getStatsMedia();
+        $data['janjiall'] = $this->dashboard_model->getStatsJanjiAll();
+        $data['janjipast'] = $this->dashboard_model->getStatsJanjiPast();
+        $data['janjioneday'] = $this->dashboard_model->getStatsJanjiOneDay();
+        $data['janjibefore'] = $this->dashboard_model->getStatsJanjiBefore();
         
         $this->load->view('design/header', $data);
         $this->load->view('dashboard/home', $data);

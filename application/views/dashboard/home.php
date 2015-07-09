@@ -33,7 +33,7 @@
                 <div class="icon">
                   <i class="fa fa-file-text"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>komplain/showAllKomplain" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -53,7 +53,7 @@
                 <div class="icon">
                   <i class="fa fa-gears"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>layanan" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -62,13 +62,18 @@
               <!-- small box -->
               <div class="small-box bg-purple">
                 <div class="inner">
-                  <h3>44</h3>
-                  <p>Jenis Komplain Terdaftar</p>
+                  <?php
+                  foreach ($jenis as $row) 
+                  {
+                    echo '<h3>'.$row['JML_JENIS'].'</h3>';
+                  }
+                  ?>
+                  <p>Jenis KomplainTerdaftar</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-list"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>jenis_komplain" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -77,13 +82,18 @@
               <!-- small box -->
               <div class="small-box bg-maroon">
                 <div class="inner">
-                  <h3>65</h3>
+                  <?php
+                  foreach ($media as $row) 
+                  {
+                    echo '<h3>'.$row['JML_MEDIA'].'</h3>';
+                  }
+                  ?>
                   <p>Media Terdaftar</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-phone-square"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>media" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -96,13 +106,18 @@
               <!-- small box -->
               <div class="small-box bg-olive">
                 <div class="inner">
-                  <h3>150</h3>
+                  <?php
+                  foreach ($janjiall as $row) 
+                  {
+                    echo '<h3>'.$row['JML_JANJI_ALL'].'</h3>';
+                  }
+                  ?>
                   <p>Janji Belum Ditangani</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-file-text"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>janji" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -111,13 +126,18 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+                  <?php
+                  foreach ($janjipast as $row) 
+                  {
+                    echo '<h3>'.$row['JML_JANJI_PAST'].'</h3>';
+                  }
+                  ?>
                   <p>Janji Melewati Deadline</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-exclamation-circle"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>janji/lewat_deadline" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -126,13 +146,18 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <?php
+                  foreach ($janjioneday as $row) 
+                  {
+                    echo '<h3>'.$row['JML_JANJI_ONE_DAY'].'</h3>';
+                  }
+                  ?>
                   <p>Janji Mendekati Deadline</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-exclamation-triangle"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>janji/sehari_deadline" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
@@ -141,13 +166,18 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>65</h3>
+                  <?php
+                  foreach ($janjibefore as $row) 
+                  {
+                    echo '<h3>'.$row['JML_JANJI_BEFORE'].'</h3>';
+                  }
+                  ?>
                   <p>Janji Sebelum Deadline</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-tasks"></i>
                 </div>
-                <a href="#" class="small-box-footer">
+                <a href="<?php echo base_url() ?>janji/sebelum_deadline" class="small-box-footer">
                   Selengkapnya <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
