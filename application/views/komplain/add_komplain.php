@@ -27,7 +27,7 @@
                   <form action="<?php echo site_url('Komplain/addKomplain'); ?>" method="post" role="form">
                     <div class="form-group">
                       <label>Nomor POTS</label>
-                      <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS"/>
+                      <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS" autofocus=""/>
                     </div>
                     <div class="form-group">
                       <label>Nomor Internet (opsional)</label>
