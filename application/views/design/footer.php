@@ -184,6 +184,19 @@
         });
       });
     </script>
+    <script language="javascript">
+    function batal()
+    {
+       document.getElementById('awal').style.display='block';
+       document.getElementById('editkan').style.display='none';
+    }
+
+    function edit_tanggal()
+    {
+       document.getElementById('awal').style.display='none';
+       document.getElementById('editkan').style.display='block';
+    }
+    </script>
     <script type="text/javascript">
         $(function () {
             $('#datetimepicker12').datetimepicker({

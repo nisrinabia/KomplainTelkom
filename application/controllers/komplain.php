@@ -51,12 +51,12 @@ class Komplain extends CI_Controller{
                 $result = '00';
           }
           $deadline = $tanggal .' '. $result . ':' . $menit;
-          echo $deadline;
+          //echo $deadline;
         }
         else{
 
           $deadline = $tanggal .' '. $temp . ':' . $menit;
-          echo $deadline; 
+          //echo $deadline; 
         }
         
         $this->load->model('komplain_model');
@@ -196,6 +196,7 @@ class Komplain extends CI_Controller{
     }
 
     public function updateKomplain(){
+      $id = $this->input->post('id');
       $nopots = $this->input->post('nopots');
       $noinet = $this->input->post('noinet');
       $nama = $this->input->post('nama');
@@ -222,17 +223,17 @@ class Komplain extends CI_Controller{
               $result = '00';
         }
         $deadline = $tanggal .' '. $result . ':' . $menit;
-        echo $deadline;
+        //echo $deadline;
       }
       else{
 
         $deadline = $tanggal .' '. $temp . ':' . $menit;
-        echo $deadline; 
+        //echo $deadline; 
       }
         
       $this->load->model('komplain_model');
-
-      if($this->komplain_model->updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
+      echo $deadline;
+      /*if($this->komplain_model->updateKomplain($id, $nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
       {
         echo '<script language="javascript">';
         echo 'alert("Data komplain berhasil diupdate");';
@@ -245,7 +246,7 @@ class Komplain extends CI_Controller{
         echo 'alert("Gagal mengupdate data komplain");';
         echo 'window.history.back();';
         echo '</script>';
-      }
+      }*/
     }
 
     public function detailKomplain($id){

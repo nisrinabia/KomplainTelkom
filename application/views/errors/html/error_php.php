@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 
-<!-- <h4>A PHP Error was encountered</h4>
+<h4>A PHP Error was encountered</h4>
 
 <p>Severity: <?php echo $severity; ?></p>
 <p>Message:  <?php echo $message; ?></p>
@@ -28,21 +28,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<?php endforeach ?>
 
-<?php endif ?> -->
+<?php endif ?>
 
 <!-- Halaman error pengganti, uncomment code diatas untuk mengembalikan debugger page -->
 <!-- Content Wrapper. Contains page content -->
       <!-- <div class="content-wrapper"> -->
         <!-- Content Header (Page header) -->
-        <section class="content-header">
+
+
+        <!-- <section class="content-header">
           <h1>
             500 Error Page
           </h1>
         </section>
-
-        <!-- Main content -->
         <section class="content">
-
           <div class="error-page">
             <h2 class="headline text-red">500</h2>
             <div class="error-content">
@@ -51,9 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Saat ini Anda mengakses sebuah halaman yang tidak ada, mungkin Anda bisa <a href='<?php echo base_url() ?>'>kembali ke dashboard</a> atau mengakses halaman lain pada menu.
               </p>
             </div>
-          </div><!-- /.error-page -->
+          </div>
+        </section> -->
 
-        </section><!-- /.content -->
+
 <!--       </div>/.content-wrapper -->
 
 </div>

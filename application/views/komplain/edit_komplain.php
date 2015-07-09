@@ -1,3 +1,4 @@
+
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -151,12 +152,35 @@
                       </div>
                   </div><!-- /.form group -->
 
-                  <div class="form-group">
+                  <div id="awal" style="display:block;">
+                      <div class="form-group">
+                            <label>Tanggal Janji</label>
+                          <div class="col-md-12">
+                            <input class="col-md-6" type="text" class="form-control" name="deadline" value="<?php echo $deadline?>" style="padding-right: 300px"/>
+                            <div class="col-md-3">
+                                <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit Tanggal janji</button>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div id="editkan" style="display:none;">
+                      <div class="form-group">
+                          <label>Tanggal Janji</label>
+                          <div class="col-md-12">
+                            <input class="col-md-9" type="text" class="form-control" id="datetimepicker12" name="deadline" value="<?php echo $deadline?>"/>
+                            <div class="col-md-3">
+                                <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="batal()">Batal</button>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- <div class="form-group">
                     <label>Tanggal Janji</label>
                       <div class="col-md-12">
                         <input type="text" class="form-control" id="datetimepicker12" name="deadline" value="<?php echo $deadline?>"/>
                       </div>
-                  </div><!-- /.form group -->
+                  </div> -->
 
                   <div class="form-group">
                     <label>Keterangan Tambahan</label>
