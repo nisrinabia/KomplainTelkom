@@ -5,9 +5,12 @@ class Komplain extends CI_Controller{
     {
         parent::__construct();
         if($this->session->userdata('login') != TRUE)
-    		{
-    			redirect('auth');
-    		}
+        {
+          $this->load->helper('url');
+          $current_uri = base_url(uri_string());
+          $redirect_to = 'auth?ref='.$current_uri;
+          redirect($redirect_to);
+        }
     }    
     
     public function index() {        
