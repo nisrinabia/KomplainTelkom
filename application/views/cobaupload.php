@@ -13,7 +13,7 @@ $a = '12:00';
 $a = $a + '12:00';
 echo $a;
 
-$deadline = '07/08/2015 12:20 AM'; 
+$deadline = '07/08/2015 09.30 PM'; 
 $tanggal = substr($deadline, 0, 10);
 $menit = substr($deadline, -5, -3);
 $temp = substr($deadline, -8, -6);

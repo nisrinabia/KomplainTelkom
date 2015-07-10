@@ -174,6 +174,7 @@ function isExcel5(filename)
                       <select name="statuskomplain" class="form-control">
                         <option value="0">In Progress</option>
                         <option value="1">Closed</option>
+                        <option value="2">Decline</option>
                       </select>
                     </div>
 

@@ -135,10 +135,17 @@
                           if($statuskomplain == '0'){
                             echo '<option value="0" selected>In Progress</option>';
                             echo '<option value="1" >Closed</option>';
+                            echo '<option value="2" >Decline</option>';
                           }
-                          else{
+                          elseif($statuskomplain == '1'){
                             echo '<option value="0">In Progress</option>';
                             echo '<option value="1" selected>Closed</option>';
+                            echo '<option value="2">Decline</option>';
+                          }
+                          else{
+                            echo '<option value ="0">In Proress</option>';
+                            echo '<option value ="1">Closed</option>';
+                            echo '<option value ="2" selected>Decline</optio>';
                           }
                         ?>
                       </select>
