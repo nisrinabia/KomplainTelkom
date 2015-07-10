@@ -41,6 +41,19 @@ function checkNull()
         <div class="box">
           <div class='box-header with-border'>
               <h3 class='box-title'>Informasi data janji</h3>
+	            <?php
+	            if($list != NULL)
+		        {
+		            foreach($list as $row)
+		            {
+		          	echo '
+		          		<form action="'.base_url().'janji/ubahStatus/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+							<input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
+							<input type="submit" onclick="return confirmAction()" name="submit" style="float:right" value="Ubah Status" class="btn btn-primary" />
+						</form>';
+					}
+				}
+				?>
           </div>
           <div class="box-body">
 
@@ -281,10 +294,10 @@ function checkNull()
 		                  		echo 'Belum ada dokumen';
 								echo '
 									<form id="upload" action="'.base_url().'janji/uploadDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
-							            Upload dokumen:<br />
+							            Unggah dokumen:<br />
 							            <input type="file" id="userFile" name="userFile"/>
 							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							            <input type="submit" onclick="return checkNull()" name="submit" style="margin-top:5px" value="Upload dokumen" class="btn btn-success btn-sm" />
+							            <input type="submit" onclick="return checkNull()" name="submit" style="margin-top:5px" value="Unggah dokumen" class="btn btn-success btn-sm" />
 							         </form>';
 		                  	}
 		                  	else
@@ -309,15 +322,6 @@ function checkNull()
 		   </fieldset>
 
           </div><!-- /.box-body -->
-          	<div class="box-footer">
-          	<?php
-          	echo '
-          		<form action="'.base_url().'janji/ubahStatus/'.$id.'" method="POST" enctype="multipart/form-data" >
-					<input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-					<input type="submit" onclick="return confirmAction()" name="submit" style="float:right" value="Ubah Status" class="btn btn-primary" />
-				</form>';
-			?>
-           	</div>
         </div><!-- /.box -->
       </div><!-- /.col -->
     </div><!-- /.row -->

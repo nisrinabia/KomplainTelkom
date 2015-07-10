@@ -13,7 +13,8 @@ class Komplain_model extends CI_Model
     {
 
         $sql = "INSERT INTO KOMPLAIN (NAMA_MEDIA, NAMA_LAYANAN, JENIS_KOMPLAIN, TGL_CLOSE, KELUHAN, SOLUSI, STATUS_KOMPLAIN, KETERANGAN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, PIC_PELAPOR, DEADLINE) VALUES ('$namamedia', '$namalayanan', '$jeniskomplain', STR_TO_DATE('$tglclosed','%m-%d-%Y'), '$keluhan', '$solusi', '$statuskomplain', '$ket', '$nopots', '$noinet', '$nama', '$alamat', '$pic', STR_TO_DATE('$deadline','%m/%d/%Y %T'))";
-        return $this->db->query($sql);
+        $this->db->query($sql);
+        return $this->db->insert_id();
 
     }
 

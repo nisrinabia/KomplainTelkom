@@ -72,6 +72,13 @@ function checkNull()
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           
+          <?php
+          if(!empty($ref) || $ref != '')
+          {
+            echo '<input type="hidden" name="ref" value="'.$ref.'">';
+          }
+          ?>
+
           <div class="row">
               <div class="col-xs-12">
                   <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="return checkNull()">Masuk</button>

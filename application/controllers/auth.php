@@ -10,26 +10,39 @@ class Auth extends CI_Controller {
     
     public function index()
     {
+        $ref = $this->input->get('ref');
         if($this->session->userdata('login') == TRUE)
         {
             redirect('dashboard');
         }
         $data['error'] = FALSE;
+        $data['ref'] = '';
+        if($ref != '' || !empty($ref))
+        {
+            $data['ref'] = $ref;
+        }
         $this->load->view('access/login', $data);         
     }
 
     function reLogin()
     {
+        $ref = $this->input->get('ref');
         if($this->session->userdata('login') == TRUE)
         {
             redirect('dashboard');
         }
         $data['error'] = TRUE;
+        $data['ref'] = '';
+        if($ref != '' || !empty($ref))
+        {
+            $data['ref'] = $ref;
+        }
         $this->load->view('access/login', $data);
     }
 
     function doLogin()
     {
+        $ref = $this->input->post('ref');
         if($this->session->userdata('login') == TRUE)
         {
             redirect('dashboard');
@@ -47,12 +60,19 @@ class Auth extends CI_Controller {
             $jabatan = $this->akun->get_jabatan($username);
             $data = array('username' => $username, 'login' => TRUE, 'nama_lengkap' => $nama, 'jabatan' => $jabatan);
             $this->session->set_userdata($data);
-            redirect('dashboard');
+            if($ref != '' || !empty($ref))
+            {
+                redirect($ref);
+            }
+            else
+            {
+                redirect('dashboard');
+            }
         }
         else
         {
               echo '<script language="javascript">';
-              echo 'window.location.href = "reLogin";';
+              echo 'window.location.href = "reLogin?ref='.$ref.'";';
               echo '</script>';
         }
     }

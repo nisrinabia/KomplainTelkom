@@ -2,6 +2,9 @@
 function deldata() {
     return confirm('Apakah Anda yakin akan menghapus data ini?');
   }
+  function confirmActionDel() {
+    return confirm('Apakah Anda yakin akan menghapus dokumen ini?');
+  }
 </script>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -12,7 +15,7 @@ function deldata() {
     </h1>
     <ol class="breadcrumb">
       <li><i class="fa fa-list"></i> Komplain</li>
-      <li>Daftar semua komplain</li>
+      <li>Daftar data komplain</li>
       <li class="active">Lihat Detail Komplain</li>
     </ol>
   </section>
@@ -28,6 +31,29 @@ function deldata() {
           </div>
           <div class="box-body">
 
+          <?php
+              if($list != NULL)
+              {
+	            foreach($list as $row)
+	            {
+	            	if($row->NO_POTS != '' || $row->NO_POTS != NULL)
+	            	{
+	            		echo '
+	            		<form method="get" action="'.base_url().'komplain/showKomplainByPOTS/'.$row->NO_POTS.'">
+	            		<a href="'.base_url().'komplain/showAllKomplain"><button type="button" class="btn btn-primary">Kembali ke daftar komplain</button></a>
+	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>';
+	            		echo '<input type="hidden" name="uri" value="'.base_url(uri_string()).'">
+	            		<button type="submit" class="btn btn-primary">Lihat historis komplain pelanggan</button></a>
+	            		</form>';
+	            	}
+	            	else
+	            	{
+	            		echo '<a href="'.base_url().'komplain/showAllKomplain"><button type="button" class="btn btn-primary">Kembali</button></a>';
+	            	}
+	            }
+              }
+          ?>
+          <br>
           <fieldset class="data-border">
 		    <legend class="data-border">Data Pelapor</legend>
 		    	<div class="row">
@@ -191,18 +217,7 @@ function deldata() {
 
 		                  		<p><b>Status Komplain</b><br>
 		                  		';
-		                  	if($row->STATUS_KOMPLAIN == '0')
-		                  	{
-		                  		echo 'In Progress';
-		                  	}
-		                  	elseif($row->STATUS_KOMPLAIN == '1')
-		                  	{
-		                  		echo 'Closed';
-		                  	}
-		                  	else
-		                  	{
-		                  		echo 'Decline';
-		                  	}
+		                  	echo $row->STATUS_KOMPLAIN;
 		                  	echo '</p>
 		                  		</div>';
 
@@ -252,10 +267,10 @@ function deldata() {
 		                  		echo 'Belum ada dokumen';
 								echo '
 									<form action="'.base_url().'komplain/unggahDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
-							            Select File To Upload:<br />
+							            Unggah dokumen:<br />
 							            <input type="file" name="userFile"/>
 							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							            <input type="submit" name="submit" value="Upload dokumen" class="btn btn-success" />
+							            <input type="submit" name="submit" value="Unggah dokumen" style="margin-top:5px;" class="btn btn-success btn-sm" />
 							         </form>';
 		                  	}
 		                  	else
@@ -264,7 +279,7 @@ function deldata() {
 		                  			<div class="form-group">
 		                  				<form action="'.base_url().'komplain/deleteDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
 							            	<input type="hidden" name="doc" value="'.$doc.'"/>
-							            	<input type="submit" name="submit" value="Hapus dokumen" class="btn btn-danger btn-sm" />
+							            	<input type="submit" name="submit" value="Hapus dokumen" onclick="return confirmActionDel()" class="btn btn-danger btn-sm" />
 							        	 	<a href="'.base_url().$doc.'"><button type="button" class="btn btn-success btn-sm">Download Dokumen</button></a>
                     					</form>
                       				</div>

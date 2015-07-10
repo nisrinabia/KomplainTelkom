@@ -5,9 +5,16 @@ class Users extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-        if($this->session->userdata('login') != TRUE || $this->session->userdata('jabatan') != "Admin")
+        if($this->session->userdata('login') != TRUE)
         {
-            redirect('auth');
+          $this->load->helper('url');
+          $current_uri = base_url(uri_string());
+          $redirect_to = 'auth?ref='.$current_uri;
+          redirect($redirect_to);
+        }
+        else if($this->session->userdata('jabatan') != "Admin")
+        {
+          redirect('dashboard');
         }
     }    
     

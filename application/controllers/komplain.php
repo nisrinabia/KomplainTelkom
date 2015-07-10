@@ -5,9 +5,12 @@ class Komplain extends CI_Controller{
     {
         parent::__construct();
         if($this->session->userdata('login') != TRUE)
-    		{
-    			redirect('auth');
-    		}
+        {
+          $this->load->helper('url');
+          $current_uri = base_url(uri_string());
+          $redirect_to = 'auth?ref='.$current_uri;
+          redirect($redirect_to);
+        }
     }    
     
     public function index() {        
@@ -86,12 +89,12 @@ class Komplain extends CI_Controller{
         }
         
         $this->load->model('komplain_model');
-
-        if($this->komplain_model->addKomplain($nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
+        $inserted_id = $this->komplain_model->addKomplain($nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline);
+        if($inserted_id != NULL)
         {
               echo '<script language="javascript">';
               echo 'alert("Data berhasil dimasukkan");';
-              echo 'window.location.href = "' . site_url('komplain/showKomplainByPOTS/'.$nopots) . '";';
+              echo 'window.location.href = "' . site_url('komplain/detailKomplain/'.$inserted_id) . '";';
               //echo 'window.history.back();';
               echo '</script>';
         }
@@ -104,9 +107,11 @@ class Komplain extends CI_Controller{
     }
 
     public function showKomplainByPOTS($nopots){
+        $ref = $this->input->get('uri');
         $this->load->model('komplain_model');
         $data['list'] = $this->komplain_model->showKomplainByPOTS($nopots);
-        $data['judul'] = 'Histori Komplain';
+        $data['subjudul'] = 'Historis komplain pelanggan';
+        $data['uri'] = $ref;
         //print_r($data);
         $this->header();
         $this->load->view('komplain/show_komplain',$data);
@@ -198,19 +203,19 @@ class Komplain extends CI_Controller{
       $this->load->model('komplain_model');
       if($status == '1'){
         $data['list'] = $this->komplain_model->showUnclosedHardKomplain();
-        $data['judul'] = 'Unclosed Hard Komplain';
+        $data['subjudul'] = 'Unclosed Hard Komplain';
       }
       else if($status == '2'){
         $data['list'] = $this->komplain_model->showUnclosedGangguan();
-        $data['judul'] = 'Unclosed Gangguan';
+        $data['subjudul'] = 'Unclosed Gangguan';
       }
       else if($status == '3'){
         $data['list'] = $this->komplain_model->showUnclosedPSB();
-        $data['judul'] = 'Unclosed PSB';
+        $data['subjudul'] = 'Unclosed PSB';
       }
       else{
         $data['list'] = $this->komplain_model->showAllKomplain();
-        $data['judul'] = 'Data Komplain';
+        $data['subjudul'] = 'Data Komplain';
       }
       
       //print_r($data);
@@ -339,21 +344,21 @@ class Komplain extends CI_Controller{
             $this->load->model('komplain_model');
             if($this->komplain_model->unggahDokumen($id, $data))
             {
-                if ($target_Path != NULL)
-                {
-                    move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
-                }
+              if ($target_Path != NULL)
+              {
+                  move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
                   echo '<script language="javascript">';
                   echo 'alert("Dokumen berhasil diupload");';
                   echo 'window.location.replace("'.$ref.'");';
                   echo '</script>';
+              } 
             }
             else
             {
-                  echo '<script language="javascript">';
-                  echo 'alert("Gagal mengupload dokumen");';
-                  echo 'window.location.replace("'.$ref.'");';
-                  echo '</script>';
+                echo '<script language="javascript">';
+                echo 'alert("Gagal mengupload dokumen");';
+                echo 'window.location.replace("'.$ref.'");';
+                echo '</script>';
             }
         }
         else
