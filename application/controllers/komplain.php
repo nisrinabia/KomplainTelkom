@@ -194,10 +194,25 @@ class Komplain extends CI_Controller{
         }
     }
 
-    public function showAllKomplain(){
+    public function showAllKomplain($status){
       $this->load->model('komplain_model');
-      $data['list'] = $this->komplain_model->showAllKomplain();
-      $data['judul'] = 'Data Komplain';
+      if($status == '1'){
+        $data['list'] = $this->komplain_model->showUnclosedHardKomplain();
+        $data['judul'] = 'Unclosed Hard Komplain';
+      }
+      else if($status == '2'){
+        $data['list'] = $this->komplain_model->showUnclosedGangguan();
+        $data['judul'] = 'Unclosed Gangguan';
+      }
+      else if($status == '3'){
+        $data['list'] = $this->komplain_model->showUnclosedPSB();
+        $data['judul'] = 'Unclosed PSB';
+      }
+      else{
+        $data['list'] = $this->komplain_model->showAllKomplain();
+        $data['judul'] = 'Data Komplain';
+      }
+      
       //print_r($data);
       $this->header();
       $this->load->view('komplain/show_komplain', $data);

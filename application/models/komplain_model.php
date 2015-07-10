@@ -81,6 +81,60 @@ class Komplain_model extends CI_Model
         }
     }
 
+    public function showUnclosedHardKomplain(){
+        $q = "SELECT ID_KOMPLAIN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, KOMPLAIN.NAMA_LAYANAN, KOMPLAIN.JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, STATUS_KOMPLAIN FROM KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN WHERE MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS = KOMPLAIN.JENIS_KOMPLAIN AND KOMPLAIN.NAMA_MEDIA != 'Plasa' AND KOMPLAIN.STATUS_KOMPLAIN = 'In Progress'";
+        $query = $this->db->query($q);
+
+        if ($query -> num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;   
+        }
+    }
+
+    public function showUnclosedGangguan(){
+        $q = "SELECT ID_KOMPLAIN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, KOMPLAIN.NAMA_LAYANAN, KOMPLAIN.JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, STATUS_KOMPLAIN FROM KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN WHERE MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS = KOMPLAIN.JENIS_KOMPLAIN AND KOMPLAIN.NAMA_MEDIA = 'Plasa' AND KOMPLAIN.JENIS_KOMPLAIN != 'PSB' AND KOMPLAIN.STATUS_KOMPLAIN = 'In Progress'";
+        $query = $this->db->query($q);
+
+        if ($query -> num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;   
+        }
+    }    
+
+    public function showUnclosedPSB(){
+        $q = "SELECT ID_KOMPLAIN, NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, KOMPLAIN.NAMA_LAYANAN, KOMPLAIN.JENIS_KOMPLAIN, TGL_KOMPLAIN, TGL_CLOSE, STATUS_KOMPLAIN FROM KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN WHERE MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS = KOMPLAIN.JENIS_KOMPLAIN AND KOMPLAIN.NAMA_MEDIA = 'Plasa' AND KOMPLAIN.JENIS_KOMPLAIN = 'PSB' AND KOMPLAIN.STATUS_KOMPLAIN = 'In Progress' ";
+        $query = $this->db->query($q);
+
+        if ($query -> num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        else
+        {
+            return false;   
+        }
+    } 
+
     public function editKomplain($id){
         $query = $this->db->get_where('komplain', array('ID_KOMPLAIN' => $id));
         if ($query->num_rows() > 0) {
