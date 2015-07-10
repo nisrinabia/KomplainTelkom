@@ -172,9 +172,9 @@ function isExcel5(filename)
                     <div class="form-group">
                       <label>Status Komplain <span class="error">*</span></label>
                       <select name="statuskomplain" class="form-control">
-                        <option value="0">In Progress</option>
-                        <option value="1">Closed</option>
-                        <option value="2">Decline</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Closed">Closed</option>
+                        <option value="Decline">Decline</option>
                       </select>
                     </div>
 

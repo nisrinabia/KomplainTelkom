@@ -217,18 +217,7 @@ function deldata() {
 
 		                  		<p><b>Status Komplain</b><br>
 		                  		';
-		                  	if($row->STATUS_KOMPLAIN == '0')
-		                  	{
-		                  		echo 'In Progress';
-		                  	}
-		                  	elseif($row->STATUS_KOMPLAIN == '1')
-		                  	{
-		                  		echo 'Closed';
-		                  	}
-		                  	else
-		                  	{
-		                  		echo 'Decline';
-		                  	}
+		                  	echo $row->STATUS_KOMPLAIN;
 		                  	echo '</p>
 		                  		</div>';
 

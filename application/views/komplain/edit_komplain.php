@@ -134,23 +134,9 @@
                             //wecho $statuskomplain;
                           ?>
                           <select name="statuskomplain" class="form-control"/>
-                            <?php 
-                              if($statuskomplain == '0'){
-                                echo '<option value="0" selected>In Progress</option>';
-                                echo '<option value="1" >Closed</option>';
-                                echo '<option value="2" >Decline</option>';
-                              }
-                              elseif($statuskomplain == '1'){
-                                echo '<option value="0">In Progress</option>';
-                                echo '<option value="1" selected>Closed</option>';
-                                echo '<option value="2">Decline</option>';
-                              }
-                              else{
-                                echo '<option value ="0">In Proress</option>';
-                                echo '<option value ="1">Closed</option>';
-                                echo '<option value ="2" selected>Decline</optio>';
-                              }
-                            ?>
+                            <option value="0" <?php if($statuskomplain == 'In Progress'){ echo 'selected'; } ?> >In Progress</option>';
+                            <option value="1" <?php if($statuskomplain == 'Closed'){ echo 'selected'; } ?> >Closed</option>';
+                            <option value="2" <?php if($statuskomplain == 'Decline'){ echo 'selected'; } ?> >Decline</option>';
                           </select>
                         </div>
 

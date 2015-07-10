@@ -107,7 +107,7 @@ function deldata() {
                     <td><?php echo $row->JENIS_KOMPLAIN; ?></td>
                     <td><?php echo $row->TGL_KOMPLAIN; ?></td>
                     <td><?php if ($row->TGL_CLOSE == '0000-00-00') {echo '-';} else {echo $row->TGL_CLOSE;}  ?></td>
-                    <td><?php if ($row->STATUS_KOMPLAIN == '0') { echo 'In Progress';} elseif ($row->STATUS_KOMPLAIN =='1') {echo 'Closed';} else {echo 'Decline';}?></td>
+                    <td><?php echo $row->STATUS_KOMPLAIN; ?></td>
                   </tr>
                   <?php
                   }
