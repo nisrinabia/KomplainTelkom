@@ -318,29 +318,37 @@ class Komplain extends CI_Controller{
             $extension = ".".$extension;
             $target_Path = "dokumen/";
             $target_Path = $target_Path.$id.$extension;
-        }
-        $data = array(
-            'DOKUMEN' => $target_Path
-        );
-        $this->load->model('komplain_model');
-        if($this->komplain_model->unggahDokumen($id, $data))
-        {
-            if ($target_Path != NULL)
+            $data = array(
+              'DOKUMEN' => $target_Path
+            );
+            $this->load->model('komplain_model');
+            if($this->komplain_model->unggahDokumen($id, $data))
             {
-                move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
+                if ($target_Path != NULL)
+                {
+                    move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
+                }
+                  echo '<script language="javascript">';
+                  echo 'alert("Dokumen berhasil diupload");';
+                  echo 'window.location.replace("'.$ref.'");';
+                  echo '</script>';
             }
-              echo '<script language="javascript">';
-              echo 'alert("Dokumen berhasil diupload");';
-              echo 'window.location.replace("'.$ref.'");';
-              echo '</script>';
+            else
+            {
+                  echo '<script language="javascript">';
+                  echo 'alert("Gagal mengupload dokumen");';
+                  echo 'window.location.replace("'.$ref.'");';
+                  echo '</script>';
+            }
         }
         else
         {
-              echo '<script language="javascript">';
-              echo 'alert("Gagal mengupload dokumen");';
-              echo 'window.location.replace("'.$ref.'");';
-              echo '</script>';
+            echo '<script language="javascript">';
+            echo 'alert("Gagal mengupload dokumen, pastikan anda telah memilih file!");';
+            echo 'window.location.replace("'.$ref.'");';
+            echo '</script>';
         }
+        
     }
 
     public function deleteDokumen($id){
