@@ -54,6 +54,7 @@ class Komplain extends CI_Controller{
     }
 
     public function addKomplain(){
+        $status = $this->input->post('status');
         $nopots = $this->input->post('nopots');
         $noinet = $this->input->post('noinet');
         $nama = $this->input->post('nama');
@@ -68,25 +69,33 @@ class Komplain extends CI_Controller{
         $solusi = $this->input->post('solusi');
         $statuskomplain = $this->input->post('statuskomplain');
         $ket = $this->input->post('ket');
-        $deadline = $this->input->post('deadline');
+        if ($status == 'janji')
+        {
+          $deadline = $this->input->post('deadline');
           //  'DEADLINE'          => $this->input->post(date('Y-m-d h:i:s', strtotime('deadline')))
           //07/08/2015 12:57 PM          
-        $tanggal = substr($deadline, 0, 10);
-        $menit = substr($deadline, -5, -3);
-        $temp = substr($deadline, -8, -6);
-        if(substr($deadline, -2) == 'PM'){
-          $result = $temp + 12;
-          if($result == '24'){
-                $result = '00';
+          $tanggal = substr($deadline, 0, 10);
+          $menit = substr($deadline, -5, -3);
+          $temp = substr($deadline, -8, -6);
+          if(substr($deadline, -2) == 'PM'){
+            $result = $temp + 12;
+            if($result == '24'){
+                  $result = '00';
+            }
+            $deadline = $tanggal .' '. $result . ':' . $menit;
+            //echo $deadline;
           }
-          $deadline = $tanggal .' '. $result . ':' . $menit;
-          //echo $deadline;
-        }
-        else{
+          else{
 
-          $deadline = $tanggal .' '. $temp . ':' . $menit;
-          //echo $deadline; 
+            $deadline = $tanggal .' '. $temp . ':' . $menit;
+            //echo $deadline; 
+          }
         }
+        else
+        {
+          $deadline = '0000-00-00 00:00:00';
+        }
+        
         
         $this->load->model('komplain_model');
         $inserted_id = $this->komplain_model->addKomplain($nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline);
@@ -154,26 +163,21 @@ class Komplain extends CI_Controller{
                       {
                         $tanggal = $excel[5] . ' ' . $excel[6] . ':00';
                         $janji= $excel[12] . ' ' . $excel[13]. ':00';
-
-                        $datakomplain = array(
-                            'NO_POTS'           => $excel[0],
-                            'NO_INTERNET'       => $excel[1],
-                            'NAMA_PELAPOR'      => $excel[2],
-                            'PIC_PELAPOR'       => $excel[3],
-                            'ALAMAT_PELAPOR'    => $excel[4],
-                            'TGL_KOMPLAIN'      => $tanggal,
-                            'NAMA_MEDIA'        => $excel[7],
-                            'NAMA_LAYANAN'      => $excel[8],
-                            'JENIS_KOMPLAIN'    => $excel[9],
-                            'KELUHAN'           => $excel[10],
-                            'SOLUSI'            => $excel[11],
-                            'DEADLINE'          => $janji,
-                            'STATUS_KOMPLAIN'   => ($excel[14] == 'closed' ? 1 : 0),
-                            'TGL_CLOSE'         => $excel[15],
-                            'KETERANGAN'        => $excel[16]
-                        );
+                        if ($excel[14] == "" || $excel[14] == "In Progress")
+                        {
+                          $statuskomplain = 'In Progress';
+                        }
+                        elseif ($excel[14] == "Closed")
+                        {
+                          $statuskomplain = 'Closed';
+                        }
+                        elseif ($excel[14] == "Decline")
+                        {
+                          $statuskomplain = 'Decline';
+                        }
+                        
                         $this->load->model('komplain_model');
-                        if($this->komplain_model->addKomplainByFile($excel[0],$excel[1],$excel[2],$excel[3],$excel[4],$tanggal,$excel[7],$excel[8],$excel[9],$excel[10],$excel[11],$janji,($excel[14] == 'closed' ? 1 : 0),$excel[15],$excel[16]))
+                        if($this->komplain_model->addKomplainByFile($excel[0],$excel[1],$excel[2],$excel[3],$excel[4],$tanggal,$excel[7],$excel[8],$excel[9],$excel[10],$excel[11],$janji,$statuskomplain,$excel[15],$excel[16]))
                         {
                           $jumlah = $jumlah + 1;
                         }
@@ -405,7 +409,6 @@ class Komplain extends CI_Controller{
         $this->excel->getActiveSheet()->setTitle('Daftar Semua Komplain');
         $this->excel->getActiveSheet()->setCellValue('A1', 'Daftar Semua Komplain');
 
-        $this->excel->getActiveSheet()->setCellValue('A2', 'Keterangan: STATUS JANJI = 0 => Janji yang belum ditangani');
         $this->excel->getActiveSheet()->mergeCells('A2:F2');
         
         //set cell A1 content with some text
@@ -455,7 +458,7 @@ class Komplain extends CI_Controller{
         //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
         $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI"); 
         $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-        $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.STATUS_JANJI = 0 AND k.DEADLINE IS NOT NULL");
+        $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.NAMA_MEDIA<>'Plasa'");
 
         $query = $this->db->get();
         foreach ($query->result_array() as $row) 

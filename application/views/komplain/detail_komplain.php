@@ -205,7 +205,7 @@ function deldata() {
 
 		                  		<p><b>Deadline Janji</b><br>
 		                  		';
-		                  	if($row->DEADLINE == '')
+		                  	if($row->DEADLINE == '' || $row->DEADLINE == '0000-00-00 00:00:00')
 		                  	{
 		                  		echo '-';
 		                  	}

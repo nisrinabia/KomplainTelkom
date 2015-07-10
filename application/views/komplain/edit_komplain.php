@@ -134,9 +134,9 @@
                             //wecho $statuskomplain;
                           ?>
                           <select name="statuskomplain" class="form-control"/>
-                            <option value="0" <?php if($statuskomplain == 'In Progress'){ echo 'selected'; } ?> >In Progress</option>';
-                            <option value="1" <?php if($statuskomplain == 'Closed'){ echo 'selected'; } ?> >Closed</option>';
-                            <option value="2" <?php if($statuskomplain == 'Decline'){ echo 'selected'; } ?> >Decline</option>';
+                            <option value="In Progress" <?php if($statuskomplain == 'In Progress'){ echo 'selected'; } ?> >In Progress</option>';
+                            <option value="Closed" <?php if($statuskomplain == 'Closed'){ echo 'selected'; } ?> >Closed</option>';
+                            <option value="Decline" <?php if($statuskomplain == 'Decline'){ echo 'selected'; } ?> >Decline</option>';
                           </select>
                         </div>
 
@@ -152,7 +152,7 @@
                           <div class="form-group">
                                 <label>Tanggal Janji</label>
                               <div class="col-md-12">
-                                <input class="col-md-6" type="text" class="form-control" name="deadlinelama" value="<?php echo $deadline?>" style="padding-right: 300px"/>
+                                <input class="col-md-6" type="text" class="form-control" name="deadlinelama" value="<?php echo ($deadline == '0000-00-00 00:00:00' ? '-' : $deadline) ?>" style="padding-right: 300px"/>
                                 <div class="col-md-3">
                                     <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit Tanggal janji</button>
                                 </div>

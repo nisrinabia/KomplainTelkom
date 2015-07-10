@@ -186,12 +186,22 @@ function isExcel5(filename)
                       </div>
                   </div><!-- /.form group -->
 
+                  <input type="hidden" name="status" id="status" value="">
                   <div class="form-group">
                     <label>Tanggal Janji (mm-dd-yyyy HH:MM)</label>
                       <div class="col-md-12">
-                        <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
+                        <div id="noJanji" style="display:block; ">
+                          <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="showJanji()">Tambah Waktu Janji</button>
+                        </div>
+                        <div id="janji" style="display:none; ">
+                          <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
+                          <div class="col-md-3">
+                              <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="hideJanji()">Batal</button>
+                          </div>
+                        </div>
                       </div>
-                  </div><!-- /.form group -->
+                  </div>
+                  
 
                   <div class="form-group">
                       <label>Keterangan Tambahan</label>
