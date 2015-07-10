@@ -7,29 +7,50 @@ function deldata() {
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <?php echo $judul ?>
-    	<small>Daftar Data Komplain</small>
+      Komplain
+      <?php
+      if($subjudul == 'Historis komplain pelanggan')
+      {
+        echo '<small>Historis Komplain Pelanggan</small>';
+      }
+      else
+      {
+        echo '<small>Daftar Data Komplain</small>';
+      }
+      ?>
     </h1>
     <ol class="breadcrumb">
-      <li><i class="fa fa-list"></i> Data Komplain</li>
-      <li class="active">Daftar data komplain</li>
+      <li><i class="fa fa-list"></i> Komplain</li>
+      <?php
+      if($subjudul == 'Historis komplain pelanggan')
+      {
+        echo '
+        <li>Daftar data komplain</li>
+        <li>Lihat Detail Komplain</li>
+        <li class="active">Historis komplain pelanggan</li>
+        ';
+      }
+      else
+      {
+        echo '<li class="active">Daftar data komplain</li>';
+      }
+      ?>
     </ol>
   </section>
 
   <!-- Main content -->
   <section class="content">
-  <div class="alert alert-success">
           <?php
-          if($list != NULL)
+          if($subjudul == 'Historis komplain pelanggan')
           {
             foreach($list as $row)
             {
               $nopots = $row->NO_POTS;
             }
+            echo '<div class="alert alert-success">';
+            echo 'Menampilkan historis pelanggan dengan nomor POTS '.$nopots.'</div>';
           }
-          echo 'Menampilkan historis pelanggan dengan nomor POTS '.$nopots.'';
           ?>
-        </div>
   <div class="box">
   	<div class="row">
       <div class="col-xs-12">
@@ -39,7 +60,15 @@ function deldata() {
             <?php
             if($list != NULL)
             {
-              echo '<a href="'.base_url().'komplain/excel/"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br/>';
+              if($subjudul == 'Historis komplain pelanggan')
+              {
+                echo '<a href="'.$uri.'"><button type="button" class="btn btn-primary">Kembali ke detil komplain pelanggan</button></a>';
+                echo '  <a href="'.base_url().'komplain/excel/"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+              }
+              else
+              {
+                echo '<a href="'.base_url().'komplain/excel/"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+              }
             }
             ?>
             <br>

@@ -15,7 +15,7 @@ function deldata() {
     </h1>
     <ol class="breadcrumb">
       <li><i class="fa fa-list"></i> Komplain</li>
-      <li>Daftar semua komplain</li>
+      <li>Daftar data komplain</li>
       <li class="active">Lihat Detail Komplain</li>
     </ol>
   </section>
@@ -28,25 +28,32 @@ function deldata() {
         <div class="box">
           <div class='box-header with-border'>
               <h3 class='box-title'>Detail Komplain</h3>
-              <?php
+          </div>
+          <div class="box-body">
+
+          <?php
               if($list != NULL)
               {
 	            foreach($list as $row)
 	            {
 	            	if($row->NO_POTS != '' || $row->NO_POTS != NULL)
 	            	{
-	            		echo '<a href="'.base_url().'komplain/showKomplainByPOTS/'.$row->NO_POTS.'" style="float:right"><button type="button" class="btn btn-primary btn-sm">Lihat historis pelanggan</button></a>';
+	            		echo '
+	            		<form method="get" action="'.base_url().'komplain/showKomplainByPOTS/'.$row->NO_POTS.'">
+	            		<a href="'.base_url().'komplain/showAllKomplain"><button type="button" class="btn btn-primary">Kembali ke daftar komplain</button></a>
+	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>';
+	            		echo '<input type="hidden" name="uri" value="'.base_url(uri_string()).'">
+	            		<button type="submit" class="btn btn-primary">Lihat historis komplain pelanggan</button></a>
+	            		</form>';
 	            	}
 	            	else
 	            	{
-
+	            		echo '<a href="'.base_url().'komplain/showAllKomplain"><button type="button" class="btn btn-primary">Kembali</button></a>';
 	            	}
 	            }
               }
-              ?>
-          </div>
-          <div class="box-body">
-
+          ?>
+          <br>
           <fieldset class="data-border">
 		    <legend class="data-border">Data Pelapor</legend>
 		    	<div class="row">
