@@ -6,13 +6,7 @@
     var alamat = document.getElementById("alamat").value;
     var pic = document.getElementById("pic").value;
     var dp1 = document.getElementById("dp1").value;
-    if(nopots == "")
-    {
-      alert("Isian Nomor POTS tidak boleh kosong. Silahkan isi kembali");
-      document.getElementById("nopots").focus();
-      return false;
-    }
-    else if (nama == "") 
+    if (nama == "") 
     {
       alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
       document.getElementById("nama").focus();
@@ -111,7 +105,7 @@ function isExcel5(filename)
                   <p><span class="error"><b>*Isian harus diisi</b></span></p>
                   <form action="<?php echo site_url('Komplain/addKomplain'); ?>" method="post" role="form">
                     <div class="form-group">
-                      <label>Nomor POTS <span class="error">*</span></label>
+                      <label>Nomor POTS</label>
                       <input name="nopots" id="nopots" type="text" class="form-control" placeholder="Nomor POTS" autofocus=""/>
                     </div>
                     <div class="form-group">

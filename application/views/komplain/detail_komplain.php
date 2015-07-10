@@ -105,8 +105,7 @@ function deldata() {
 
 		                  	echo'</p>
 		                  		';
-		                    }
-		                }
+		                    
 		               ?>
 		            </div>
 		        </div>
@@ -117,10 +116,6 @@ function deldata() {
 		    	<div class="row">
 		    		<div class="col-xs-6">
 				    <?php
-		          	if($list != NULL)
-		                {
-		                  foreach($list as $row)
-		                  {
 		                  	echo '
 		                  		<p><b>Layanan</b><br>
 		                  		';
