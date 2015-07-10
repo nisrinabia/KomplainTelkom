@@ -199,9 +199,13 @@ function deldata() {
 		                  	{
 		                  		echo 'In Progress';
 		                  	}
-		                  	else
+		                  	elseif($row->STATUS_KOMPLAIN == '1')
 		                  	{
 		                  		echo 'Closed';
+		                  	}
+		                  	else
+		                  	{
+		                  		echo 'Decline';
 		                  	}
 		                  	echo '</p>
 		                  		</div>';
