@@ -86,12 +86,12 @@ class Komplain extends CI_Controller{
         }
         
         $this->load->model('komplain_model');
-
-        if($this->komplain_model->addKomplain($nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline))
+        $inserted_id = $this->komplain_model->addKomplain($nopots, $noinet, $nama, $alamat, $pic, $namamedia, $namalayanan, $jeniskomplain, $tglclosed, $keluhan, $solusi, $statuskomplain, $ket, $deadline);
+        if($inserted_id != NULL)
         {
               echo '<script language="javascript">';
               echo 'alert("Data berhasil dimasukkan");';
-              echo 'window.location.href = "' . site_url('komplain/showKomplainByPOTS/'.$nopots) . '";';
+              echo 'window.location.href = "' . site_url('komplain/detailKomplain/'.$inserted_id) . '";';
               //echo 'window.history.back();';
               echo '</script>';
         }
@@ -324,21 +324,21 @@ class Komplain extends CI_Controller{
             $this->load->model('komplain_model');
             if($this->komplain_model->unggahDokumen($id, $data))
             {
-                if ($target_Path != NULL)
-                {
-                    move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
-                }
+              if ($target_Path != NULL)
+              {
+                  move_uploaded_file( $_FILES['userFile']['tmp_name'], $target_Path );
                   echo '<script language="javascript">';
                   echo 'alert("Dokumen berhasil diupload");';
                   echo 'window.location.replace("'.$ref.'");';
                   echo '</script>';
+              } 
             }
             else
             {
-                  echo '<script language="javascript">';
-                  echo 'alert("Gagal mengupload dokumen");';
-                  echo 'window.location.replace("'.$ref.'");';
-                  echo '</script>';
+                echo '<script language="javascript">';
+                echo 'alert("Gagal mengupload dokumen");';
+                echo 'window.location.replace("'.$ref.'");';
+                echo '</script>';
             }
         }
         else

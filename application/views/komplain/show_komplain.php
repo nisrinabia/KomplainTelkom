@@ -18,9 +18,22 @@ function deldata() {
 
   <!-- Main content -->
   <section class="content">
+  <div class="alert alert-success">
+          <?php
+          if($list != NULL)
+          {
+            foreach($list as $row)
+            {
+              $nopots = $row->NO_POTS;
+            }
+          }
+          echo 'Menampilkan historis pelanggan dengan nomor POTS '.$nopots.'';
+          ?>
+        </div>
   <div class="box">
   	<div class="row">
       <div class="col-xs-12">
+        
 
           <div class="box-body">
             <?php

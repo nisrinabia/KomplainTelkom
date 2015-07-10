@@ -25,6 +25,22 @@ function deldata() {
         <div class="box">
           <div class='box-header with-border'>
               <h3 class='box-title'>Detail Komplain</h3>
+              <?php
+              if($list != NULL)
+              {
+	            foreach($list as $row)
+	            {
+	            	if($row->NO_POTS != '' || $row->NO_POTS != NULL)
+	            	{
+	            		echo '<a href="'.base_url().'komplain/showKomplainByPOTS/'.$row->NO_POTS.'" style="float:right"><button type="button" class="btn btn-primary btn-sm">Lihat historis pelanggan</button></a>';
+	            	}
+	            	else
+	            	{
+
+	            	}
+	            }
+              }
+              ?>
           </div>
           <div class="box-body">
 
