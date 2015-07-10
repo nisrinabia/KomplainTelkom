@@ -38,9 +38,10 @@ function deldata() {
 		                  foreach($list as $row)
 		                  {
 		                  	$doc = $row->DOKUMEN;
-		                  	echo '
-		                  		<p><b>Nomor POTS</b><br>
-		                  		';
+		                  	echo '<p><b>ID Komplain</b><br>';
+		                  	echo $row->ID_KOMPLAIN;
+		                  	echo '<p><b>Nomor POTS</b><br>';
+
 		                  	if($row->NO_POTS == '')
 		                  	{
 		                  		echo '-';
