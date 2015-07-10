@@ -281,10 +281,10 @@ function checkNull()
 		                  		echo 'Belum ada dokumen';
 								echo '
 									<form id="upload" action="'.base_url().'janji/uploadDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
-							            Upload dokumen:<br />
+							            Unggah dokumen:<br />
 							            <input type="file" id="userFile" name="userFile"/>
 							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							            <input type="submit" onclick="return checkNull()" name="submit" style="margin-top:5px" value="Upload dokumen" class="btn btn-success btn-sm" />
+							            <input type="submit" onclick="return checkNull()" name="submit" style="margin-top:5px" value="Unggah dokumen" class="btn btn-success btn-sm" />
 							         </form>';
 		                  	}
 		                  	else

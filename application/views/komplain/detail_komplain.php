@@ -2,6 +2,9 @@
 function deldata() {
     return confirm('Apakah Anda yakin akan menghapus data ini?');
   }
+  function confirmActionDel() {
+    return confirm('Apakah Anda yakin akan menghapus dokumen ini?');
+  }
 </script>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -268,10 +271,10 @@ function deldata() {
 		                  		echo 'Belum ada dokumen';
 								echo '
 									<form action="'.base_url().'komplain/unggahDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
-							            Select File To Upload:<br />
+							            Unggah dokumen:<br />
 							            <input type="file" name="userFile"/>
 							            <input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							            <input type="submit" name="submit" value="Upload dokumen" class="btn btn-success" />
+							            <input type="submit" name="submit" value="Unggah dokumen" style="margin-top:5px;" class="btn btn-success btn-sm" />
 							         </form>';
 		                  	}
 		                  	else
@@ -280,7 +283,7 @@ function deldata() {
 		                  			<div class="form-group">
 		                  				<form action="'.base_url().'komplain/deleteDokumen/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
 							            	<input type="hidden" name="doc" value="'.$doc.'"/>
-							            	<input type="submit" name="submit" value="Hapus dokumen" class="btn btn-danger btn-sm" />
+							            	<input type="submit" name="submit" value="Hapus dokumen" onclick="return confirmActionDel()" class="btn btn-danger btn-sm" />
 							        	 	<a href="'.base_url().$doc.'"><button type="button" class="btn btn-success btn-sm">Download Dokumen</button></a>
                     					</form>
                       				</div>
