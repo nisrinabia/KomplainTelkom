@@ -203,10 +203,25 @@ class Komplain extends CI_Controller{
         }
     }
 
-    public function showAllKomplain(){
+    public function showAllKomplain($status){
       $this->load->model('komplain_model');
-      $data['list'] = $this->komplain_model->showAllKomplain();
-      $data['subjudul'] = 'Daftar data Komplain';
+      if($status == '1'){
+        $data['list'] = $this->komplain_model->showUnclosedHardKomplain();
+        $data['subjudul'] = 'Unclosed Hard Komplain';
+      }
+      else if($status == '2'){
+        $data['list'] = $this->komplain_model->showUnclosedGangguan();
+        $data['subjudul'] = 'Unclosed Gangguan';
+      }
+      else if($status == '3'){
+        $data['list'] = $this->komplain_model->showUnclosedPSB();
+        $data['subjudul'] = 'Unclosed PSB';
+      }
+      else{
+        $data['list'] = $this->komplain_model->showAllKomplain();
+        $data['subjudul'] = 'Data Komplain';
+      }
+      
       //print_r($data);
       $this->header();
       $this->load->view('komplain/show_komplain', $data);

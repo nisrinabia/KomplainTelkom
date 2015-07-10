@@ -135,7 +135,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="<?php echo base_url() ?>komplain"><i class="fa fa-plus-square"></i>Tambah Komplain</a></li>
-                <li><a href="<?php echo base_url() ?>komplain/showAllKomplain"><i class="fa fa-table"></i>Lihat semua</a></li>
+                <li><a href="<?php echo base_url() ?>komplain/showAllKomplain/0"><i class="fa fa-table"></i>Lihat semua</a></li>
               </ul>
             </li>
             <li>
