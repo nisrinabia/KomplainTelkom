@@ -40,7 +40,7 @@ function deldata() {
 	            	{
 	            		echo '
 	            		<form method="get" action="'.base_url().'komplain/showKomplainByPOTS/'.$row->NO_POTS.'">
-	            		<a href="'.base_url().'komplain/showAllKomplain"><button type="button" class="btn btn-primary">Kembali ke daftar komplain</button></a>
+	            		<a href="'.base_url().'komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat semua daftar komplain</button></a>
 	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>';
 	            		echo '<input type="hidden" name="uri" value="'.base_url(uri_string()).'">
 	            		<button type="submit" class="btn btn-primary">Lihat historis komplain pelanggan</button></a>
@@ -48,7 +48,7 @@ function deldata() {
 	            	}
 	            	else
 	            	{
-	            		echo '<a href="'.base_url().'komplain/showAllKomplain"><button type="button" class="btn btn-primary">Kembali</button></a>';
+	            		echo '<a href="'.base_url().'komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat semua daftar komplain</button></a>';
 	            	}
 	            }
               }
