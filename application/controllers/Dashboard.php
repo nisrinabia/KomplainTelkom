@@ -8,8 +8,9 @@ class Dashboard extends CI_Controller{
 		{
             $this->load->helper('url');
             $current_uri = base_url(uri_string());
-            $redirect_to = 'auth?ref='.$current_uri;
-			redirect($redirect_to);
+            $encoded_url = urlencode($current_uri);
+            $redirect_to = 'auth?ref='.$encoded_url;
+            redirect($redirect_to);
 		}
     }    
     

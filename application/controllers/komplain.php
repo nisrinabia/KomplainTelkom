@@ -8,7 +8,8 @@ class Komplain extends CI_Controller{
         {
           $this->load->helper('url');
           $current_uri = base_url(uri_string());
-          $redirect_to = 'auth?ref='.$current_uri;
+          $encoded_url = urlencode($current_uri);
+          $redirect_to = 'auth?ref='.$encoded_url;
           redirect($redirect_to);
         }
     }    
@@ -468,6 +469,7 @@ class Komplain extends CI_Controller{
              
             //$this->excel->getActiveSheet()->getStyle(chr($col))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         }
+        $this->excel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
 
         $exceldata="";
         //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
