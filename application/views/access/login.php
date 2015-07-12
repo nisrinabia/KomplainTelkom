@@ -45,7 +45,7 @@ function checkNull()
     <![endif]-->
   </head>
 
-  <body style="background-image:url('<?php echo base_url() ?>assets/dist/img/loginback.jpg');background-size: cover;background-position: left bottom;overflow-y:hidden;" class="login-page">
+  <body style="background-image:url('<?php echo base_url() ?>assets/dist/img/loginback.jpg');background-size: cover;background-position: left bottom;" class="login-page">
 
     <div class="login-logo">
         <a href="<?=base_url();?>" style="color:#ffffff;text-shadow: 2px 2px 4px #000000;"><b>Sistem Informasi Pengaduan</b> Telkom Malang</a>
