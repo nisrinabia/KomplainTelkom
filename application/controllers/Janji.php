@@ -40,9 +40,10 @@ class Janji extends CI_Controller {
     {
         $bulan = $this->input->get('bulan');
         $tahun = $this->input->get('tahun');
+        $SKomplain = $this->input->get('SKomplain');
         $mode = "all";
         $this->load->model('janji_model');
-        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
+        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun, $SKomplain);
         $data['select'] = $this->janji_model->getListMenuTahun();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
@@ -67,9 +68,10 @@ class Janji extends CI_Controller {
     {
         $bulan = $this->input->get('bulan');
         $tahun = $this->input->get('tahun');
+        $SKomplain = $this->input->get('SKomplain');
         $mode = "past";
         $this->load->model('janji_model');
-        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
+        $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun, $SKomplain);
         $data['select'] = $this->janji_model->getListMenuTahun();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
