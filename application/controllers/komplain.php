@@ -219,7 +219,7 @@ class Komplain extends CI_Controller{
       }
       else{
         $data['list'] = $this->komplain_model->showAllKomplain();
-        $data['subjudul'] = 'Data Komplain';
+        $data['subjudul'] = 'Daftar Semua Unclosed Komplain';
       }
       
       //print_r($data);
@@ -468,6 +468,7 @@ class Komplain extends CI_Controller{
              
             //$this->excel->getActiveSheet()->getStyle(chr($col))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         }
+        $this->excel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
 
         $exceldata="";
         //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
