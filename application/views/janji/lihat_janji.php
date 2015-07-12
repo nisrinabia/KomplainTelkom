@@ -224,14 +224,7 @@ function checkNull()
 
 		                  		<p><b>Status Komplain</b><br>
 		                  		';
-		                  	if($row->STATUS_KOMPLAIN == '0')
-		                  	{
-		                  		echo 'On progress';
-		                  	}
-		                  	else
-		                  	{
-		                  		echo 'Telah ditangani';
-		                  	}
+		                  		echo $row->STATUS_KOMPLAIN;
 		                  	echo '</p>
 
 		                  		<p><b>Status Janji</b><br>
