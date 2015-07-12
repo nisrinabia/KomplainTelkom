@@ -79,11 +79,26 @@ function deldata() {
               if($subjudul == 'Historis komplain pelanggan')
               {
                 echo '<a href="'.$uri.'"><button type="button" class="btn btn-primary">Kembali ke detil komplain pelanggan</button></a>';
-                echo '  <a href="'.base_url().'komplain/excel/"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+                echo '  <a href="'.base_url().'komplain/excel/5?nopots='.$nopots.'"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
               }
               else
               {
-                echo '<a href="'.base_url().'komplain/excel/"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+                if($subjudul == 'Unclosed Hard Komplain')
+                {
+                  echo '<a href="'.base_url().'komplain/excel/1"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+                }
+                else if($subjudul == 'Unclosed Gangguan')
+                {
+                  echo '<a href="'.base_url().'komplain/excel/2"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+                }
+                else if($subjudul == 'Unclosed PSB')
+                {
+                  echo '<a href="'.base_url().'komplain/excel/3"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+                }
+                else if($subjudul == 'Daftar Semua Unclosed Komplain')
+                {
+                  echo '<a href="'.base_url().'komplain/excel/4"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
+                }
               }
             }
             ?>

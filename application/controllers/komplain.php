@@ -416,7 +416,7 @@ class Komplain extends CI_Controller{
         $this->load->view('design/header', $data);
     }
 
-    public function excel()
+    public function excel($mode)
     {
         $this->load->library('excel');
         $this->excel->setActiveSheetIndex(0);
@@ -443,6 +443,7 @@ class Komplain extends CI_Controller{
         $this->excel->getActiveSheet()->setCellValue('M4', 'SOLUSI');
         $this->excel->getActiveSheet()->setCellValue('N4', 'KETERANGAN');
         $this->excel->getActiveSheet()->setCellValue('O4', 'STATUS JANJI');
+        $this->excel->getActiveSheet()->setCellValue('P4', 'STATUS KOMPLAIN');
         //merge cell A1 until C1
         $this->excel->getActiveSheet()->mergeCells('A1:O1');
         //set aligment to center for that merged cell (A1 to P1)
@@ -452,15 +453,15 @@ class Komplain extends CI_Controller{
         $this->excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(16);
         $this->excel->getActiveSheet()->getStyle('A1')->getFill()->getStartColor()->setARGB('#000');
 
-        $this->excel->getActiveSheet()->getStyle('A4:O4')->getFill()
+        $this->excel->getActiveSheet()->getStyle('A4:P4')->getFill()
         ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
         ->getStartColor()->setARGB('6EF6ED');
 
 
         //Set autofilter tiap kolom hehe
-        $this->excel->getActiveSheet()->setAutoFilter('A4:O4');
+        $this->excel->getActiveSheet()->setAutoFilter('A4:P4');
 
-        for($col = ord('A'); $col <= ord('O'); $col++)
+        for($col = ord('A'); $col <= ord('P'); $col++)
         {
             //set column dimension
             $this->excel->getActiveSheet()->getColumnDimension(chr($col))->setAutoSize(true);
@@ -473,10 +474,32 @@ class Komplain extends CI_Controller{
 
         $exceldata="";
         //deadline, nopots, internet, pelapor, layanan, jenis komplain, tgl komplain, tgl close, status
-        $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI"); 
-        $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
-        $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.NAMA_MEDIA<>'Plasa'");
+        if($mode == '1')
+        {
+          $this->db->select("k.NO_POTS, k.NO_INTERNET, k.NAMA_PELAPOR, k.ALAMAT_PELAPOR, k.PIC_PELAPOR, k.NAMA_MEDIA, l.NAMA_LAYANAN, j.JENIS, (CASE WHEN k.TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE k.TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN k.TGL_CLOSE = '0000-00-00' THEN '-' ELSE k.TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN k.DEADLINE = '0000-00-00 00:00:00' THEN '-' ELSE k.DEADLINE END) AS DEADLINE, k.KELUHAN, k.SOLUSI, k.KETERANGAN, k.STATUS_JANJI, k.STATUS_KOMPLAIN"); 
+          $this->db->from('komplain as k, media as m, layanan as l, jenis_komplain as j');
+          $this->db->where("k.NAMA_MEDIA = m.NAMA_MEDIA AND k.NAMA_LAYANAN = l.NAMA_LAYANAN AND k.JENIS_KOMPLAIN = j.JENIS AND k.NAMA_MEDIA<>'Plasa' AND k.STATUS_KOMPLAIN == 'In Progress'");
+        }
+        else if($mode == '2')
+        {
+          $this->db->select("NO_POTS, NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, PIC_PELAPOR, KOMPLAIN.NAMA_MEDIA, KOMPLAIN.NAMA_LAYANAN, KOMPLAIN.JENIS_KOMPLAIN, (CASE WHEN TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN TGL_CLOSE = '0000-00-00' THEN '-' ELSE TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN (DEADLINE = '0000-00-00 00:00:00' OR DEADLINE IS NULL) THEN '-' ELSE DEADLINE END) AS DEADLINE, KELUHAN, SOLUSI, KETERANGAN, (CASE WHEN (DEADLINE = '0000-00-00 00:00:00' OR DEADLINE IS NULL) THEN '-' ELSE (CASE WHEN STATUS_JANJI = 0 THEN 'Belum ditangani' ELSE 'Telah ditangani' END) END) AS STATUS_JANJI, STATUS_KOMPLAIN"); 
+          $this->db->from('KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN');
+          $this->db->where("MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS = KOMPLAIN.JENIS_KOMPLAIN AND KOMPLAIN.NAMA_MEDIA = 'Plasa' AND KOMPLAIN.JENIS_KOMPLAIN != 'PSB' AND KOMPLAIN.STATUS_KOMPLAIN = 'In Progress'");
+        }
+        else if($mode == '3')
+        {
+          
+        }
+        else if($mode == '4')
+        {
+          
+        }
+        else if($mode == '5')
+        {
+          $nopots = $this->input->get('nopots');
 
+        }
+        
         $query = $this->db->get();
         foreach ($query->result_array() as $row) 
         {
