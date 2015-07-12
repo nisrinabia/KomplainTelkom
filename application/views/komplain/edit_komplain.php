@@ -150,27 +150,27 @@
 
                       <div id="awal" style="display:block;">
                           <div class="form-group">
-                                <label>Tanggal Janji</label>
-                              <div class="col-md-12">
-                                <input class="col-md-6" type="text" class="form-control" name="deadlinelama" value="<?php echo ($deadline == '0000-00-00 00:00:00' ? '-' : $deadline) ?>" style="padding-right: 300px"/>
-                                <div class="col-md-3">
-                                    <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit Tanggal janji</button>
+                              <label>Tanggal Janji</label>
+                                <input type="text" class="form-control" name="deadlinelama" value="<?php echo ($deadline == '0000-00-00 00:00:00' ? '-' : $deadline) ?>" style="padding-right: 300px"/>
+                              <div class="row">
+                                <div class="col-xs-2">
+                                    <button class="btn btn-block btn-primary btn-sm" style="margin-top:5px;" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit Tanggal janji</button>
                                 </div>
                               </div>
-                          </div>
+                            </div>
                       </div>
                       <input type="hidden" name = "status" value="lama" id="status">
                       <div id="editkan" style="display:none;">
                           <div class="form-group">
-                              <label>Tanggal Janji</label>
-                              <div class="col-md-12">
-                                <input class="col-md-9" type="text" class="form-control" id="datetimepicker12" name="deadlinebaru" value="<?php echo $deadline?>"/>
-                                <div class="col-md-3">
-                                    <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="batal()">Batal</button>
+                            <label>Tanggal Janji</label>
+                              <input type="text" class="form-control" id="datetimepicker12" name="deadlinebaru" value="<?php echo $deadline?>"/>
+                                <div class="row">
+                                  <div class="col-xs-2">
+                                      <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="batal()">Batal</button>
+                                  </div>
                                 </div>
-                              </div>
-                          </div>
-                      </div>
+                            </div>
+                        </div>
                       <!-- <div class="form-group">
                         <label>Tanggal Janji</label>
                           <div class="col-md-12">

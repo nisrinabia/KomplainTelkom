@@ -48,7 +48,9 @@ function deldata() {
 	            	}
 	            	else
 	            	{
-	            		echo '<a href="'.base_url().'komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat semua daftar komplain</button></a>';
+	            		echo '<a href="'.base_url().'komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat semua daftar komplain</button></a>
+	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>
+	            		<br>';
 	            	}
 	            }
               }

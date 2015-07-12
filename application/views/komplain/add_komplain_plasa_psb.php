@@ -133,10 +133,27 @@
                         <input type="text" class="form-control" name="tglclosed" value="" id="dp1" >
                   </div><!-- /.form group -->
 
+                  <input type="hidden" name="status" id="status" value="">
                   <div class="form-group">
                     <label>Tanggal Janji (mm-dd-yyyy HH:MM)</label>
-                        <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
-                  </div><!-- /.form group -->
+
+                        <div id="noJanji" style="display:block; ">
+                          <div class="row">
+                            <div class="col-xs-2">
+                              <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="showJanji()">Tambah Waktu Janji</button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="janji" style="display:none; ">
+                          <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
+                          <div class="row">
+                            <div class="col-xs-2">
+                              <button class="btn btn-block btn-primary btn-sm" type="button" style="margin-top:5px;" class="btn btn-primary" value="Batal" onClick="hideJanji()">Batal</button>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
 
                   <div class="form-group">
                       <label>Keterangan Tambahan</label>
