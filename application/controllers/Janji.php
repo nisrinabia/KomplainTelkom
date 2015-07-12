@@ -234,7 +234,7 @@ class Janji extends CI_Controller {
             $this->excel->getActiveSheet()->setCellValue('A1', 'Daftar Janji Sebelum Deadline');
         }
 
-        $this->excel->getActiveSheet()->setCellValue('A2', 'Keterangan: STATUS JANJI = 0 => Janji yang belum ditangani');
+        //$this->excel->getActiveSheet()->setCellValue('A2', 'Keterangan: STATUS JANJI = 0 => Janji yang belum ditangani');
         $this->excel->getActiveSheet()->mergeCells('A2:F2');
         
         //set cell A1 content with some text
@@ -281,7 +281,7 @@ class Janji extends CI_Controller {
              
             //$this->excel->getActiveSheet()->getStyle(chr($col))->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
         }
-
+        $this->excel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_NUMBER);
         $exceldata="";
         if($mode == "all")
         {
