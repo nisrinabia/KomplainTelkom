@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>SI Komplain</title>
+    <title>Katerine</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/logo.ico')?>">
     <!-- Bootstrap 3.3.4 -->
@@ -151,7 +151,7 @@
                       <li><a href="<?php echo base_url() ?>komplain/komplain_plasa_gangguan"><i class="fa fa-circle-o"></i>Gangguan</a></li>
                   </ul>
                 </li>
-                <li><a href="<?php echo base_url() ?>janji/lewat_deadline"><i class="fa fa-exclamation-circle"></i>Lihat semua janji</a></li>
+                <li><a href="<?php echo base_url() ?>janji"><i class="fa fa-exclamation-circle"></i>Lihat semua janji</a></li>
               </ul>
             </li>
             <?php if($jabatan == "Admin"){ ?>
