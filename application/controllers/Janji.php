@@ -44,9 +44,11 @@ class Janji extends CI_Controller {
         $mode = "all";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun, $SKomplain);
-        $data['select'] = $this->janji_model->getListMenuTahun();
+        $data['tinggi'] = $this->janji_model->getListMenuTahunTertinggi();
+        $data['rendah'] = $this->janji_model->getListMenuTahunTerendah();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
+        $data['SKomplain'] = urldecode($SKomplain);
         //print_r($data);
         $this->header();
         $this->load->view('janji/filter_janji',$data);
@@ -72,9 +74,11 @@ class Janji extends CI_Controller {
         $mode = "past";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun, $SKomplain);
-        $data['select'] = $this->janji_model->getListMenuTahun();
+        $data['tinggi'] = $this->janji_model->getListMenuTahunTertinggi();
+        $data['rendah'] = $this->janji_model->getListMenuTahunTerendah();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
+        $data['SKomplain'] = urldecode($SKomplain);
         //print_r($data);
         $this->header();
         $this->load->view('janji/filter_lewat_deadline',$data);
@@ -99,7 +103,7 @@ class Janji extends CI_Controller {
         $mode = "oneday";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
-        $data['select'] = $this->janji_model->getListMenuTahun();
+        //$data['select'] = $this->janji_model->getListMenuTahun();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
         //print_r($data);
@@ -126,9 +130,11 @@ class Janji extends CI_Controller {
         $mode = "before";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListFilterJanji($mode, $bulan, $tahun);
-        $data['select'] = $this->janji_model->getListMenuTahun();
+        $data['tinggi'] = $this->janji_model->getListMenuTahunTertinggi();
+        $data['rendah'] = $this->janji_model->getListMenuTahunTerendah();
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;
+        $data['SKomplain'] = urldecode($SKomplain);
         //print_r($data);
         $this->header();
         $this->load->view('janji/filter_sebelum_deadline',$data);

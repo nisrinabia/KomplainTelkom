@@ -210,11 +210,39 @@ class Janji_model extends CI_Model
         }
     }
      
-    public function getListMenuTahun()
+    public function getListMenuTahunTertinggi()
     {
         //Melewati Deadline namun berstatus 0
+        //SELECT distinct substr(TGL_KOMPLAIN,1,4) as makan FROM komplain ORDER BY makan DESC LIMIT 1
         $this->db->select('distinct substr(TGL_KOMPLAIN,1,4) as makan', FALSE);
         $this->db->from('komplain');
+        $this->db->order_by('makan DESC');
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            foreach ($query->result() as $row) 
+            {
+                $menu[] = $row;
+            }
+            return $menu;
+        }
+        else
+        {
+            return false;   
+        }
+    }
+
+    public function getListMenuTahunTerendah()
+    {
+        //Melewati Deadline namun berstatus 0
+        //SELECT distinct substr(TGL_KOMPLAIN,1,4) as makan FROM komplain ORDER BY makan ASC LIMIT 1
+        $this->db->select('distinct substr(TGL_KOMPLAIN,1,4) as makan', FALSE);
+        $this->db->from('komplain');
+        $this->db->order_by('makan ASC');
+        $this->db->limit(1);
 
         $query = $this->db->get();
 

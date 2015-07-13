@@ -3,6 +3,19 @@ function deldata() {
     return confirm('Apakah Anda yakin akan menghapus komplain ini? Untuk mengubah status komplain, gunakan tombol lihat disamping tombol hapus');
   }
 </script>
+
+<?php
+  //Ambil tahun terendah dan tertinggi 
+  foreach ($rendah as $row)
+  {
+      $tahun_rendah = $row->makan;
+  }
+  foreach ($tinggi as $row)
+  {
+      $tahun_tinggi = $row->makan;
+  }
+?>
+
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -20,7 +33,20 @@ function deldata() {
   <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-xs-12"> 	
+      <div class="col-xs-12">
+
+      <div class="alert alert-success">
+        <?php echo 'Menampilkan janji pada bulan '.$bulan.' dan tahun '.$tahun.' dengan ';
+        if($SKomplain == 'semua')
+        {
+          echo 'semua status komplain';
+        }
+        else
+        {
+          echo 'status komplain "'.$SKomplain.'"';
+        }
+      ?>
+      </div>
         
         <div class="box">
           <div class="box-body">
@@ -50,16 +76,12 @@ function deldata() {
                   </select>
                   <select class="option-control" name="tahun" data-toggle="tooltip" data-placement="top" title="Pilih tahun">
                     <?php
-                      if($select != NULL)
+                      if($rendah != NULL)
                       {
-                        for ($i=$rendah; $i<=$tinggi; $i++)
+                        for ($i=$tahun_rendah; $i<=$tahun_tinggi; $i++)
                         {
                           echo '<option value="'.$i.'"'; if($i == $tahun) {echo "selected"; } echo '>'.$i.'</option>'; 
                           /*$i = $i + 1;*/
-                        }
-                        foreach ($select as $row)
-                        {
-                          echo '<option value="'.$row->makan.'">'.$row->makan.'</option>';
                         }
                       }
                       else
@@ -73,10 +95,43 @@ function deldata() {
                     ?> 
                   </select>
                   <select class="option-control" name="SKomplain" data-toogle="tooltip" data-placement="top" title="Pilih SKomplain">
-                    <option value="semua"> Semua Status Komplain</option>
-                    <option value="In Progress">In Progress</option>
-                    <option value="Closed">Closed</option>
-                    <option value="Decline">Decline</option>
+                    <?php
+                    if($SKomplain == 'semua')
+                    {
+                      echo '<option value="semua" selected> Semua Status Komplain</option>';
+                    }
+                    else
+                    {
+                      echo '<option value="semua"> Semua Status Komplain</option>';
+                    }
+
+                    if($SKomplain == 'In Progress')
+                    {
+                      echo '<option value="In Progress" selected>In Progress</option>';
+                    }
+                    else
+                    {
+                      echo '<option value="In Progress">In Progress</option>';
+                    }
+
+                    if($SKomplain == 'Closed')
+                    {
+                      echo '<option value="Closed" selected>Closed</option>';
+                    }
+                    else
+                    {
+                      echo '<option value="Closed">Closed</option>';
+                    }
+
+                    if($SKomplain == 'Decline')
+                    {
+                      echo '<option value="Decline" selected>Decline</option>';
+                    }
+                    else
+                    {
+                      echo '<option value="Decline">Decline</option>';
+                    }
+                    ?>
                   </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
                 </form>
