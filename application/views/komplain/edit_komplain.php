@@ -1,4 +1,83 @@
+<script type="text/javascript">
+function checkNullWithoutPOTS()
+{
+  var nama = document.getElementById("nama").value;
+  var alamat = document.getElementById("alamat").value;
+  var pic = document.getElementById("pic").value;
+  var dp1 = document.getElementById("datetimepicker12").value;
+  if (nama == "") 
+  {
+    alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("nama").focus();
+    return false;
+  }
+  else if (alamat == "") 
+  {
+    alert("Isian Alamat Pelapor tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("alamat").focus();
+    return false;
+  }
+  else if (pic == "") 
+  {
+    alert("Isian Nomor Telepon Pelapor tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("pic").focus();
+    return false;
+  }
+  else if (dp1 == "") 
+  {
+    alert("Isian Tanggal Close tidak boleh kosong. Silahkan isi kembali");
+    //document.getElementById("tglclosed").focus();
+    return false;
+  }
+  else 
+  {
+    return true;
+  }
+}
 
+function checkNullWithPOTS()
+{
+  var nopots = document.getElementById("nopots").value;
+  var nama = document.getElementById("nama").value;
+  var alamat = document.getElementById("alamat").value;
+  var pic = document.getElementById("pic").value;
+  var dp1 = document.getElementById("datetimepicker12").value;
+  if (nama == "") 
+  {
+    alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("nama").focus();
+    return false;
+  }
+  else if (nopots == "") 
+  {
+    alert("Isian Nomor POTS tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("nopots").focus();
+    return false;
+  }
+  else if (alamat == "") 
+  {
+    alert("Isian Alamat Pelapor tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("alamat").focus();
+    return false;
+  }
+  else if (pic == "") 
+  {
+    alert("Isian Nomor Telepon Pelapor tidak boleh kosong. Silahkan isi kembali");
+    document.getElementById("pic").focus();
+    return false;
+  }
+  else if (dp1 == "") 
+  {
+    alert("Isian Tanggal Close tidak boleh kosong. Silahkan isi kembali");
+    //document.getElementById("tglclosed").focus();
+    return false;
+  }
+  else 
+  {
+    return true;
+  }
+}
+</script>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -48,29 +127,29 @@
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="form-group">
                           <label>Nomor POTS</label>
-                          <input name="nopots" type="text" class="form-control" placeholder="Nomor POTS" value="<?php echo $nopots ?>" />
+                          <input name="nopots" type="text" id="nopots" class="form-control" placeholder="Nomor POTS" value="<?php echo $nopots ?>" />
                         </div>
                         <div class="form-group">
                           <label>Nomor Internet (opsional)</label>
-                          <input name="noinet" type="text" class="form-control" placeholder="12 Digit Nomor Internet" value="<?php echo $noinet ?>"/>
+                          <input name="noinet" type="text" id="noinet" class="form-control" placeholder="12 Digit Nomor Internet" value="<?php echo $noinet ?>"/>
                         </div>
                         <div class="form-group">
                           <label>Nama Pelapor</label>
-                          <input name="nama" type="text" class="form-control" placeholder="Nama Lengkap" value="<?php echo $nama ?>"/>
+                          <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $nama ?>"/>
                         </div>
                         <div class="form-group">
                           <label>Alamat Pelapor</label>
-                          <input name="alamat" type="text" class="form-control" placeholder="Alamat Lengkap" value="<?php echo $alamat ?>"/>
+                          <input name="alamat" type="text" id="alamat" class="form-control" placeholder="Alamat Lengkap" value="<?php echo $alamat ?>"/>
                         </div>
                         <div class="form-group">
                           <label>Nomor Telepon Pelapor</label>
-                          <input name="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor" value="<?php echo $pic ?>"/>
+                          <input name="pic" id="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor" value="<?php echo $pic ?>"/>
                         </div>
 
                       <!-- select -->
                         <div class="form-group">
                           <label>Media</label>
-                          <select name="namamedia" class="form-control">
+                          <select name="namamedia" id="namamedia" class="form-control">
                             <?php
                             
                             foreach ($nama_media as $row) {
@@ -88,7 +167,7 @@
 
                         <div class="form-group">
                           <label>Layanan</label>
-                          <select name="namalayanan" class="form-control">
+                          <select name="namalayanan" id="namalayanan" class="form-control">
                             <?php
                             foreach ($nama_layanan as $row) {
                               if ($namalayanan == $row->NAMA_LAYANAN){
@@ -104,7 +183,7 @@
 
                         <div class="form-group">
                           <label>Jenis Komplain</label>
-                          <select name="jeniskomplain" class="form-control">
+                          <select name="jeniskomplain" id="jeniskomplain" class="form-control">
                             <?php
                             foreach ($jenis_komplain as $row) {
                               if ($jeniskomplain == $row->JENIS){
@@ -121,11 +200,11 @@
                         <!-- textarea -->
                         <div class="form-group">
                           <label>Keluhan</label>
-                          <textarea name="keluhan" class="form-control" rows="3" placeholder="Deskripsi Keluhan"><?php echo $keluhan;?></textarea>
+                          <textarea name="keluhan" id="keluhan" class="form-control" rows="3" placeholder="Deskripsi Keluhan"><?php echo $keluhan;?></textarea>
                         </div>
                         <div class="form-group">
                           <label>Solusi</label>
-                          <textarea name="solusi" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"><?php echo $solusi;?></textarea>
+                          <textarea name="solusi" id="solusi" class="form-control" rows="3" placeholder="Solusi Yang Ditawarkan"><?php echo $solusi;?></textarea>
                         </div>
 
                         <div class="form-group">
@@ -151,12 +230,28 @@
                       <div id="awal" style="display:block;">
                           <div class="form-group">
                               <label>Tanggal Janji</label>
-                                <input type="text" class="form-control" name="deadlinelama" value="<?php echo ($deadline == '0000-00-00 00:00:00' ? '-' : $deadline) ?>" style="padding-right: 300px"/>
-                              <div class="row">
-                                <div class="col-xs-2">
-                                    <button class="btn btn-block btn-primary btn-sm" style="margin-top:5px;" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit Tanggal janji</button>
-                                </div>
-                              </div>
+                              <?php
+                              if ($deadline == '0000-00-00 00:00:00' || $deadline == NULL)
+                              {
+                                echo '<br>Tidak ada janji';
+                                echo '
+                                <div class="row">
+                                  <div class="col-xs-2">
+                                    <button class="btn btn-block btn-primary btn-sm" style="margin-top:5px;" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Tambah tanggal janji</button>
+                                  </div>
+                                </div>';
+                              }
+                              else
+                              {
+                                echo '<input type="text" class="form-control" name="deadlinelama" value="'.$deadline.'" disabled/>';
+                                echo '
+                                <div class="row">
+                                  <div class="col-xs-2">
+                                    <button class="btn btn-block btn-primary btn-sm" style="margin-top:5px;" type="button" class="btn btn-primary" value="Edit" onClick="edit_tanggal()">Edit tanggal janji</button>
+                                  </div>
+                                </div>';
+                              } 
+                              ?>
                             </div>
                       </div>
                       <input type="hidden" name = "status" value="lama" id="status">
@@ -166,7 +261,7 @@
                               <input type="text" class="form-control" id="datetimepicker12" name="deadlinebaru" value="<?php echo $deadline?>"/>
                                 <div class="row">
                                   <div class="col-xs-2">
-                                      <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="batal()">Batal</button>
+                                      <button class="btn btn-block btn-primary btn-sm" style="margin-top:5px;" type="button" class="btn btn-primary" value="Batal" onClick="batal()">Batal</button>
                                   </div>
                                 </div>
                             </div>
@@ -180,11 +275,20 @@
 
                       <div class="form-group">
                         <label>Keterangan Tambahan</label>
-                        <textarea name="ket" class="form-control" rows="3" placeholder="Keterangan"><?php echo $ket;?></textarea>
+                        <textarea name="ket" id="ket" class="form-control" rows="3" placeholder="Keterangan"><?php echo $ket;?></textarea>
                       </div>
 
                       <div class="box-footer">
-                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <?php
+                        if ($nopots == NULL || $nopots == '')
+                        {
+                          echo '<button type="submit" class="btn btn-primary" onclick="return checkNullWithoutPOTS()">Ubah komplain (without pots)</button>';
+                        }
+                        else
+                        {
+                          echo '<button type="submit" class="btn btn-primary" onclick="return checkNullWithPOTS()">Ubah komplain (with pots)</button>';
+                        }
+                        ?>
                        </div>
                       </form>
                     </div> <!-- /.col -->
