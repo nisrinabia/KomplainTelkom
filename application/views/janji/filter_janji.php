@@ -20,63 +20,8 @@ function deldata() {
   <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12"> 	
         
-      	<?php
-          $coba = $bulan;
-          if($coba == '01')
-          {
-            $coba = 'Januari';
-          }
-          elseif($coba == '02')
-          {
-            $coba = 'Februari';
-          }
-          elseif($coba == '03')
-          {
-            $coba = 'Maret';
-          }
-          elseif($coba == '04')
-          {
-            $coba = 'April';
-          }
-          elseif($coba == '05')
-          {
-            $coba = 'Mei';
-          }
-          elseif($coba == '06')
-          {
-            $coba = 'Juni';
-          }
-          elseif($coba == '07')
-          {
-            $coba = 'Juli';
-          }
-          elseif($coba == '08')
-          {
-            $coba = 'Agustus';
-          }
-          elseif($coba == '09')
-          {
-            $coba = 'September';
-          }
-          elseif($coba == '10')
-          {
-            $coba = 'Oktober';
-          }
-          elseif($coba == '11')
-          {
-            $coba = 'November';
-          }
-          elseif($coba == '12')
-          {
-            $coba = 'Desember';
-          }
-          echo '
-          <div class="alert alert-success">
-          		Menampilkan janji pada bulan ' . $coba . ' dan tahun ' . $tahun .'
-        	</div>';
-        ?>
         <div class="box">
           <div class="box-body">
               <h4>Navigasi</h4><hr>
@@ -90,23 +35,28 @@ function deldata() {
               <form method="get" action="<?php base_url() ?>filterall">
               Filter berdasarkan: 
                 <select class="option-control" name="bulan" data-toggle="tooltip" data-placement="top" title="Pilih bulan">
-                    <option value="01">Januari</option>     
-                     <option value="02">Februari</option>
-                     <option value="03">Maret</option>
-                     <option value="04">April</option>
-                     <option value="05">Mei</option>
-                     <option value="06">Juni</option>
-                     <option value="07">Juli</option>
-                     <option value="08">Agustus</option>
-                     <option value="09">September</option>
-                     <option value="10">Oktober</option>
-                     <option value="11">November</option>
-                     <option value="12">Desember</option>
+                    <option value="01" <?php if($bulan == '01') {echo 'selected'; }?> >Januari</option>     
+                    <option value="02" <?php if($bulan == '02') {echo 'selected'; }?> >Februari</option>
+                    <option value="03" <?php if($bulan == '03') {echo 'selected'; }?> >Maret</option>
+                    <option value="04" <?php if($bulan == '04') {echo 'selected'; }?> >April</option>
+                    <option value="05" <?php if($bulan == '05') {echo 'selected'; }?> >Mei</option>
+                    <option value="06" <?php if($bulan == '06') {echo 'selected'; }?> >Juni</option>
+                    <option value="07" <?php if($bulan == '07') {echo 'selected'; }?> >Juli</option>
+                    <option value="08" <?php if($bulan == '08') {echo 'selected'; }?> >Agustus</option>
+                    <option value="09" <?php if($bulan == '09') {echo 'selected'; }?> >September</option>
+                    <option value="10" <?php if($bulan == '10') {echo 'selected'; }?> >Oktober</option>
+                    <option value="11" <?php if($bulan == '11') {echo 'selected'; }?> >November</option>
+                    <option value="12" <?php if($bulan == '12') {echo 'selected'; }?> >Desember</option>
                   </select>
                   <select class="option-control" name="tahun" data-toggle="tooltip" data-placement="top" title="Pilih tahun">
                     <?php
                       if($select != NULL)
                       {
+                        for ($i=$rendah; $i<=$tinggi; $i++)
+                        {
+                          echo '<option value="'.$i.'" <?php if($i == $tahun) {echo "'selected'"; }?> >'.$i.'</option>'; 
+                          /*$i = $i + 1;*/
+                        }
                         foreach ($select as $row)
                         {
                           echo '<option value="'.$row->makan.'">'.$row->makan.'</option>';
@@ -120,7 +70,13 @@ function deldata() {
                         echo date("Y");
                         echo '</option>';
                       }
-                    ?>
+                    ?> 
+                  </select>
+                  <select class="option-control" name="SKomplain" data-toogle="tooltip" data-placement="top" title="Pilih SKomplain">
+                    <option value="semua"> Semua Status Komplain</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Closed">Closed</option>
+                    <option value="Decline">Decline</option>
                   </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
                 </form>

@@ -29,6 +29,7 @@ function deldata() {
               <a href="<?php echo base_url() ?>janji/sebelum_deadline"><button type="button" class="btn btn-success">Lihat janji sebelum deadline</button></a>              
               <br><br>
               <h4>Filter</h4><hr>
+<div>
               <form method="get" action="<?php base_url() ?>janji/filterall">
               Filter berdasarkan: 
                 <select class="option-control" name="bulan" data-toggle="tooltip" data-placement="top" title="Pilih bulan">
@@ -63,6 +64,12 @@ function deldata() {
                         echo '</option>';
                       }
                     ?>
+                  </select>
+                  <select class="option-control" name="SKomplain" data-toogle="tooltip" data-placement="top" title="Pilih SKomplain">
+                    <option value="semua"> Semua Status Komplain</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Closed">Closed</option>
+                    <option value="Decline">Decline</option>
                   </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
                 </form>
