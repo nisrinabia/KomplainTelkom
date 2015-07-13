@@ -73,6 +73,7 @@ function deldata() {
                   </select>
                   <button type="submit" class="btn btn-success" id="bulan">Pilih</button>
                 </form>
+            </div>
           </div>
         </div>
 
