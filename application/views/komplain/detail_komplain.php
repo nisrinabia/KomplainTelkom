@@ -36,12 +36,13 @@ function deldata() {
               {
 	            foreach($list as $row)
 	            {
+	            	$ref = urlencode(base_url(uri_string()));
 	            	if($row->NO_POTS != '' || $row->NO_POTS != NULL)
 	            	{
 	            		echo '
 	            		<form method="get" action="'.base_url().'komplain/showKomplainByPOTS/'.$row->NO_POTS.'">
 	            		<a href="'.base_url().'komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat semua daftar komplain</button></a>
-	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>';
+	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'?ref='.$ref.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>';
 	            		echo '<input type="hidden" name="uri" value="'.base_url(uri_string()).'">
 	            		<button type="submit" class="btn btn-primary">Lihat historis komplain pelanggan</button></a>
 	            		</form>';
@@ -49,7 +50,7 @@ function deldata() {
 	            	else
 	            	{
 	            		echo '<a href="'.base_url().'komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat semua daftar komplain</button></a>
-	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>
+	            		<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'?ref='.$ref.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>
 	            		<br>';
 	            	}
 	            }

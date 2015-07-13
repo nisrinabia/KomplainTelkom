@@ -231,6 +231,7 @@ class Komplain extends CI_Controller{
     }
 
     public function editKomplain($id){
+      $ref = $this->input->get('ref');
       $this->load->model('jenis_komplain_model');
       $this->load->model('media_model');
       $this->load->model('layanan_model');
@@ -240,7 +241,7 @@ class Komplain extends CI_Controller{
       $data['close'] = $this->komplain_model->tgl_closed($id);
       $data['nama_media'] = $this->media_model->getListMedia();
       $data['nama_layanan'] = $this->layanan_model->getListLayanan();
-
+      $data['ref_uri'] = $ref;
       
       $data['makan'] = $this->komplain_model->editKomplain($id);
 
@@ -250,6 +251,7 @@ class Komplain extends CI_Controller{
     }
 
     public function updateKomplain(){
+      $ref = $this->input->post('ref');
       $id = $this->input->post('id');
       $nopots = $this->input->post('nopots');
       $noinet = $this->input->post('noinet');
@@ -302,7 +304,7 @@ class Komplain extends CI_Controller{
       {
         echo '<script language="javascript">';
         echo 'alert("Data komplain berhasil diupdate");';
-        echo 'window.location.href = "' . site_url('komplain/detailKomplain/'.$id) . '";';
+        echo 'window.location.href = "' . $ref . '";';
         echo '</script>';
       }
       else
@@ -497,7 +499,7 @@ class Komplain extends CI_Controller{
         {
           $this->db->select("(CASE WHEN NO_POTS = '' THEN '-' ELSE NO_POTS END) AS NO_POTS, (CASE WHEN NO_INTERNET = '' THEN '-' ELSE NO_INTERNET END) AS NO_INTERNET, NAMA_PELAPOR, ALAMAT_PELAPOR, PIC_PELAPOR, KOMPLAIN.NAMA_MEDIA, KOMPLAIN.NAMA_LAYANAN, KOMPLAIN.JENIS_KOMPLAIN, (CASE WHEN TGL_KOMPLAIN = '0000-00-00 00:00:00' THEN '-' ELSE TGL_KOMPLAIN END) AS WAKTU_KOMPLAIN, (CASE WHEN TGL_CLOSE = '0000-00-00' THEN '-' ELSE TGL_CLOSE END) AS TGL_CLOSE, (CASE WHEN (DEADLINE = '0000-00-00 00:00:00' OR DEADLINE IS NULL OR DEADLINE = '') THEN '-' ELSE DEADLINE END) AS DEADLINE, (CASE WHEN KELUHAN = '' THEN '-' ELSE KELUHAN END) AS KELUHAN, (CASE WHEN SOLUSI = '' THEN '-' ELSE SOLUSI END) AS SOLUSI, (CASE WHEN KETERANGAN = '' THEN '-' ELSE KETERANGAN END) AS KETERANGAN, (CASE WHEN (DEADLINE = '0000-00-00 00:00:00' OR DEADLINE IS NULL) THEN '-' ELSE (CASE WHEN STATUS_JANJI = 0 THEN 'Belum ditangani' ELSE 'Telah ditangani' END) END) AS STATUS_JANJI, STATUS_KOMPLAIN"); 
           $this->db->from('KOMPLAIN, MEDIA, LAYANAN, JENIS_KOMPLAIN');
-          $this->db->where("MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS = KOMPLAIN.JENIS_KOMPLAIN AND KOMPLAIN.STATUS_KOMPLAIN = 'In Progress'");
+          $this->db->where("MEDIA.NAMA_MEDIA = KOMPLAIN.NAMA_MEDIA and LAYANAN.NAMA_LAYANAN = KOMPLAIN.NAMA_LAYANAN and JENIS_KOMPLAIN.JENIS = KOMPLAIN.JENIS_KOMPLAIN");
           
         }
         else if($mode == '5')

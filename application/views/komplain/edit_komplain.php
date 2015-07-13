@@ -123,10 +123,17 @@ function checkNullWithPOTS()
                 <div class="box-body">
                   <div class="row">
                     <div class="col-md-12">
+                    <p><span class="error"><b>*Isian harus diisi</b></span></p>
                       <form action="<?php echo site_url('Komplain/updateKomplain'); ?>" method="post" role="form">
                         <input type="hidden" name="id" value="<?php echo $id?>">
                         <div class="form-group">
-                          <label>Nomor POTS</label>
+                          <label>Nomor POTS 
+                          <?php
+                          if($nopots != NULL || $nopots != '')
+                          {
+                            echo ' <span class="error">*</span>';
+                          }
+                          ?></label>
                           <input name="nopots" type="text" id="nopots" class="form-control" placeholder="Nomor POTS" value="<?php echo $nopots ?>" />
                         </div>
                         <div class="form-group">
@@ -134,21 +141,21 @@ function checkNullWithPOTS()
                           <input name="noinet" type="text" id="noinet" class="form-control" placeholder="12 Digit Nomor Internet" value="<?php echo $noinet ?>"/>
                         </div>
                         <div class="form-group">
-                          <label>Nama Pelapor</label>
+                          <label>Nama Pelapor <span class="error">*</span></label>
                           <input name="nama" type="text" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $nama ?>"/>
                         </div>
                         <div class="form-group">
-                          <label>Alamat Pelapor</label>
+                          <label>Alamat Pelapor <span class="error">*</span></label>
                           <input name="alamat" type="text" id="alamat" class="form-control" placeholder="Alamat Lengkap" value="<?php echo $alamat ?>"/>
                         </div>
                         <div class="form-group">
-                          <label>Nomor Telepon Pelapor</label>
+                          <label>Nomor Telepon Pelapor <span class="error">*</span></label>
                           <input name="pic" id="pic" type="text" class="form-control" placeholder="Nomor Telepon Pelapor" value="<?php echo $pic ?>"/>
                         </div>
 
                       <!-- select -->
                         <div class="form-group">
-                          <label>Media</label>
+                          <label>Media <span class="error">*</span></label>
                           <select name="namamedia" id="namamedia" class="form-control">
                             <?php
                             
@@ -166,7 +173,7 @@ function checkNullWithPOTS()
                         </div>
 
                         <div class="form-group">
-                          <label>Layanan</label>
+                          <label>Layanan <span class="error">*</span></label>
                           <select name="namalayanan" id="namalayanan" class="form-control">
                             <?php
                             foreach ($nama_layanan as $row) {
@@ -182,7 +189,7 @@ function checkNullWithPOTS()
                         </div>
 
                         <div class="form-group">
-                          <label>Jenis Komplain</label>
+                          <label>Jenis Komplain <span class="error">*</span></label>
                           <select name="jeniskomplain" id="jeniskomplain" class="form-control">
                             <?php
                             foreach ($jenis_komplain as $row) {
@@ -208,7 +215,7 @@ function checkNullWithPOTS()
                         </div>
 
                         <div class="form-group">
-                          <label>Status Komplain</label>
+                          <label>Status Komplain <span class="error">*</span></label>
                           <?php
                             //wecho $statuskomplain;
                           ?>
@@ -220,7 +227,7 @@ function checkNullWithPOTS()
                         </div>
 
                       <div class="form-group">
-                        <label>Tanggal Closed</label>
+                        <label>Tanggal Closed <span class="error">*</span></label>
                             <!-- <input type="date" name="tglclosed"/> -->
                             <?php foreach ($close as $tanggal) { ?>
                             <input type="text" class="form-control" id="dp1" name="tglclosed" value="<?php echo $tanggal['TANGGAL_CLOSED'] ?>" />
@@ -277,16 +284,16 @@ function checkNullWithPOTS()
                         <label>Keterangan Tambahan</label>
                         <textarea name="ket" id="ket" class="form-control" rows="3" placeholder="Keterangan"><?php echo $ket;?></textarea>
                       </div>
-
+                      <input type="hidden" name="ref" value="<?php echo $ref_uri?>">
                       <div class="box-footer">
                         <?php
                         if ($nopots == NULL || $nopots == '')
                         {
-                          echo '<button type="submit" class="btn btn-primary" onclick="return checkNullWithoutPOTS()">Ubah komplain (without pots)</button>';
+                          echo '<button type="submit" class="btn btn-primary" onclick="return checkNullWithoutPOTS()">Ubah komplain</button>';
                         }
                         else
                         {
-                          echo '<button type="submit" class="btn btn-primary" onclick="return checkNullWithPOTS()">Ubah komplain (with pots)</button>';
+                          echo '<button type="submit" class="btn btn-primary" onclick="return checkNullWithPOTS()">Ubah komplain</button>';
                         }
                         ?>
                        </div>
