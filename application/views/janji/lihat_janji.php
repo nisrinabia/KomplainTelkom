@@ -49,12 +49,13 @@ function checkNull()
 		        {
 		            foreach($list as $row)
 		            {
-		            $ref = urlencode(base_url(uri_string()));
+		            $ref = urlencode(current_url().'?'.$_SERVER['QUERY_STRING']);
 		          	echo '
 		          		<form action="'.base_url().'janji/ubahStatus/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+							<a href="'.base_url().'janji"><button type="button" class="btn btn-primary">Kembali ke daftar semua janji</button></a>
 							<input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
 							<input type="submit" onclick="return confirmAction()" name="submit" value="Ubah status janji" class="btn btn-primary" />
-							<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'?ref='.$ref.'"><button type="button" class="btn btn-primary">Edit data komplain</button></a>
+							<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'?ref='.$ref.'"><button type="button" class="btn btn-primary">Ubah data komplain</button></a>
 						</form>
 						<br>';
 					}

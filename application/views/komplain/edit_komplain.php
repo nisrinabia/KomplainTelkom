@@ -250,7 +250,7 @@ function checkNullWithPOTS()
                               }
                               else
                               {
-                                echo '<input type="text" class="form-control" name="deadlinelama" value="'.$deadline.'" disabled/>';
+                                echo '<input type="text" class="form-control" name="deadlinelama" value="'.$deadline.'"/>';
                                 echo '
                                 <div class="row">
                                   <div class="col-xs-2">
