@@ -54,7 +54,7 @@ function deldata() {
                       {
                         for ($i=$rendah; $i<=$tinggi; $i++)
                         {
-                          echo '<option value="'.$i.'" <?php if($i == $tahun) {echo "'selected'"; }?> >'.$i.'</option>'; 
+                          echo '<option value="'.$i.'"'; if($i == $tahun) {echo "selected"; } echo '>'.$i.'</option>'; 
                           /*$i = $i + 1;*/
                         }
                         foreach ($select as $row)
