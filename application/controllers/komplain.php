@@ -164,17 +164,18 @@ class Komplain extends CI_Controller{
                       {
                         $tanggal = $excel[5] . ' ' . $excel[6] . ':00';
                         $janji= $excel[12] . ' ' . $excel[13]. ':00';
-                        if ($excel[14] == "" || $excel[14] == "In Progress")
-                        {
-                          $statuskomplain = 'In Progress';
-                        }
-                        elseif ($excel[14] == "Closed")
+                        
+                        if ($excel[14] == "Closed")
                         {
                           $statuskomplain = 'Closed';
                         }
                         elseif ($excel[14] == "Decline")
                         {
                           $statuskomplain = 'Decline';
+                        }
+                        else
+                        {
+                          $statuskomplain = 'In Progress';
                         }
                         
                         $this->load->model('komplain_model');
@@ -192,7 +193,7 @@ class Komplain extends CI_Controller{
             unlink($file);
             echo '<script language="javascript">';
             echo 'alert("Berhasil menambahkan ' . $jumlah . ' data");';
-            echo 'window.location.href = "' . site_url('komplain/showAllKomplain') . '";';
+            echo 'window.location.href = "' . site_url('komplain/showAllKomplain/4') . '";';
             echo '</script>';            
         }
         else
