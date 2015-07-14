@@ -22,13 +22,18 @@ class Coba extends CI_Controller{
 
     function about()
     {
+        $this->load->view('docs/tes');
+    }
+
+    function doc()
+    {
         $data = array(
             'nama' => $this->session->userdata('nama_lengkap'),
             'username' => $this->session->userdata('username'),
             'jabatan' => $this->session->userdata('jabatan')
         );
         $this->load->view('design/header', $data);
-        $this->load->view('about/hehe');
+        $this->load->view('docs/hehe');
         $this->load->view('design/footer');
     }
 }
