@@ -23,7 +23,7 @@
       <li>Klik menu <b>Hard Komplain > Tambah Komplain</b></li>
       <img src="<?php echo base_url() ?>/assets/docs/tambahKomplain1.png">      
       <li>Pada form di sebelah kiri, isi semua kotak terutama yang memiliki tanda (<span class="error">*</span>)</li>
-      <li>Jika membuat janji dengan pelanggan, tambahkan waktu janji dengan klik tombol <b>Tambah Waktu Janji</b> dan akan muncul kalender dengan default tanggal saat itu juga. Klik tombol <b>Batal</b></li>
+      <li>Jika membuat janji dengan pelanggan, tambahkan waktu janji dengan klik tombol <button class="btn btn-primary">Tambah Waktu Janji</button> dan akan muncul kalender dengan default tanggal saat itu juga. Klik tombol <button class="btn btn-primary">Batal</button><br/></li>
       <img src="<?php echo base_url() ?>/assets/docs/tambahKomplain2.png">
       <li>Setelah selesai mengisikan data, klik tombol <b>Tambah Komplain</b></li>
     </ol>
@@ -31,10 +31,10 @@
     <p>Untuk memasukkan data dalam jumlah yang banyak, dapat menggunakan file excel dengan cara :</p>
     <ol>
       <li>Klik menu <b>Hard Komplain > Tambah Komplain</b></li> 
-      <li>Jika telah memiliki file excel yang sesuai format sistem, lanjut ke nomor 3.<br/>Jika belum, download template file excel yang sesuai format sistem dapat didownload dengan klik tombol <b>Download Template Excel</b> pada kotak di sebelah kanan</li>
+      <li>Jika telah memiliki file excel yang sesuai format sistem, lanjut ke nomor 3.<br/>Jika belum, download template file excel yang sesuai format sistem dapat didownload dengan klik tombol <button class="btn btn-success">Download Template Excel</button> pada kotak di sebelah kanan</li>
       <img src="<?php echo base_url() ?>/assets/docs/tambahKomplain3.png"><br/>
       <li>Unggah file excel dengan klik tombol <b>Pilih File</b></li>
-      <li>Klik tombol <b>Unggah</b> untuk memasukkan seluruh data dalam file ke sistem</li>
+      <li>Klik tombol <button class="btn btn-primary">Unggah</button> untuk memasukkan seluruh data dalam file ke sistem</li><br/>
       <div class="callout callout-danger lead">
         <h4>Perhatian!</h4>
         <p>File excel yang diunggah HARUS mengikuti format yang diberikan sistem, baik pengisian mauapun jenis file yang diunggah</p>
