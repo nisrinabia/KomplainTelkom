@@ -33,7 +33,7 @@ class Coba extends CI_Controller{
             'jabatan' => $this->session->userdata('jabatan')
         );
         $this->load->view('design/header', $data);
-        $this->load->view('docs/hehe');
+        $this->load->view('docs/user_manual');
         $this->load->view('design/footer');
     }
 }

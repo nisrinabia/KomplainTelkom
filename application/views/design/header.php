@@ -33,7 +33,7 @@
     <!-- tambahan bootstrap3 -->
     <link href="<?php echo base_url() ?>assets/bootstrap3/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/bootstrap3/prettify-1.0.css" rel="stylesheet" type="text/css" />
-
+    <link href="<?php echo base_url() ?>assets/style.css" rel="stylesheet" type="text/css" />
   </head>
   <script type="text/javascript">
         function preloader(){

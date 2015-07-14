@@ -95,7 +95,7 @@
     <script src="<?php echo base_url() ?>assets/bootstrap3/moment-with-locales.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/bootstrap3/prettify-1.0.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/bootstrap/js/bootstrap-datepicker.js" type="text/javascript"></script>
-    
+    <script src="<?php echo base_url() ?>assets/docs.js"></script>
     <!-- Page script -->
     <script>
   if (top.location != location) {
