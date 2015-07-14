@@ -61,7 +61,7 @@
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" title="Sidebar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -110,7 +110,7 @@
               </li>
               <!-- Control Sidebar Toggle Button -->
               <li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-question fa-lg"></i></a>
+                <a href="#" data-toggle="control-sidebar" title="Gusar? Klik tombol ini untuk bantuan"><i class="fa fa-question fa-lg"></i></a>
               </li>
             </ul>
           </div>
@@ -215,7 +215,7 @@
             <ul class='control-sidebar-menu'>
               <li>
                 <a href= '<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahHardKomplain'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-plus bg-red"></i>
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Menambah Hard Komplain Baru</h4>
                   </div>
@@ -223,7 +223,7 @@
               </li>
               <li>
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahKomplainPlasa'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-user-plus bg-blue"></i>
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Menambah Komplain Plasa Baru</h4>
                   </div>
@@ -231,7 +231,7 @@
               </li>
               <li>
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#lihatKomplain'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-list bg-green"></i>
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Melihat Daftar Komplain</h4>
                   </div>
@@ -239,7 +239,7 @@
               </li>
               <li>
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#lihatJanji'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-check-square-o bg-orange"></i>
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Melihat Janji dengan Customer</h4>
                   </div>
@@ -247,7 +247,7 @@
               </li>
               <li>
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahMedia'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-phone-square bg-maroon"></i>
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Menambahkan Media Baru</h4>
                   </div>
@@ -255,7 +255,7 @@
               </li>
               <li>
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahLayanan'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-gear bg-yellow"></i>
                   <div class="menu-info">
                     <h4 class="control-sidebar-subheading">Menambahkan Layanan Baru</h4>
                   </div>
@@ -263,9 +263,9 @@
               </li>
               <li>
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahJenisKomplain'>
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <i class="menu-icon fa fa-server bg-red"></i>
                   <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Menambahkan Jenis Baru</h4>
+                    <h4 class="control-sidebar-subheading">Menambahkan Jenis Komplain Baru</h4>
                   </div>
                 </a>
               </li>

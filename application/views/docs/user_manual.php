@@ -35,11 +35,11 @@
       <img src="<?php echo base_url() ?>/assets/docs/tambahKomplain3.png"><br/>
       <li>Unggah file excel dengan klik tombol <b>Pilih File</b></li>
       <li>Klik tombol <button class="btn btn-primary">Unggah</button> untuk memasukkan seluruh data dalam file ke sistem</li><br/>
-      <div class="callout callout-danger lead">
+    </ol>
+    <div class="callout callout-danger">
         <h4>Perhatian!</h4>
         <p>File excel yang diunggah HARUS mengikuti format yang diberikan sistem, baik pengisian mauapun jenis file yang diunggah</p>
       </div> 
-    </ol>
   </p>
 </section>
 
@@ -335,10 +335,10 @@
 <section id="license">
   <h2 class="page-header"><a href="#license">Lisensi</a></h2>
   <h3>Si Karin</h3>
-  <p class="lead">Si Karin (Sistem Informasi Komplain Terintegrasi) Telkom Malang adalah aplikasi berbasis web yang dikembangkan oleh <a href="#">Tim Kerja Praktik Teknik Informatik ITS 2015</a>.
+  <p class="lead">Si Karin (Sistem Informasi Komplain Terintegrasi) Telkom Malang adalah aplikasi berbasis web yang dikembangkan oleh <a href="#" data-toggle="modal" data-target="#myModal">Tim Kerja Praktik Teknik Informatika ITS 2015</a>.
     Aplikasi ini digunakan untuk monitoring komplain pelanggan yang masuk ke Telkom Malang, sehingga segala data komplain dapat dikelola dan dipantau kapan saja oleh yang berkepentingan dalam proses bisnis ini.</p>
   
-  <p>Untuk pertanyaan lebih lanjut, dapat ditanyakan melalui email ke salah satu anggota <a href="#">Tim Kerja Praktik Teknik Informatik ITS 2015</a>.</p>
+  <p>Untuk pertanyaan lebih lanjut, dapat ditanyakan melalui email ke salah satu anggota <a href="#" data-toggle="modal" data-target="#myModal">Tim Kerja Praktik Teknik Informatika ITS 2015</a>.</p>
 </section>
 
         </div><!-- /.content -->
