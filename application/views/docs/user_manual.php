@@ -3,11 +3,11 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
           <h1>
-            User Manual
+            Bantuan
             <small>Petunjuk Pemakaian Aplikasi</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> User Manual</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Bantuan</a></li>
           </ol>
         </div>
 
