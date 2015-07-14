@@ -194,11 +194,7 @@ function isExcel5(filename)
                   <div class="form-group">
                     <label>Tanggal Janji (mm-dd-yyyy HH:MM)</label>
                         <div id="noJanji" style="display:block; ">
-                          <div class="row">
-                              <div class="col-md-4">
                                 <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="showJanji()">Tambah Waktu Janji</button>
-                              </div>
-                          </div>
                         </div>
                         <div id="janji" style="display:none; ">
                           <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
