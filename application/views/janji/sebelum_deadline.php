@@ -64,7 +64,7 @@ function deldata() {
                     }
                   ?>
                 </select>
-                <select class="option-control" name="SKomplain" data-toogle="tooltip" data-placement="top" title="Pilih SKomplain">
+                <select class="option-control" name="SKomplain" data-toggle="tooltip" data-placement="top" title="Pilih status komplain">
                   <option value="semua"> Semua Status Komplain</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Closed">Closed</option>
@@ -113,8 +113,8 @@ function deldata() {
                     {?>
                     <tr>
                       <th>
-                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
-                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=before" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/lihat/' . $row->ID_KOMPLAIN ?>" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                        <a href="<?php echo base_url() . 'janji/delete/' . $row->ID_KOMPLAIN ?>?mode=before" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="return deldata()"><i class="fa fa-trash text-black fa-lg"></i></a>
                       </th>
                       <td><?php echo $row->DEADLINE; ?></td>
                       <td><?php echo $row->NO_POTS; ?></td>

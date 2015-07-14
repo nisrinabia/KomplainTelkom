@@ -1,6 +1,6 @@
 <script type="text/javascript">
 function confirmAction() {
-    return confirm('Apakah Anda yakin akan mengubah status janji ini menjadi telah ditangani? Anda tidak bisa mengubah kembali status janji ini setelah mengubah status janji ini');
+    return confirm('Apakah Anda yakin akan mengubah status janji ini menjadi telah ditangani?');
   }
 function confirmActionDel() {
     return confirm('Apakah Anda yakin akan menghapus dokumen ini?');
@@ -41,21 +41,27 @@ function checkNull()
         <div class="box">
           <div class='box-header with-border'>
               <h3 class='box-title'>Informasi data janji</h3>
-	            <?php
+          </div>
+          <div class="box-body">
+
+          <?php
 	            if($list != NULL)
 		        {
 		            foreach($list as $row)
 		            {
+		            $ref = urlencode(current_url().'?'.$_SERVER['QUERY_STRING']);
 		          	echo '
 		          		<form action="'.base_url().'janji/ubahStatus/'.$row->ID_KOMPLAIN.'" method="POST" enctype="multipart/form-data" >
+							<a href="'.base_url().'janji"><button type="button" class="btn btn-primary">Kembali ke daftar semua janji</button></a>
 							<input type="hidden" name="uri" value="'.base_url(uri_string()).'"/>
-							<input type="submit" onclick="return confirmAction()" name="submit" style="float:right" value="Ubah Status" class="btn btn-primary" />
-						</form>';
+							<input type="submit" onclick="return confirmAction()" name="submit" value="Ubah status janji" class="btn btn-primary" />
+							<a href="'.base_url().'komplain/editKomplain/'.$row->ID_KOMPLAIN.'?ref='.$ref.'"><button type="button" class="btn btn-primary">Ubah data komplain</button></a>
+						</form>
+						<br>';
 					}
 				}
 				?>
-          </div>
-          <div class="box-body">
+
 
           <fieldset class="data-border">
 		    <legend class="data-border">Data Pelapor</legend>

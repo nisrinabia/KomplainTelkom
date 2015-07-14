@@ -129,9 +129,9 @@ function deldata() {
                   { ?>
                   <tr>
                     <td> 
-                      <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
-                      <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" title="Ubah"><i class="fa fa-pencil text-black fa-lg"></i></a>
-                      <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" title="Hapus" onclick="return deldata();"><i class="fa fa-trash text-black fa-lg"></i></a>
+                      <a href="<?php echo base_url() . 'komplain/detailKomplain/' . $row->ID_KOMPLAIN ?>" data-toggle="tooltip" data-placement="top" title="Lihat"><i class="fa fa-eye text-black fa-lg"></i></a>
+                      <a href="<?php echo base_url() . 'komplain/editKomplain/' . $row->ID_KOMPLAIN ?>" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="fa fa-pencil text-black fa-lg"></i></a>
+                      <a href="<?php echo base_url() . 'komplain/deleteKomplain/' . $row->ID_KOMPLAIN ?>" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="return deldata();"><i class="fa fa-trash text-black fa-lg"></i></a>
                     </td>
                     <td><?php echo $row->NO_POTS; ?></td>
                     <td><?php echo $row->NO_INTERNET; ?></td>

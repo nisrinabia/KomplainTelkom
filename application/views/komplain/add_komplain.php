@@ -12,6 +12,12 @@
       document.getElementById("nama").focus();
       return false;
     }
+    else if(nopots == "")
+    {
+      alert("Isian Nomor POTS tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("nopots").focus();
+      return false;
+    }
     else if (alamat == "") 
     {
       alert("Isian Alamat Pelapor tidak boleh kosong. Silahkan isi kembali");
@@ -105,7 +111,7 @@ function isExcel5(filename)
                   <p><span class="error"><b>*Isian harus diisi</b></span></p>
                   <form action="<?php echo site_url('Komplain/addKomplain'); ?>" method="post" role="form">
                     <div class="form-group">
-                      <label>Nomor POTS</label>
+                      <label>Nomor POTS <span class="error">*</span></label>
                       <input name="nopots" id="nopots" type="text" class="form-control" placeholder="Nomor POTS" autofocus=""/>
                     </div>
                     <div class="form-group">
