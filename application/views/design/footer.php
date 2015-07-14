@@ -8,7 +8,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015 (Selamat Lebaran :3 Mohon maap lahir & batin)</h4>
+                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015</h4>
               </div>
               <div class="modal-body">
                 <section class="content">
