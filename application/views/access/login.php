@@ -26,7 +26,7 @@ function checkNull()
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sistem Informasi Pengaduan Telkom Malang</title>
+    <title>Komplain Terintegrasi Telkom Malang</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="<?=base_url('assets/bootstrap/css/bootstrap.min.css');?>" rel="stylesheet" type="text/css" />
@@ -48,7 +48,7 @@ function checkNull()
   <body style="background-image:url('<?php echo base_url() ?>assets/dist/img/loginback.jpg');background-size: cover;background-position: left bottom;" class="login-page">
 
     <div class="login-logo">
-        <a href="<?=base_url();?>" style="color:#ffffff;text-shadow: 2px 2px 4px #000000;"><b>Sistem Informasi Pengaduan</b> Telkom Malang</a>
+        <a href="<?=base_url();?>" style="color:#ffffff;text-shadow: 2px 2px 4px #000000;"><b>Komplain Terintegrasi</b> <br> Telkom Malang</a>
     </div><!-- /.login-logo -->
 
     <div class="login-box">
@@ -85,11 +85,57 @@ function checkNull()
               </div><!-- /.col -->
           </div>
           </form>
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015</h4>
+              </div>
+              <div class="modal-body">
+                <section class="content">
+                            <div class="box-body no-padding">
+                              <ul class="users-list clearfix">
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
+                                  <span class="users-list-date">5112100002</span>
+                                  <span class="users-list-date"><a href="mailto:dinar.mahandhira@gmail.com" target="_blank">dinar.mahandhira@gmail.com</a></span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
+                                  <span class="users-list-date">5112100021</span>
+                                  <span class="users-list-date"><a href="mailto:farizauliapradipta@gmail.com" target="_blank">farizauliapradipta@gmail.com</a></span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
+                                  <span class="users-list-date">5112100122</span>
+                                  <span class="users-list-date"><a href="mailto:ratihayuratih@gmail.com" target="_blank">ratihayuratih@gmail.com</a></span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Azis Arijaya</a>
+                                  <span class="users-list-date">5112100155</span>
+                                  <span class="users-list-date"><a href="mailto:azis.arijaya@gmail.com" target="_blank">azis.arijaya@gmail.com</a></span>
+                                </li>
+                              </ul><!-- /.users-list -->
+                            </div><!-- /.box-body -->
+                </section><!-- /.content -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- <a href="#">I forgot my password</a><br> -->
         <div class="social-auth-links text-center">
-          <p>Kerja Praktik ITS Telkom Malang &copy; 2015
+          <a href="#" data-toggle="modal" data-target="#myModal"><p><b>Kerja Praktik ITS Telkom Malang</b></a> &copy; 2015
               <br>
-             Versi 1.0.0 
+             Version 1.0
           </p>
         </div><!-- /.social-auth-links -->
       </div><!-- /.login-box-body -->
