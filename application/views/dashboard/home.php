@@ -18,65 +18,72 @@
           <hr style="border-color:#55E0DE;">
 
           <div class="row">
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-4 col-xs-4">
               <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                <?php
-                foreach ($komplain as $row) 
-                {
-                  echo '<h3>'.$row['JML_HARD_KOMPLAIN'].'</h3>';
-                }
-                ?>
-                  <p>Hard Komplain</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-file-text"></i>
-                </div>
-                <a href="<?php echo base_url() ?>komplain/showAllKomplain/1" class="small-box-footer">
-                  Selengkapnya <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-4 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-orange">
-                <div class="inner">
+              <a href = "<?php echo base_url() ?>komplain/showAllKomplain/1" style = "color:white">
+                <div class="small-box bg-aqua">
+                  <div class="inner" style="padding-left:10px !important;">
                   <?php
-                  foreach ($gangguan as $row) 
+                  foreach ($komplain as $row) 
                   {
-                    echo '<h3>'.$row['JML_GANGGUAN'].'</h3>';
+                    echo '<h3>'.$row['JML_HARD_KOMPLAIN'].'</h3>';
                   }
                   ?>
-                  <p>Gangguan</p>
+                    <p>Hard Komplain</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-file-text"></i>
+                  </div>
+                  <a href="<?php echo base_url() ?>komplain/showAllKomplain/1" class="small-box-footer">
+                    Selengkapnya <i class="fa fa-arrow-circle-right"></i>
+                  </a>
                 </div>
-                <div class="icon">
-                  <i class="fa fa-gears"></i>
-                </div>
-                <a href="<?php echo base_url() ?>komplain/showAllKomplain/2" class="small-box-footer">
-                  Selengkapnya <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
+              </a>
             </div><!-- ./col -->
-            <div class="col-lg-4 col-xs-6">
+            
+              <div class="col-lg-4 col-xs-4">
               <!-- small box -->
-              <div class="small-box bg-maroon">
-                <div class="inner">
-                  <?php
-                  foreach ($psb as $row) 
-                  {
-                    echo '<h3>'.$row['JML_PSB'].'</h3>';
-                  }
-                  ?>
-                  <p>PSB</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-list"></i>
-                </div>
-                <a href="<?php echo base_url() ?>komplain/showAllKomplain/3" class="small-box-footer">
-                  Selengkapnya <i class="fa fa-arrow-circle-right"></i>
-                </a>
+              <a href = "<?php echo base_url() ?>komplain/showAllKomplain/2" style = "color:white">
+                <div class="small-box bg-orange">
+                  <div class="inner" style="padding-left:10px !important;">
+                    <?php
+                    foreach ($gangguan as $row) 
+                    {
+                      echo '<h3>'.$row['JML_GANGGUAN'].'</h3>';
+                    }
+                    ?>
+                    <p>Gangguan</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-gears"></i>
+                  </div>
+                  <a href="<?php echo base_url() ?>komplain/showAllKomplain/2" class="small-box-footer">
+                    Selengkapnya <i class="fa fa-arrow-circle-right"></i>
+                  </a>
               </div>
+            </a>
+            </div><!-- ./col -->
+            <div class="col-lg-4 col-xs-4">
+              <!-- small box -->
+              <a href = "<?php echo base_url() ?>komplain/showAllKomplain/3" style = "color:white">
+                <div class="small-box bg-maroon">
+                  <div class="inner" style="padding-left:10px !important;">
+                    <?php
+                    foreach ($psb as $row) 
+                    {
+                      echo '<h3>'.$row['JML_PSB'].'</h3>';
+                    }
+                    ?>
+                    <p>PSB</p>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-list"></i>
+                  </div>
+                  <a href="<?php echo base_url() ?>komplain/showAllKomplain/3" class="small-box-footer">
+                    Selengkapnya <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </a>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
                           </div><!-- ./col -->
