@@ -18,25 +18,25 @@
                                   <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image"/>
                                   <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
                                   <span class="users-list-date">5112100002</span>
-                                  <span class="users-list-date">dinar.mahandhira@gmail.com</span>
+                                  <span class="users-list-date"><a href="mailto:dinar.mahandhira@gmail.com" target="_blank">dinar.mahandhira@gmail.com</a></span>
                                 </li>
                                 <li>
                                   <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
                                   <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
                                   <span class="users-list-date">5112100021</span>
-                                  <span class="users-list-date">farizap@gmail.com</span>
+                                  <span class="users-list-date"><a href="mailto:farizauliapradipta@gmail.com" target="_blank">farizauliapradipta@gmail.com</a></span>
                                 </li>
                                 <li>
                                   <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image"/>
                                   <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
                                   <span class="users-list-date">5112100122</span>
-                                  <span class="users-list-date">ratihayuratih@gmail.com</span>
+                                  <span class="users-list-date"><a href="mailto:ratihayuratih@gmail.com" target="_blank">ratihayuratih@gmail.com</a></span>
                                 </li>
                                 <li>
                                   <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image"/>
                                   <a class="users-list-name" href="#">Azis Arijaya</a>
                                   <span class="users-list-date">5112100155</span>
-                                  <span class="users-list-date">azis.arijaya@gmail.com</span>
+                                  <span class="users-list-date"><a href="mailto:azis.arijaya@gmail.com" target="_blank">azis.arijaya@gmail.com</a></span>
                                 </li>
                               </ul><!-- /.users-list -->
                             </div><!-- /.box-body -->
