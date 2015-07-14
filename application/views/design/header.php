@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Katerine</title>
+    <title>Karin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/logo.ico')?>">
     <!-- Bootstrap 3.3.4 -->
@@ -51,11 +51,11 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="../../index2.html" class="logo">
+        <a href="<?php echo base_url() ?>" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>KA</b>T</span>
+          <span class="logo-mini"><b>K</b>r</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><i class="fa fa-users fa-lg"></i> <b>Katerine</b></span>
+          <span class="logo-lg"><i class="fa fa-users fa-lg"></i> <b>Karin</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">

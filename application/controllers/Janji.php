@@ -21,6 +21,8 @@ class Janji extends CI_Controller {
         $mode = "all";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListJanji($mode);
+        $data['tinggi'] = $this->janji_model->getListMenuTahunTertinggi();
+        $data['rendah'] = $this->janji_model->getListMenuTahunTerendah();
         //print_r($data['list']);
         $this->header();
         $this->load->view('janji/home_janji',$data);
@@ -60,6 +62,8 @@ class Janji extends CI_Controller {
         $mode = "past";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListJanji($mode);
+        $data['tinggi'] = $this->janji_model->getListMenuTahunTertinggi();
+        $data['rendah'] = $this->janji_model->getListMenuTahunTerendah();
         //print_r($data);
         $this->header();
         $this->load->view('janji/lewat_deadline',$data);
@@ -117,6 +121,8 @@ class Janji extends CI_Controller {
         $mode = "before";
         $this->load->model('janji_model');
         $data['list'] = $this->janji_model->getListJanji($mode);
+        $data['tinggi'] = $this->janji_model->getListMenuTahunTertinggi();
+        $data['rendah'] = $this->janji_model->getListMenuTahunTerendah();
         //print_r($data);
         $this->header();
         $this->load->view('janji/sebelum_deadline',$data);

@@ -3,6 +3,17 @@ function deldata() {
     return confirm('Apakah Anda yakin akan menghapus komplain ini? Untuk mengubah status komplain, gunakan tombol lihat disamping tombol hapus');
   }
 </script>
+<?php
+  //Ambil tahun terendah dan tertinggi 
+  foreach ($rendah as $row)
+  {
+      $tahun_rendah = $row->makan;
+  }
+  foreach ($tinggi as $row)
+  {
+      $tahun_tinggi = $row->makan;
+  }
+?>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
@@ -48,11 +59,12 @@ function deldata() {
                   </select>
                   <select class="option-control" name="tahun" data-toggle="tooltip" data-placement="top" title="Pilih tahun">
                     <?php
-                      if($select != NULL)
+                      if($rendah != NULL)
                       {
-                        foreach ($select as $row)
+                        for ($i=$tahun_rendah; $i<=$tahun_tinggi; $i++)
                         {
-                          echo '<option value="'.$row->makan.'">'.$row->makan.'</option>';
+                          echo '<option value="'.$i.'"'; if($i == $tahun_tinggi) {echo "selected"; } echo '>'.$i.'</option>'; 
+                          /*$i = $i + 1;*/
                         }
                       }
                       else
@@ -63,7 +75,7 @@ function deldata() {
                         echo date("Y");
                         echo '</option>';
                       }
-                    ?>
+                    ?> 
                   </select>
                   <select class="option-control" name="SKomplain" data-toggle="tooltip" data-placement="top" title="Pilih status komplain">
                     <option value="semua"> Semua Status Komplain</option>
