@@ -17,13 +17,13 @@
 <section id='tambahHardKomplain'>
   <h2 class='page-header'><a href="#introduction">Menambah Hard Komplain Baru</a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
+    Untuk menambah hard komplain baru, dapat dilakukan dengan dua cara, yaitu :
+    <h4><u>Mengisi Form :</u></h4>
+    <ol>
+      <li>Klik menu <b>Hard Komplain > Tambah Komplain</b></li>
+      <img src="<?php echo base_url() ?>/assets/docs/tambahKomplain1.png">      
+      <li>Pada form di sebelah kiri, isi semua kotak terutama yang memiliki tanda (<span class="error">*</span>)</li>
+    </ol>
   </p>
 </section>
 
