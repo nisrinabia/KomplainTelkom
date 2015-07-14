@@ -2,7 +2,95 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0
         </div>
-        <strong>Copyright &copy; 2015 <a href="#">Kerja Praktik Teknik Informatika ITS</a>.</strong> All rights reserved.
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015</h4>
+              </div>
+              <div class="modal-body">
+                <section class="content">
+                            <div class="box-body no-padding">
+                              <ul class="users-list clearfix">
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
+                                  <span class="users-list-date">5112100002</span>
+                                  <span class="users-list-date">dinar.mahandhira@gmail.com</span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
+                                  <span class="users-list-date">5112100021</span>
+                                  <span class="users-list-date">farizap@gmail.com</span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
+                                  <span class="users-list-date">5112100122</span>
+                                  <span class="users-list-date">ratihayuratih@gmail.com</span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Azis Arijaya</a>
+                                  <span class="users-list-date">5112100155</span>
+                                  <span class="users-list-date">azis.arijaya@gmail.com</span>
+                                </li>
+                              </ul><!-- /.users-list -->
+                            </div><!-- /.box-body -->
+                </section><!-- /.content -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"> -->
+        <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015</h4>
+              </div>
+              <div class="modal-body">
+                <section class="content">                            <div class="box-body no-padding">
+                              <ul class="users-list clearfix">
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/user1-128x128.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
+                                  <span class="users-list-date">5112100002</span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/user8-128x128.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
+                                  <span class="users-list-date">5112100021</span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/user7-128x128.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
+                                  <span class="users-list-date">5112100122</span>
+                                </li>
+                                <li>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/user6-128x128.jpg" alt="User Image"/>
+                                  <a class="users-list-name" href="#">Azis Arijaya</a>
+                                  <span class="users-list-date">5112100155</span>
+                                </li>
+                              </ul>
+                            </div>
+                </section>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <strong>Copyright &copy; 2015 <a href="#" data-toggle="modal" data-target="#myModal">Kerja Praktik Teknik Informatika ITS</a>.</strong> All rights reserved.
       </footer>
     
       <!-- Add the sidebar's background. This div must be placed
@@ -44,6 +132,7 @@
     <script src="<?php echo base_url() ?>assets/bootstrap3/moment-with-locales.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/bootstrap3/prettify-1.0.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/bootstrap/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    
     <!-- Page script -->
     <script>
   if (top.location != location) {
