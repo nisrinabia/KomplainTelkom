@@ -6,16 +6,16 @@
     var alamat = document.getElementById("alamat").value;
     var pic = document.getElementById("pic").value;
     var dp1 = document.getElementById("dp1").value;
-    if (nama == "") 
-    {
-      alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
-      document.getElementById("nama").focus();
-      return false;
-    }
-    else if(nopots == "")
+    if(nopots == "")
     {
       alert("Isian Nomor POTS tidak boleh kosong. Silahkan isi kembali");
       document.getElementById("nopots").focus();
+      return false;
+    }
+    else if (nama == "") 
+    {
+      alert("Isian Nama Pelapor tidak boleh kosong. Silahkan isi kembali");
+      document.getElementById("nama").focus();
       return false;
     }
     else if (alamat == "") 
@@ -58,7 +58,7 @@ function checkFile()
     }
     else
     {
-      alert("Berkas yang dipilih tidak sesuai dengan format berkas. Silahkan pilih berkas dengan format yang sesuai");
+      alert("Berkas yang dipilih tidak sesuai dengan format berkas. Hanya berkas dengan format .xls diperbolehkan. Silahkan pilih berkas dengan format yang sesuai");
       return false;
     }
   }
@@ -186,26 +186,28 @@ function isExcel5(filename)
 
                   <div class="form-group">
                     <label>Tanggal Closed (mm-dd-yyyy) <span class="error">*</span></label>
-                      <div class="col-md-12">
                         <!-- <input type="date" name="tglclosed"/> -->
                         <input type="text" class="form-control" name="tglclosed" value="" id="dp1" >
-                      </div>
                   </div><!-- /.form group -->
 
                   <input type="hidden" name="status" id="status" value="">
                   <div class="form-group">
                     <label>Tanggal Janji (mm-dd-yyyy HH:MM)</label>
-                      <div class="col-md-12">
                         <div id="noJanji" style="display:block; ">
-                          <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="showJanji()">Tambah Waktu Janji</button>
+                          <div class="row">
+                              <div class="col-md-4">
+                                <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Edit" onClick="showJanji()">Tambah Waktu Janji</button>
+                              </div>
+                          </div>
                         </div>
                         <div id="janji" style="display:none; ">
                           <input type="text" class="form-control" id="datetimepicker12" name="deadline"/>
-                          <div class="col-md-3">
-                              <button class="btn btn-block btn-primary btn-sm" type="button" class="btn btn-primary" value="Batal" onClick="hideJanji()">Batal</button>
+                          <div class="row">
+                            <div class="col-md-3">
+                                <button class="btn btn-block btn-primary btn-sm" style="margin-top:5px;" type="button" class="btn btn-primary" value="Batal" onClick="hideJanji()">Batal</button>
+                            </div>
                           </div>
                         </div>
-                      </div>
                   </div>
                   
 
@@ -233,16 +235,15 @@ function isExcel5(filename)
                     <div class="form-group">
                       <label for="exampleInputFile">Download File Excel Template</label><br/>
                       Gunakan template ini untuk upload data dalam file excel<br/>
-                      <a href="<?php echo base_url() ?>files/template_komplain_telkom.xls"><button type="button" class="btn btn-success">Download Template Excel</button></a><br/><br/>
+                      <a href="<?php echo base_url() ?>files/template_komplain_telkom.xls"><button type="button" class="btn btn-success">Download Template Excel</button></a>
                     </div><!-- /.box-body -->
-                    <div class="box-footer">
+                    <hr>
                       <label for="exampleInputFile">File input</label>
                       <!-- <input type="file" name="file" id="exampleInputFile" class="input-large"> -->
                       <input name="userFile" id="userFile" type="file" tabindex="1" value="NULL" />
                       <!-- <input type="file" id=""> -->
                       <p class="help-block">Unggah file dengan format .xls</p>
                       <button type="submit" class="btn btn-primary" onclick="return checkFile()">Unggah</button>
-                    </div>
                   </div><!-- /.box-body -->
                 </form>
               </div><!-- /.box -->
