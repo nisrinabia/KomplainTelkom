@@ -104,7 +104,7 @@ function checkNull()
                                   <span class="users-list-date"><a href="mailto:dinar.mahandhira@gmail.com" target="_blank">dinar.mahandhira@gmail.com</a></span>
                                 </li>
                                 <li>
-                                  <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
+                                  <img src="<?php echo base_url() ?>assets/dist/img/fariz2.jpg" alt="User Image"/>
                                   <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
                                   <span class="users-list-date">5112100021</span>
                                   <span class="users-list-date"><a href="mailto:farizauliapradipta@gmail.com" target="_blank">farizauliapradipta@gmail.com</a></span>

@@ -9,20 +9,20 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015</h4>
+                <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik<br/>Teknik Informatika ITS 2015</h4>
               </div>
               <div class="modal-body">
                 <div class="row">
                   <div class="col-xs-6">
                     <p style="text-align:center;">
-                      <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image"/>
+                      <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image" style="border-radius:50%;max-width:100%;height:auto;"/>
                       <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
                       <span class="users-list-date">5112100002</span>
                       <span class="users-list-date"><a href="mailto:dinar.mahandhira@gmail.com" target="_blank">dinar.mahandhira@gmail.com</a></span>
                     </p>
 
                     <p style="text-align:center;">
-                      <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image"/>
+                      <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image" style="border-radius:50%;max-width:100%;height:auto;"/>
                       <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
                       <span class="users-list-date">5112100122</span>
                       <span class="users-list-date"><a href="mailto:ratihayuratih@gmail.com" target="_blank">ratihayuratih@gmail.com</a></span>            
@@ -32,14 +32,14 @@
                   <div class="col-xs-6">
 
                     <p style="text-align:center;">
-                      <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
+                      <img src="<?php echo base_url() ?>assets/dist/img/fariz2.jpg" alt="User Image" style="border-radius:50%;max-width:100%;height:auto;"/>
                       <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
                       <span class="users-list-date">5112100021</span>
                       <span class="users-list-date"><a href="mailto:farizauliapradipta@gmail.com" target="_blank">farizauliapradipta@gmail.com</a></span>
                     </p>
 
                     <p style="text-align:center;">
-                      <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image"/>
+                      <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image" style="border-radius:50%;max-width:100%;height:auto;"/>
                       <a class="users-list-name" href="#">Azis Arijaya</a>
                       <span class="users-list-date">5112100155</span>
                       <span class="users-list-date"><a href="mailto:azis.arijaya@gmail.com" target="_blank">azis.arijaya@gmail.com</a></span>
