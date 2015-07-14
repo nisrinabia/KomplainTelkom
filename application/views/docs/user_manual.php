@@ -30,27 +30,45 @@
 <section id='tambahKomplainPlasa'>
   <h2 class='page-header'><a href="#introduction">Menambah Komplain Plasa Baru</a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
-  </p>
+    <ol>
+      <li>Klik <b>Menu > Layanan Plasa</b> <img src="<?php echo base_url() ?>assets/docs/layananplasa.png?>" height="35 px"></li>
+      <li>Klik submenu <b>Layanan Plasa > Tambah Komplain Plasa</b></li>
+      <img src="<?php echo base_url() ?>assets/docs/tambahkomplainplasa.png?>">
+      <li>Terdapat dua pilihan untuk memasukkan Komplain Plasa:</li>
+      <div class="well">
+        <b>PSB</b> - Berupa rekues pasang baru, nomor POTS pada form tidak wajib diisi<br>
+        <b>Gangguan</b> - Komplain selain pasang baru, dapat berupa alih paket, layanan tidak sesuai, dan sebagainya
+      </div>
+      <li>Isi seluruh field pada form yang bertanda * merah</li>
+      <li>Anda juga dapat menambahkan janji dengan klik tombol <b>Tambah Waktu Janji</b> <img src="<?php echo base_url() ?>assets/docs/tgljanji.png?>" height="35 px"></li>
+          <br>Lalu akan muncul tampilan kalender dan pilih tanggal dan waktu sesuai dengan janji yang dibuat
+      <li>Klik tombol <b>Submit</b> apabila telah mengisi data yang diperlukan</li>
+    </ol>
 </section>
 
 <section id='lihatKomplain'>
   <h2 class='page-header'><a href="#introduction">Melihat Daftar Komplain</a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
-  </p>
+    <ol>
+      <li>Klik <b>Menu > Hard Komplain</b> <img src="<?php echo base_url() ?>assets/docs/hardkomplain.png?>" height="35 px"></li>
+      <li>Klik submenu <b>Hard Komplain > Lihat Semua</b></li>
+      <img src="<?php echo base_url() ?>assets/docs/lihatkomplain.png?>">
+      <li>Halaman awal yang muncul menampilkan <b>Daftar Semua Komplain</b></li>
+      <li>Terdapat beberapa pilihan untuk melihat komplain berdasarkan jenis dan status komplain: </li>
+      <div class="well">
+        <b>Lihat Unclosed Komplain</b> - Menampilkan daftar komplain yang statusnya masih In Progress<br>
+        <b>Lihat Hard Komplain</b> - Menampilkan Komplain yang termasuk di dalam Hard Komplain<br>
+        <b>Lihat Komplain Gangguan</b> - Menampilkan Komplain yang termasuk jenis Gangguan (selain PSB)<br>
+        <b>Lihat Komplain PSB</b> - Menampilkan Komplain yang termasuk jenis PSB
+      </div>
+      <li>Terdapat 3 menu aksi: </li>
+      <div class="well">
+        <b>Lihat</b> - Menampilkan data komplain secara detail<br>
+        <b>Ubah</b> - Mengubah data komplain<br>
+        <b>Hapus</b> - Menghapus data Komplain
+      </div>
+      <li>Semua data dapat diunduh dengan klik tombol <b>Unduh File Excel</b></li>
+    </ol>
 </section>
 
 <section id='lihatJanji'>
