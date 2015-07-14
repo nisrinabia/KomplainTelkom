@@ -38,7 +38,7 @@
     </ol>
     <div class="callout callout-danger">
         <h4>Perhatian!</h4>
-        <p>File excel yang diunggah HARUS mengikuti format yang diberikan sistem, baik pengisian mauapun jenis file yang diunggah</p>
+        <p>File excel yang diunggah HARUS mengikuti format yang diberikan sistem, baik pengisian maupun jenis file yang diunggah</p>
       </div> 
   </p>
 </section>
