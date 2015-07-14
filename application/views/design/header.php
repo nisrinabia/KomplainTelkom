@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Karin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="<?php echo base_url() ?>assets/style.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/logo.ico')?>">
     <!-- Bootstrap 3.3.4 -->
     <link href="<?php echo base_url() ?>assets/bootstrap3/bootstrap.min.css" rel="stylesheet" type="text/css" />
