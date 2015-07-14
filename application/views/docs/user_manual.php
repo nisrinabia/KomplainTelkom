@@ -162,41 +162,173 @@
 </section>
 
 <section id='tambahMedia'>
-  <h2 class='page-header'><a href="#introduction">Menambahkan Media Baru</a></h2>
+  <h2 class='page-header'><a href="#introduction"> Media </a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
+    <h3> Menambah Media Baru</h3>
+    Untuk menambah Media baru bisa dilakukan dengan :
+    <ol>
+      <li> Memilih menu <b>Media</b>. Klik <b>Tambah Media</b>. </li>
+      <img src="<?php echo base_url() ?>/assets/docs/Media1.png"> 
+      <li> Ketikan Media baru yang ingin di masukan. </li>
+      <li> Pilih Tombol <button class="btn btn-primary">Tambahkan</button>, sistem akan mengeluarkan notifikasi:
+      <ul style="list-style-type:circle">
+        <li> "Isian Media berhasil ditambahkan", ketika Media baru bisa dimasukkan. </li>
+        <li> "Gagal menambahkan Media. Media yang ditambahkan telah terdaftar", ketika Media baru tidak bisa dimasukkan. </li>
+         solusi yang bisa dilakukan: 
+        <ul style="list-style-type:square">
+          <li> masukkan nama Media yang berbeda. </li>
+        </ul>
+      </ul>
+      <li> Setelah berhasil, nama Media yang baru saja dimasukkan akan tampil beserta semua Media yang ada. </li>
+     <br>
+     Tambahan   
+      <li> Jika ingin menambahkan lagi, pilih tombol <button class="btn btn-primary">Tambah Media</button>.</li>
+      <li> Dan lakukan kembali point nomor 3</li>
+    </ol>
+   <br>
+   <h3> Mengedit Media</h3>
+   Untuk mengedit Media yang sudah ada, bisa melakukan dengan cara :
+   <ol>
+    <li> Memilih menu <b>Media</b>. Klik <b>Lihat Semua</b>. </li>
+    <li> kemudian pilih icon pensil, disebelah kanan yang Media yang ingin diedit. </li>
+    <li> Ketikan Media yang diinginkan. </li>
+    <li> Pilih Tombol <button class="btn btn-primary">Update</button>, sistem akan mengeluarkan notifikasi:
+      <ul style="list-style-type:circle">
+        <li> "Isian Media berhasil diupdate", ketika Media berhasil diedit. </li>
+        <li> "Gagal mmengupdate inputa Media. Media telah terdaftar", ketika Media tidak bisa dimasukkan. </li>
+         solusi yang bisa dilakukan: 
+        <ul style="list-style-type:square">
+          <li> masukkan nama Media yang berbeda. </li>
+        </ul>
+      </ul>
+    <li> Setelah berhasil, nama Media yang telah diedit akan tampil beserta semua Media yang ada. </li>
+  </ol>
+  <br>
+  <h3> Menghapus Media</h3>
+  Untuk mengedit Media yang sudah ada, bisa melakukan dengan cara :
+  <ol>
+    <li> Memilih menu <b>Media</b>. Klik <b>Lihat Semua</b>. </li>
+    <li> Kemudian pilih icon tempat sampah, disebelah kanan yang Media yang ingin dihapus. </li>
+    <li> Jika Media yakin ingin dihapus, pilih tombol 'oke'. Jika tidak, pilih tombol 'batal'. </li>
+    <li> Setelah muncul gambar seperti dibawah, Ketikan Media baru yang ingin di masukan. </li>
+         sistem akan menampilkan notifikasi "Media berhasil dihapus", ketika Media telah terhapus.
+    <li> Setelah berhasil, nama Media yang telah dihapus tidak akan tampil beserta semua Media yang ada. </li>
+  </ol>
+  <br>
   </p>
 </section>
 
 <section id='tambahLayanan'>
-  <h2 class='page-header'><a href="#introduction">Menambah Layanan Baru</a></h2>
+  <h2 class='page-header'><a href="#introduction">Layanan</a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
+    <h3> Menambah Nama Layanan</h3>
+    Untuk menambah Nama Layanan baru bisa dilakukan dengan :
+    <ol>
+      <li> Memilih menu <b>Layanan</b>. Klik <b>Tambah Layanan</b>. </li>
+      <img src="<?php echo base_url() ?>/assets/docs/layanan1.png"> 
+      <li> Ketikan Nama Layanan baru yang ingin di masukan pada kolom yang tersedia. </li>
+      <li> Pilih Tombol <button class="btn btn-primary">Tambahkan</button>, sistem akan mengeluarkan notifikasi:
+      <ul style="list-style-type:circle">
+        <li> "Isian Layanan berhasil ditambahkan", ketika Layanan baru bisa dimasukkan. </li>
+        <li> "Gagal menambahkan Layanan. Layanan yang ditambahkan telah terdaftar", ketika Layanan baru tidak bisa dimasukkan. </li>
+         solusi yang bisa dilakukan: 
+        <ul style="list-style-type:square">
+          <li> masukkan nama Layanan yang berbeda. </li>
+        </ul>
+      </ul>
+      <li> Setelah berhasil, nama Layanan yang baru saja dimasukkan akan tampil beserta semua jenis komplain yang ada. </li>
+     <br>
+     Tambahan   
+      <li> Jika ingin menambahkan lagi, pilih tombol <button class="btn btn-primary">Tambah layanan</button>.</li>
+      <li> Dan lakukan kembali point nomor 3</li>
+    </ol>
+   <br>
+   <h3> Mengedit Layanan</h3>
+   Untuk mengedit Layanan yang sudah ada, bisa melakukan dengan cara :
+   <ol>
+    <li> Memilih menu <b>Layanan</b>. Klik <b>Lihat Semua</b>. </li>
+    <li> kemudian pilih icon pensil, disebelah kanan yang nama Layanan yang ingin diedit. </li>
+    <li> Setelah muncul gambar seperti dibawah, Ketikan nama layanan yang diinginkan. </li>
+    <li> Pilih Tombol <button class="btn btn-primary">Update</button>, sistem akan mengeluarkan notifikasi:
+      <ul style="list-style-type:circle">
+        <li> "Isian Layanan berhasil diupdate", ketika Layanan berhasil diedit. </li>
+        <li> "Gagal mmengupdate inputan Layanan. Nama Layanan telah terdaftar", ketika Nama Layanan tidak bisa dimasukkan. </li>
+         solusi yang bisa dilakukan: 
+        <ul style="list-style-type:square">
+          <li> masukkan Nama Layanan yang berbeda. </li>
+        </ul>
+      </ul>
+    <li> Setelah berhasil, Nama Layanan yang telah diedit akan tampil beserta semua jenis komplain yang ada. </li>
+  </ol>
+  <br>
+  <h3> Menghapus Layanan</h3>
+  Untuk mengedit Layanan yang sudah ada, bisa melakukan dengan cara :
+  <ol>
+    <li> Memilih menu <b>Layanan</b>. Klik <b>Lihat Semua</b>. </li>
+    <li> Kemudian pilih icon tempat sampah, disebelah kanan yang Nama Layanan yang ingin dihapus. </li>
+    <li> Jika Nama Layanan yakin ingin dihapus, pilih tombol 'oke'. Jika tidak, pilih tombol 'batal'. </li>
+    <li> Setelah muncul gambar seperti dibawah, Ketikan Jenis Komplain baru yang ingin di masukan. </li>
+         sistem akan menampilkan notifikasi "Nama Layanan berhasil dihapus", ketika jNama Layanan telah terhapus.
+    <li> Setelah berhasil, Nama Layanan yang telah dihapus tidak akan tampil pada menu semua layanan yang ada. </li>
+  </ol>
+  <br>
   </p>
 </section>
 
 <section id='tambahJenisKomplain'>
-  <h2 class='page-header'><a href="#introduction">Menambah Jenis Komplain Baru</a></h2>
+  <h2 class='page-header'><a href="#introduction">Jenis Komplain</a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
+    <h3> Menambah Jenis Komplain Baru</h3>
+    Untuk menambah Jenis Komplain baru bisa dilakukan dengan :
+    <ol>
+      <li> Memilih menu <b>Jenis Komplain</b>. Klik <b>Tambah Jenis Komplain</b>. </li>
+      <img src="<?php echo base_url() ?>/assets/docs/JenisKomplain1.png"> 
+      <li> Setelah muncul gambar seperti dibawah, Ketikan Jenis Komplain baru yang ingin di masukan. </li>
+      <li> Pilih Tombol <button class="btn btn-primary">Tambahkan</button>, sistem akan mengeluarkan notifikasi:
+      <ul style="list-style-type:circle">
+        <li> "Isian jenis komplain berhasil ditambahkan", ketika jenis komplain baru bisa dimasukkan. </li>
+        <li> "Gagal menambahkan jenis komplain. Jenis komplain yang ditambahkan telah terdaftar", ketika jenis komplain baru tidak bisa dimasukkan. </li>
+         solusi yang bisa dilakukan: 
+        <ul style="list-style-type:square">
+          <li> masukkan nama jenis komplain yang berbeda. </li>
+        </ul>
+      </ul>
+      <li> Setelah berhasil, nama jenis komplain yang baru saja dimasukkan akan tampil beserta semua jenis komplain yang ada. </li>
+     <br>
+     Tambahan   
+      <li> Jika ingin menambahkan lagi, pilih tombol <button class="btn btn-primary">Tambah jenis komplain</button>.</li>
+      <li> Dan lakukan kembali point nomor 3</li>
+    </ol>
+   <br>
+   <h3> Mengedit Jenis Komplain</h3>
+   Untuk mengedit jenis komplain yang sudah ada, bisa melakukan dengan cara :
+   <ol>
+    <li> Memilih menu <b>Jenis Komplain</b>. Klik <b>Lihat Semua</b>. </li>
+    <li> kemudian pilih icon pensil, disebelah kanan yang jenis komplain yang ingin diedit. </li>
+    <li> Setelah muncul gambar seperti dibawah, Ketikan Jenis Komplain yang diinginkan. </li>
+    <li> Pilih Tombol <button class="btn btn-primary">Update</button>, sistem akan mengeluarkan notifikasi:
+      <ul style="list-style-type:circle">
+        <li> "Isian jenis komplain berhasil diupdate", ketika jenis komplain berhasil diedit. </li>
+        <li> "Gagal mmengupdate inputa jenis komplain. Jenis komplain telah terdaftar", ketika jenis komplain tidak bisa dimasukkan. </li>
+         solusi yang bisa dilakukan: 
+        <ul style="list-style-type:square">
+          <li> masukkan nama jenis komplain yang berbeda. </li>
+        </ul>
+      </ul>
+    <li> Setelah berhasil, nama jenis komplain yang telah diedit akan tampil beserta semua jenis komplain yang ada. </li>
+  </ol>
+  <br>
+  <h3> Menghapus Jenis Komplain</h3>
+  Untuk mengedit jenis komplain yang sudah ada, bisa melakukan dengan cara :
+  <ol>
+    <li> Memilih menu <b>Jenis Komplain</b>. Klik <b>Lihat Semua</b>. </li>
+    <li> Kemudian pilih icon tempat sampah, disebelah kanan yang jenis komplain yang ingin dihapus. </li>
+    <li> Jika jenis komplain yakin ingin dihapus, pilih tombol 'oke'. Jika tidak, pilih tombol 'batal'. </li>
+    <li> Setelah muncul gambar seperti dibawah, Ketikan Jenis Komplain baru yang ingin di masukan. </li>
+         sistem akan menampilkan notifikasi "Jenis komplain berhasil dihapus", ketika jenis komplain telah terhapus.
+    <li> Setelah berhasil, nama jenis komplain yang telah dihapus tidak akan tampil beserta semua jenis komplain yang ada. </li>
+  </ol>
+  <br>
   </p>
 </section>
 
