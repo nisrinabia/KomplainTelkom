@@ -2,52 +2,58 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0
         </div>
+
         <!-- Modal -->
-        <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog modal-lg">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Anggota Kerja Praktik Teknik Informatika ITS 2015</h4>
               </div>
               <div class="modal-body">
-                <section class="content">
-                            <div class="box-body no-padding">
-                              <ul class="users-list clearfix">
-                                <li>
-                                  <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image"/>
-                                  <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
-                                  <span class="users-list-date">5112100002</span>
-                                  <span class="users-list-date"><a href="mailto:dinar.mahandhira@gmail.com" target="_blank">dinar.mahandhira@gmail.com</a></span>
-                                </li>
-                                <li>
-                                  <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
-                                  <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
-                                  <span class="users-list-date">5112100021</span>
-                                  <span class="users-list-date"><a href="mailto:farizauliapradipta@gmail.com" target="_blank">farizauliapradipta@gmail.com</a></span>
-                                </li>
-                                <li>
-                                  <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image"/>
-                                  <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
-                                  <span class="users-list-date">5112100122</span>
-                                  <span class="users-list-date"><a href="mailto:ratihayuratih@gmail.com" target="_blank">ratihayuratih@gmail.com</a></span>
-                                </li>
-                                <li>
-                                  <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image"/>
-                                  <a class="users-list-name" href="#">Azis Arijaya</a>
-                                  <span class="users-list-date">5112100155</span>
-                                  <span class="users-list-date"><a href="mailto:azis.arijaya@gmail.com" target="_blank">azis.arijaya@gmail.com</a></span>
-                                </li>
-                              </ul><!-- /.users-list -->
-                            </div><!-- /.box-body -->
-                </section><!-- /.content -->
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p style="text-align:center;">
+                      <img src="<?php echo base_url() ?>assets/dist/img/dinar.jpg" alt="User Image"/>
+                      <a class="users-list-name" href="#">Dinar Winia Mahandhira</a>
+                      <span class="users-list-date">5112100002</span>
+                      <span class="users-list-date"><a href="mailto:dinar.mahandhira@gmail.com" target="_blank">dinar.mahandhira@gmail.com</a></span>
+                    </p>
+
+                    <p style="text-align:center;">
+                      <img src="<?php echo base_url() ?>assets/dist/img/ratih.jpg" alt="User Image"/>
+                      <a class="users-list-name" href="#">Ratih Ayu Indraswari</a>
+                      <span class="users-list-date">5112100122</span>
+                      <span class="users-list-date"><a href="mailto:ratihayuratih@gmail.com" target="_blank">ratihayuratih@gmail.com</a></span>            
+                    </p>
+                  </div>
+
+                  <div class="col-xs-6">
+
+                    <p style="text-align:center;">
+                      <img src="<?php echo base_url() ?>assets/dist/img/fariz.jpg" alt="User Image"/>
+                      <a class="users-list-name" href="#">Fariz Aulia Pradipta</a>
+                      <span class="users-list-date">5112100021</span>
+                      <span class="users-list-date"><a href="mailto:farizauliapradipta@gmail.com" target="_blank">farizauliapradipta@gmail.com</a></span>
+                    </p>
+
+                    <p style="text-align:center;">
+                      <img src="<?php echo base_url() ?>assets/dist/img/azis.jpg" alt="User Image"/>
+                      <a class="users-list-name" href="#">Azis Arijaya</a>
+                      <span class="users-list-date">5112100155</span>
+                      <span class="users-list-date"><a href="mailto:azis.arijaya@gmail.com" target="_blank">azis.arijaya@gmail.com</a></span>
+                    </p>
+                  </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+              </div>
               </div>
             </div>
           </div>
         </div>
+
         <!-- <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"> -->
         <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
