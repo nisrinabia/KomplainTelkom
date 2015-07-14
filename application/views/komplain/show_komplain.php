@@ -109,7 +109,7 @@ function deldata() {
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th style="background-color:#FACC2E!important" width="40px">AKSI</th>
+                  <th style="background-color:#FACC2E!important"><p style="color: #FACC2E!important">asdasdasd</p>AKSI</th>
                   <th style="background-color:#FACC2E!important">NO. POTS</th>
                   <th style="background-color:#FACC2E!important">NO. INTERNET</th>
                   <th style="background-color:#FACC2E!important">NAMA PELAPOR</th>
