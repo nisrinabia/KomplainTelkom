@@ -15,7 +15,7 @@
         <div class="content body">
 
 <section id='tambahHardKomplain'>
-  <h2 class='page-header'><a href="#introduction">Menambah Hard Komplain Baru</a></h2>
+  <h2 class='page-header'><a href="#tambahHardKomplain">Menambah Hard Komplain Baru</a></h2>
   <p class='lead'>
     Untuk menambah hard komplain baru, dapat dilakukan dengan dua cara, yaitu :
     <h4><u>Mengisi Form :</u></h4>
@@ -90,14 +90,75 @@
 <section id='lihatJanji'>
   <h2 class='page-header'><a href="#introduction">Melihat Janji dengan Customer</a></h2>
   <p class='lead'>
-    <b>AdminLTE</b> is a popular open source WebApp template for admin dashboards and control panels.
-    It is a responsive HTML template that is based on the CSS framework Bootstrap 3.
-    It utilizes all of the Bootstrap components in its design and re-styles many
-    commonly used plugins to create a consistent design that can be used as a user
-    interface for backend applications. AdminLTE is based on a modular design, which
-    allows it to be easily customized and built upon. This documentation will guide you through
-    installing the template and exploring the various components that are bundled with the template.
-  </p>
+    Janji adalah <b>komplain yang memiliki janji dengan pelanggan</b>. Saat anda menginputkan tambah
+    komplain baru, anda bisa menambahkan janji anda dengan pelanggan yang sedang anda layani. Janji tersebut memiliki <b>deadline</b>
+    atau waktu tenggat. Untuk melihat janji dengan pelanggan, pilih menu <b>Layanan Plasa</b> &raquo; <b>Lihat semua janji</b>.
+    Data komplain dengan janji yang <b>belum ditangani</b> diperlihatkan dalam tabel. Ada tiga kategori dalam manajemen janji:</p>
+
+    <div class="well">
+      <b>Janji melewati deadline</b> - Janji yang <b>melebihi waktu deadline dari sekarang dan belum ditangani</b>. Diwarnai dengan warna merah.
+      <br>
+      <b>Janji mendekati deadline</b> - Janji yang memiliki <b>waktu deadline kurang dari satu hari dari sekarang dan belum ditangani</b>. Diwarnai dengan warna kuning.
+      <br>
+      <b>Janji sebelum deadline</b> - Janji yang memiliki <b>waktu deadline lebih dari satu hari dari sekarang dan belum ditangani</b>. Tidak diwarnai (putih).
+    </div>
+
+    <p>Setiap data janji terdapat menu yang bisa anda pilih, yaitu</p>
+
+    <div class="well">
+      <span class="fa fa-eye fa-lg"></span>&nbsp;<b>Lihat janji</b> - Menampilkan informasi detil komplain dan janji, mengubah status janji 
+      menjadi telah ditangani
+      <br>
+      <span class="fa fa-trash fa-lg"></span>&nbsp;&nbsp;<b>Hapus komplain</b> - Menghapus data komplain dari database
+      <br>
+    </div>
+
+    <p>Untuk mengubah status janji menjadi <b>telah ditangani</b>, pilih data komplain dengan janji kemudian pilih
+    menu <b>Lihat janji</b>. Pilih <b>Ubah status janji</b> untuk mengubah status janji.
+    <br>
+    </p>
+    <h3>Filter Janji</b></h3>
+    <p>
+    Anda bisa memfilter <b>janji berdasarkan waktu deadline</b>
+    </p>
+
+    <div class="well">
+      <b>Lihat janji melewati deadline</b> - Hanya tampilkan janji yang <b>melebihi waktu deadline dari sekarang dan belum ditangani</b>.
+      <br>
+      <b>Lihat janji mendekati deadline</b> - Hanya tampilkan janji yang memiliki <b>waktu deadline kurang dari satu hari dari sekarang dan belum ditangani</b>.
+      <br>
+      <b>Lihat janji sebelum deadline</b> - Hanya tampilkan janji yang memiliki <b>waktu deadline lebih dari satu hari dari sekarang dan belum ditangani</b>.
+    </div>
+
+    <div class="callout callout-info">
+      <h4>Penting!</h4>
+      <p>Ketika anda melakukan filter janji, anda bisa memilih opsi untuk melihat
+      semua janji yang belum ditangani.</p>
+    </div>
+
+    <p>
+      Selain filter janji berdasarkan waktu deadline. Anda bisa melakukan filter dengan <b>bulan</b>, <b>tahun</b>, dan <b>status komplain</b>.
+      Anda bisa menggabungkan kedua filter.
+    </p>
+
+    <div class="well">
+      <b>Filter bulan</b> - Tampilkan janji yang <b>belum ditangani</b> dan berada pada bulan yang dipilih.
+      <br>
+      <b>Filter tahun</b> - Tampilkan janji yang <b>belum ditangani</b> dan berada pada tahun yang dipilih.
+      <br>
+      <b>Filter status komplain</b> - Tampilkan janji yang <b>belum ditangani</b> dan memiliki status komplain yang dipilih.
+    </div>
+
+    <div class="callout callout-warning">
+      <h4>Perhatian!</h4>
+      <p>Untuk menggunakan filter ini, anda harus memilih semua filter yang disediakan.</p>
+    </div>
+
+    <p style="text-align:center;">
+    <img src="<?php echo base_url()?>assets/doc/contohfilterjanji.jpg" style="width:100%;height:100%;">
+    <i>Gambar</i> - Melakukan filter janji dengan menu lihat semua janji
+    </p>
+
 </section>
 
 <section id='tambahMedia'>

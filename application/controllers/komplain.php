@@ -221,7 +221,7 @@ class Komplain extends CI_Controller{
       }
       else{
         $data['list'] = $this->komplain_model->showAllKomplain();
-        $data['subjudul'] = 'Daftar Semua Unclosed Komplain';
+        $data['subjudul'] = 'Daftar Semua Komplain';
       }
       
       //print_r($data);

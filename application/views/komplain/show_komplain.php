@@ -58,7 +58,7 @@ function deldata() {
       <div class="col-xs-12">
           <div class="box-body">
             <h4>Navigasi</h4><hr>
-            <?php if($subjudul != 'Daftar Semua Unclosed Komplain') { ?><a href="<?php echo base_url() ?>komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat Semua Unclosed Komplain</button></a> <?php } ?>
+            <?php if($subjudul != 'Daftar Semua Komplain') { ?><a href="<?php echo base_url() ?>komplain/showAllKomplain/4"><button type="button" class="btn btn-primary">Lihat Semua Komplain</button></a> <?php } ?>
             <?php if($subjudul != 'Unclosed Hard Komplain') { ?><a href="<?php echo base_url() ?>komplain/showAllKomplain/1"><button type="button" class="btn btn-danger">Lihat Hard Komplain</button></a><?php } ?>
             <?php if($subjudul != 'Unclosed Gangguan') { ?><a href="<?php echo base_url() ?>komplain/showAllKomplain/2"><button type="button" class="btn btn-warning">Lihat Komplain Gangguan</button></a><?php } ?>
             <?php if($subjudul != 'Unclosed PSB') { ?><a href="<?php echo base_url() ?>komplain/showAllKomplain/3"><button type="button" class="btn btn-success">Lihat Komplain PSB</button></a><?php } ?>    
@@ -98,7 +98,7 @@ function deldata() {
                 {
                   echo '<a href="'.base_url().'komplain/excel/3"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
                 }
-                else if($subjudul == 'Daftar Semua Unclosed Komplain')
+                else if($subjudul == 'Daftar Semua Komplain')
                 {
                   echo '<a href="'.base_url().'komplain/excel/4"><button type="button" class="btn btn-primary">Unduh file excel</button></a><br>';
                 }
