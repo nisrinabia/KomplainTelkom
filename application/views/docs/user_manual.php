@@ -72,10 +72,53 @@
       <li>Halaman awal yang muncul menampilkan <b>Daftar Semua Komplain</b></li>
       <li>Terdapat beberapa pilihan untuk melihat komplain berdasarkan jenis dan status komplain: </li>
       <div class="well">
-        <b>Lihat Unclosed Komplain</b> - Menampilkan daftar komplain yang statusnya masih In Progress<br>
-        <b>Lihat Hard Komplain</b> - Menampilkan Komplain yang termasuk di dalam Hard Komplain<br>
-        <b>Lihat Komplain Gangguan</b> - Menampilkan Komplain yang termasuk jenis Gangguan (selain PSB)<br>
-        <b>Lihat Komplain PSB</b> - Menampilkan Komplain yang termasuk jenis PSB
+        <table>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-primary">Lihat Semua Komplain</button>
+          </td>
+          <td width="30px" align="center"> 
+            -
+          </td>
+          <td>
+            Menampilkan daftar komplain yang statusnya masih In Progress.
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-danger">Lihat Hard Komplain</button> 
+          </td>
+          <td width="30px" align="center">
+            -
+          </td>
+          <td>
+            Menampilkan Komplain yang termasuk di dalam Hard Komplain.
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-warning">Lihat Komplain Gangguan</button>
+          </td>
+          <td width="30px" align="center">
+            -
+          </td>
+          <td>
+            Menampilkan Komplain yang termasuk jenis Gangguan (selain PSB).
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-success">Lihat Komplain PSB</button>
+          </td>
+          <td width="30px" align="center">
+            -
+          </td>
+          <td>
+            Menampilkan Komplain yang termasuk jenis PSB.
+          </td>
+        </tr>
+      
+      </table>
       </div>
       <li>Terdapat 3 menu aksi: </li>
       <div class="well">
@@ -96,11 +139,42 @@
     Data komplain dengan janji yang <b>belum ditangani</b> diperlihatkan dalam tabel. Ada tiga kategori dalam manajemen janji:</p>
 
     <div class="well">
-      <b>Janji melewati deadline</b> - Janji yang <b>melebihi waktu deadline dari sekarang dan belum ditangani</b>. Diwarnai dengan warna merah.
-      <br>
-      <b>Janji mendekati deadline</b> - Janji yang memiliki <b>waktu deadline kurang dari satu hari dari sekarang dan belum ditangani</b>. Diwarnai dengan warna kuning.
-      <br>
-      <b>Janji sebelum deadline</b> - Janji yang memiliki <b>waktu deadline lebih dari satu hari dari sekarang dan belum ditangani</b>. Tidak diwarnai (putih).
+      <table>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-danger">Lihat janji melewati deadline</button>
+          </td>
+          <td width="30px" align="center"> 
+            -
+          </td>
+          <td>
+            Janji yang <b>melebihi waktu deadline dari sekarang dan belum ditangani</b>. Diwarnai dengan warna merah.
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-warning">Lihat janji mendekati deadline</button> 
+          </td>
+          <td width="30px" align="center">
+            -
+          </td>
+          <td>
+            Janji yang memiliki <b>deadline kurang dari satu hari dari sekarang dan belum ditangani</b>. Diwarnai dengan warna kuning.
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <button type="button" class="btn btn-success">Lihat janji sebelum deadline</button>
+          </td>
+          <td width="30px" align="center">
+            -
+          </td>
+          <td>
+            Janji yang memiliki <b>waktu deadline lebih dari satu hari dari sekarang dan belum ditangani</b>. Tidak diwarnai (putih).
+          </td>
+        </tr>
+      
+      </table>
     </div>
 
     <p>Setiap data janji terdapat menu yang bisa anda pilih, yaitu</p>
@@ -334,8 +408,8 @@
 
 <section id="license">
   <h2 class="page-header"><a href="#license">Lisensi</a></h2>
-  <h3>Si Karin</h3>
-  <p class="lead">Si Karin (Sistem Informasi Komplain Terintegrasi) Telkom Malang adalah aplikasi berbasis web yang dikembangkan oleh <a href="#" data-toggle="modal" data-target="#myModal">Tim Kerja Praktik Teknik Informatika ITS 2015</a>.
+  <h3>Cassandra</h3>
+  <p class="lead">Cassandra (Customer Handling Arrangement) Telkom Malang adalah aplikasi berbasis web yang dikembangkan oleh <a href="#" data-toggle="modal" data-target="#myModal">Tim Kerja Praktik Teknik Informatika ITS 2015</a>.
     Aplikasi ini digunakan untuk monitoring komplain pelanggan yang masuk ke Telkom Malang, sehingga segala data komplain dapat dikelola dan dipantau kapan saja oleh yang berkepentingan dalam proses bisnis ini.</p>
   
   <p>Untuk pertanyaan lebih lanjut, dapat ditanyakan melalui email ke salah satu anggota <a href="#" data-toggle="modal" data-target="#myModal">Tim Kerja Praktik Teknik Informatika ITS 2015</a>.</p>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Karin</title>
+    <title>Cassandra</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="<?php echo base_url() ?>assets/style.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url('assets/logo.ico')?>">
@@ -56,7 +56,7 @@
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><img src="<?php echo base_url() ?>assets/kecil.png"></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><img src="<?php echo base_url() ?>assets/kecil.png"> <img src="<?php echo base_url() ?>assets/karin.png" height="50px"></span>
+          <span class="logo-lg"><!-- <img src="<?php echo base_url() ?>assets/kecil.png"> --> <img src="<?php echo base_url() ?>assets/cass3.png" height="43px"></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -309,7 +309,7 @@
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahMedia'>
                   <i class="menu-icon fa fa-phone-square bg-maroon"></i>
                   <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Menambahkan Media Baru</h4>
+                    <h4 class="control-sidebar-subheading">Media</h4>
                   </div>
                 </a>
               </li>
@@ -317,7 +317,7 @@
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahLayanan'>
                   <i class="menu-icon fa fa-gear bg-yellow"></i>
                   <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Menambahkan Layanan Baru</h4>
+                    <h4 class="control-sidebar-subheading">Layanan</h4>
                   </div>
                 </a>
               </li>
@@ -325,7 +325,7 @@
                 <a href='<?php if (current_url() != base_url() . 'user_manual'){echo base_url() . 'user_manual';} ?>#tambahJenisKomplain'>
                   <i class="menu-icon fa fa-server bg-red"></i>
                   <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Menambahkan Jenis Komplain Baru</h4>
+                    <h4 class="control-sidebar-subheading">Jenis Komplain</h4>
                   </div>
                 </a>
               </li>
