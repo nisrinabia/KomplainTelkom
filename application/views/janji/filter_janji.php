@@ -5,15 +5,18 @@ function deldata() {
 </script>
 
 <?php
-  //Ambil tahun terendah dan tertinggi 
-  foreach ($rendah as $row)
-  {
-      $tahun_rendah = $row->makan;
-  }
-  foreach ($tinggi as $row)
-  {
-      $tahun_tinggi = $row->makan;
-  }
+if ($rendah != NULL && $tinggi != NULL)
+{
+    //Ambil tahun terendah dan tertinggi 
+    foreach ($rendah as $row)
+    {
+        $tahun_rendah = $row->makan;
+    }
+    foreach ($tinggi as $row)
+    {
+        $tahun_tinggi = $row->makan;
+    }
+}
 ?>
 
 <div class="content-wrapper">
